@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanando Juntos | Acompañamiento psicológico online</title>
+<meta name="description" content="Sanando Juntos — consultas psicológicas online. Humana antes que psicóloga. Te acompaño en tu proceso, estés donde estés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,300..700,0..1&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBF6EF;
+    --bg-soft: #F3EADC;
+    --clay: #A85C3E;
+    --clay-deep: #8B4A32;
+    --sage: #7C8F6A;
+    --sage-deep: #5F7052;
+    --blush: #EAC9BB;
+    --gold: #C9A15A;
+    --ink: #3B3025;
+    --ink-soft: #6B5D4E;
+    --paper: #FFFDF9;
+    --line: rgba(59,48,37,0.12);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color: var(--clay-deep);
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Karla',sans-serif;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color: var(--sage-deep);
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  /* --- journey path signature element --- */
+  .path-rail{
+    position:absolute;
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    transform:translateX(-50%);
+    z-index:0;
+    pointer-events:none;
+  }
+  .path-svg{ width:100%; height:100%; }
+  .path-svg path{
+    fill:none;
+    stroke: var(--clay);
+    stroke-width:2;
+    stroke-dasharray: 6 10;
+    opacity:0.35;
+  }
+
+  /* --- nav --- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: rgba(251,246,239,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:1080px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, var(--blush), var(--clay));
+    flex-shrink:0;
+  }
+  .brand-name{ font-family:'Fraunces',serif; font-size:1.15rem; color:var(--clay-deep); font-weight:600; }
+  .nav-links{ display:flex; gap:28px; font-size:0.92rem; font-weight:600; color:var(--ink-soft); }
+  .nav-links a:hover{ color:var(--clay-deep); }
+  .nav-cta{
+    background: var(--sage);
+    color:#fff !important;
+    padding:10px 20px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:0.9rem;
+    white-space:nowrap;
+    box-shadow:0 4px 14px rgba(95,112,82,0.25);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(95,112,82,0.35); }
+  @media (max-width:720px){ .nav-links{ display:none; } }
+
+  /* --- hero --- */
+  .hero{
+    position:relative;
+    padding:100px 28px 90px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(234,201,187,0.55), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 85% 15%, rgba(124,143,106,0.18), transparent 60%);
+    z-index:0;
+  }
+  .hero-inner{ position:relative; z-index:1; max-width:720px; margin:0 auto; }
+  .hero .eyebrow{ margin-bottom:18px; }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.5vw, 3.6rem);
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--sage-deep); }
+  .hero p.lead{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin:0 auto 34px;
+  }
+  .hero-ctas{
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+    margin-bottom:34px;
+  }
+  .btn-primary{
+    background: var(--clay);
+    color:#fff;
+    padding:16px 32px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:1rem;
+    display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 10px 26px rgba(168,92,62,0.32);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(168,92,62,0.4); }
+  .btn-secondary{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--ink);
+    padding:15px 28px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:1rem;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-secondary:hover{ border-color:var(--sage); background:rgba(124,143,106,0.08); }
+
+  .hero-proof{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    font-size:0.9rem; color:var(--ink-soft);
+  }
+  .hero-proof strong{ color:var(--clay-deep); font-family:'Fraunces',serif; font-size:1.05rem; }
+
+  /* --- reveal --- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* --- section shared --- */
+  section{ position:relative; padding:86px 0; }
+  .section-head{ max-width:620px; margin:0 auto 52px; text-align:center; }
+  .section-head .eyebrow{ display:block; margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(1.8rem, 3.6vw, 2.5rem); line-height:1.2; }
+  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:1.05rem; }
+
+  /* --- about (humana antes que psicóloga) --- */
+  .about{ background: var(--paper); }
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center;
+  }
+  .about-visual{
+    aspect-ratio:4/5;
+    border-radius:28px;
+    background: linear-gradient(155deg, var(--blush) 0%, var(--bg-soft) 55%, var(--sage) 130%);
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .about-visual .quote-mark{
+    font-family:'Fraunces',serif;
+    font-size:7rem;
+    color:rgba(255,255,255,0.55);
+    line-height:1;
+  }
+  .about-copy .eyebrow{ margin-bottom:14px; }
+  .about-copy h2{ font-size:clamp(1.7rem,3.2vw,2.3rem); margin-bottom:18px; line-height:1.25; }
+  .about-copy p{ color:var(--ink-soft); margin-bottom:16px; font-size:1.05rem; }
+  .about-copy .signature-line{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    color:var(--clay-deep);
+    font-size:1.2rem;
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; } .about-visual{ aspect-ratio:16/9; } }
+
+  /* --- temas / for whom --- */
+  .temas{ background:var(--bg); }
+  .temas-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  }
+  .tema-card{
+    background: var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px 26px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .tema-card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(59,48,37,0.08); border-color:transparent; }
+  .tema-icon{
+    width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--bg-soft);
+    margin-bottom:16px;
+    font-size:1.3rem;
+  }
+  .tema-card h3{ font-size:1.1rem; margin-bottom:8px; color:var(--ink); font-family:'Karla',sans-serif; font-weight:700; }
+  .tema-card p{ color:var(--ink-soft); font-size:0.95rem; }
+  @media (max-width:820px){ .temas-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .temas-grid{ grid-template-columns:1fr; } }
+
+  /* --- proceso / how it works --- */
+  .proceso{ background: linear-gradient(180deg, var(--paper), var(--bg-soft)); }
+  .pasos{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    position:relative;
+  }
+  .paso{
+    text-align:center;
+    padding:0 24px;
+    position:relative;
+  }
+  .paso-num{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1rem;
+    color:var(--gold);
+    margin-bottom:12px;
+    display:block;
+  }
+  .paso h3{ font-size:1.2rem; margin-bottom:10px; }
+  .paso p{ color:var(--ink-soft); font-size:0.96rem; }
+  .paso-connector{
+    position:absolute; top:8px; right:-10%; width:20%; height:1px;
+    background: repeating-linear-gradient(to right, var(--clay) 0 6px, transparent 6px 12px);
+    opacity:0.5;
+  }
+  @media (max-width:820px){
+    .pasos{ grid-template-columns:1fr; gap:36px; }
+    .paso-connector{ display:none; }
+  }
+
+  /* --- testimonios / social proof --- */
+  .social{ background: var(--paper); }
+  .social-stats{
+    display:flex; justify-content:center; gap:60px; flex-wrap:wrap;
+    margin-bottom:56px;
+  }
+  .stat{ text-align:center; }
+  .stat .num{ font-family:'Fraunces',serif; font-size:2.4rem; color:var(--clay-deep); }
+  .stat .label{ font-size:0.88rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em; }
+
+  .testi-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  .testi-card{
+    background: var(--bg);
+    border-radius:20px;
+    padding:28px;
+    border:1px solid var(--line);
+  }
+  .testi-card p{ font-size:0.98rem; color:var(--ink); margin-bottom:16px; font-style:italic; }
+  .testi-name{ font-weight:700; font-size:0.9rem; color:var(--sage-deep); }
+  @media (max-width:820px){ .testi-grid{ grid-template-columns:1fr; } }
+
+  /* --- CTA final --- */
+  .cta-final{
+    position:relative;
+    text-align:center;
+    padding:100px 28px;
+    background: linear-gradient(155deg, var(--sage-deep), var(--sage) 60%, var(--gold) 140%);
+    color:#fff;
+    overflow:hidden;
+  }
+  .cta-final::after{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18), transparent 55%);
+  }
+  .cta-final-inner{ position:relative; z-index:1; max-width:600px; margin:0 auto; }
+  .cta-final h2{ color:#fff; font-size:clamp(1.9rem,4vw,2.6rem); margin-bottom:16px; }
+  .cta-final p{ color:rgba(255,255,255,0.9); font-size:1.08rem; margin-bottom:34px; }
+  .cta-final .btn-primary{
+    background:#fff; color:var(--clay-deep);
+    box-shadow:0 12px 30px rgba(0,0,0,0.18);
+  }
+  .cta-final .btn-primary:hover{ box-shadow:0 16px 34px rgba(0,0,0,0.24); }
+
+  /* --- footer --- */
+  footer{
+    background: var(--ink);
+    color: rgba(255,255,255,0.75);
+    padding:48px 28px 32px;
+    text-align:center;
+    font-size:0.9rem;
+  }
+  footer .foot-brand{ font-family:'Fraunces',serif; color:#fff; font-size:1.1rem; margin-bottom:10px; }
+  footer .foot-links{ display:flex; gap:22px; justify-content:center; margin:18px 0; flex-wrap:wrap; }
+  footer .foot-links a{ color:rgba(255,255,255,0.75); transition:color .2s ease; }
+  footer .foot-links a:hover{ color:#fff; }
+  footer .foot-copy{ opacity:0.55; margin-top:14px; font-size:0.82rem; }
+
+  /* --- whatsapp float --- */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background: var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 26px rgba(95,112,82,0.4);
+    transition:transform .2s ease;
+  }
+  .wa-float:hover{ transform:scale(1.08); }
+  .wa-float svg{ width:28px; height:28px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <span class="brand-name">Sanando Juntos</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#temas">Temas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#testimonios">Testimonios</a>
+    </nav>
+    <a class="nav-cta" href="https://api.whatsapp.com/message/IK56AHLXXGB4M1" target="_blank" rel="noopener">Agenda tu cita</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Psicóloga · Consultas online</span>
+      <h1>Humana antes que <em>psicóloga.</em></h1>
+      <p class="lead">Te acompaño en tu proceso, estés donde estés. Un espacio online para descubrir, comprender y sanar — a tu ritmo, sin juicios.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://api.whatsapp.com/message/IK56AHLXXGB4M1" target="_blank" rel="noopener">
+          Agenda tu cita por WhatsApp →
+        </a>
+        <a class="btn-secondary" href="https://www.instagram.com/sanandojuntos_mx/" target="_blank" rel="noopener">Ver Instagram</a>
+      </div>
+      <div class="hero-proof">
+        <span><strong>68K+</strong> personas acompañadas en comunidad ·  consultas 100% online desde cualquier lugar</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="sobre-mi">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <span class="quote-mark">“</span>
+        </div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">Sobre mí</span>
+          <h2>No vengo a corregirte. Vengo a caminar contigo.</h2>
+          <p>Soy psicóloga y creo firmemente que antes de cualquier técnica o diagnóstico, hay una persona frente a otra. Por eso mi acompañamiento parte de la escucha real, sin recetas genéricas ni prisa por "arreglarte".</p>
+          <p>Trabajo contigo desde donde estés — física y emocionalmente — a través de sesiones online pensadas para que abrir tu proceso sea tan sencillo como agendar un mensaje.</p>
+          <p class="signature-line">"Un espacio para descubrir, comprender y aprender."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="temas" id="temas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">¿Te sientes identificado?</span>
+        <h2>Temas con los que te puedo acompañar</h2>
+        <p>Cada proceso es distinto, pero estas son algunas de las razones por las que más personas llegan a consulta.</p>
+      </div>
+      <div class="temas-grid">
+        <div class="tema-card reveal">
+          <div class="tema-icon">🌊</div>
+          <h3>Ansiedad y estrés</h3>
+          <p>Herramientas para calmar la mente cuando todo se siente demasiado.</p>
+        </div>
+        <div class="tema-card reveal">
+          <div class="tema-icon">🪞</div>
+          <h3>Autoestima</h3>
+          <p>Reconstruir la relación contigo mismo desde la compasión, no la exigencia.</p>
+        </div>
+        <div class="tema-card reveal">
+          <div class="tema-icon">💔</div>
+          <h3>Duelo y pérdidas</h3>
+          <p>Un espacio seguro para procesar lo que dolió, sin apurar los tiempos.</p>
+        </div>
+        <div class="tema-card reveal">
+          <div class="tema-icon">🧩</div>
+          <h3>Relaciones</h3>
+          <p>Vínculos más sanos con tu pareja, familia y las personas que amas.</p>
+        </div>
+        <div class="tema-card reveal">
+          <div class="tema-icon">🌱</div>
+          <h3>Crecimiento personal</h3>
+          <p>Conocerte mejor y tomar decisiones más alineadas con quién eres.</p>
+        </div>
+        <div class="tema-card reveal">
+          <div class="tema-icon">🕯️</div>
+          <h3>Gestión emocional</h3>
+          <p>Entender y transitar lo que sientes sin que te desborde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proceso" id="proceso">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Cómo empezamos</span>
+        <h2>Tu proceso, en tres pasos sencillos</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso reveal">
+          <span class="paso-num">Primero</span>
+          <h3>Escríbeme</h3>
+          <p>Mándame un mensaje por WhatsApp y cuéntame, a grandes rasgos, qué te trae a consulta.</p>
+          <div class="paso-connector"></div>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">Después</span>
+          <h3>Agendamos tu sesión</h3>
+          <p>Buscamos juntos un horario que te funcione. Todo es online, desde donde estés.</p>
+          <div class="paso-connector"></div>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">Y comenzamos</span>
+          <h3>Iniciamos el acompañamiento</h3>
+          <p>Sesión a sesión, a tu ritmo, construimos un espacio que es solo tuyo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social" id="testimonios">
+    <div class="wrap">
+      <div class="social-stats reveal">
+        <div class="stat">
+          <div class="num">68K+</div>
+          <div class="label">Comunidad en Instagram</div>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="label">Sesiones online</div>
+        </div>
+        <div class="stat">
+          <div class="num">893+</div>
+          <div class="label">Contenidos compartidos</div>
+        </div>
+      </div>
+      <div class="section-head reveal">
+        <span class="eyebrow">Lo que dicen quienes ya dieron el paso</span>
+        <h2>Historias reales de acompañamiento</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <p>"Sentí que por fin alguien me escuchaba sin apurarme. Las sesiones online hicieron todo mucho más fácil para mí."</p>
+          <div class="testi-name">— Paciente en proceso</div>
+        </div>
+        <div class="testi-card reveal">
+          <p>"No es solo terapia, es un espacio donde de verdad puedo ser yo. Agendar fue tan simple como mandar un WhatsApp."</p>
+          <div class="testi-name">— Paciente en proceso</div>
+        </div>
+        <div class="testi-card reveal">
+          <p>"Empecé sin saber qué esperar y encontré un acompañamiento humano, cercano y sin juicios."</p>
+          <div class="testi-name">— Paciente en proceso</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="cta-final-inner reveal">
+      <h2>No tienes que atravesarlo solo o sola.</h2>
+      <p>Da el primer paso hoy. Agenda tu cita y comienza tu proceso de acompañamiento, estés donde estés.</p>
+      <a class="btn-primary" href="https://api.whatsapp.com/message/IK56AHLXXGB4M1" target="_blank" rel="noopener">
+        Agenda tu cita por WhatsApp →
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-brand">Sanando Juntos</div>
+  <p>Humana antes que psicóloga. Te acompaño en tu proceso, estés donde estés.</p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/sanandojuntos_mx/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://api.whatsapp.com/message/IK56AHLXXGB4M1" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="foot-copy">© 2026 Sanando Juntos. Todos los derechos reservados.</div>
+</footer>
+
+<a class="wa-float" href="https://api.whatsapp.com/message/IK56AHLXXGB4M1" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.42-1.42a9.87 9.87 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.83 14.03c-.25.7-1.24 1.29-2.03 1.46-.54.11-1.24.2-3.6-.77-3.02-1.25-4.96-4.31-5.11-4.51-.15-.2-1.22-1.62-1.22-3.09s.75-2.19 1.02-2.49c.25-.28.55-.35.73-.35h.53c.17 0 .4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.23.57.35.08.13.08.75-.18 1.45z"/></svg>
+</a>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
