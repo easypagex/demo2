@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>con5entidos — Sanación Emocional y Rituales | María Fernanda Camacho</title>
+<meta name="description" content="Sanación emocional, rituales conscientes y talleres de transformación interior con María Fernanda Camacho A. Reserva tu espacio por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1E1;
+    --cream-2:#F6E6CC;
+    --terracota:#C25635;
+    --terracota-deep:#9E4227;
+    --ocre:#D6A343;
+    --salvia:#7C8A54;
+    --rosa:#B8637A;
+    --marron:#4A3626;
+    --marron-suave:#7A5F49;
+    --line: rgba(74,54,38,0.15);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--marron);
+    font-family:'Jost',sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  ::selection{background:var(--ocre);color:var(--marron);}
+
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  .script{font-family:'Caveat',cursive;}
+
+  /* ---------- Texture backdrop ---------- */
+  .sunburst{
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(214,163,67,0.25), transparent 45%),
+      radial-gradient(circle at 90% 20%, rgba(184,99,122,0.20), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(124,138,84,0.18), transparent 45%),
+      var(--cream);
+  }
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(251,241,225,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1120px; margin:0 auto;}
+  .logo{font-family:'Fraunces',serif; font-size:1.35rem; font-weight:600; letter-spacing:0.5px; color:var(--terracota-deep);}
+  .logo span{color:var(--salvia);}
+  .nav-links{display:flex; gap:30px; font-size:0.92rem; letter-spacing:0.3px;}
+  .nav-links a{position:relative; padding:4px 0; transition:color .3s;}
+  .nav-links a:hover{color:var(--terracota);}
+  .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--terracota);transition:width .3s;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--terracota); color:#fff !important; padding:10px 22px; border-radius:100px;
+    font-size:0.88rem; letter-spacing:0.3px; box-shadow:0 4px 14px rgba(194,86,53,0.35);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .nav-cta:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(194,86,53,0.45);}
+  .burger{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; position:relative; padding:140px 28px 80px;
+  }
+  .hero-eyebrow{
+    font-family:'Caveat',cursive; font-size:1.5rem; color:var(--terracota-deep); margin-bottom:6px;
+    opacity:0; animation:fadeUp .9s ease .1s forwards;
+  }
+  .hero h1{
+    font-size:clamp(3rem, 9vw, 6rem); font-weight:600; line-height:0.95; color:var(--marron);
+    opacity:0; animation:fadeUp .9s ease .3s forwards;
+  }
+  .hero h1 .cinco{
+    color:var(--terracota); font-style:italic; font-weight:450;
+    display:inline-block; position:relative;
+  }
+  .hero-sub{
+    max-width:560px; margin:26px auto 8px; font-size:1.08rem; line-height:1.65; color:var(--marron-suave);
+    opacity:0; animation:fadeUp .9s ease .5s forwards;
+  }
+  .hero-author{
+    margin-top:4px; font-size:0.95rem; letter-spacing:0.5px; color:var(--salvia); font-weight:500;
+    opacity:0; animation:fadeUp .9s ease .6s forwards;
+  }
+  .hero-ctas{
+    display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; justify-content:center;
+    opacity:0; animation:fadeUp .9s ease .75s forwards;
+  }
+  .btn-primary{
+    background:var(--terracota); color:#fff; padding:16px 34px; border-radius:100px; font-size:1rem;
+    display:inline-flex; align-items:center; gap:10px; box-shadow:0 10px 26px rgba(194,86,53,0.38);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02); box-shadow:0 14px 32px rgba(194,86,53,0.48);}
+  .btn-ghost{
+    border:1.5px solid var(--marron); color:var(--marron); padding:15px 30px; border-radius:100px; font-size:1rem;
+    transition:all .25s;
+  }
+  .btn-ghost:hover{background:var(--marron); color:var(--cream);}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);}}
+
+  .senses-row{
+    display:flex; gap:22px; margin-top:64px; flex-wrap:wrap; justify-content:center;
+    opacity:0; animation:fadeUp .9s ease .9s forwards;
+  }
+  .sense-chip{
+    font-size:0.82rem; letter-spacing:0.5px; text-transform:uppercase; color:var(--marron-suave);
+    display:flex; align-items:center; gap:7px; padding:8px 16px; border:1px solid var(--line); border-radius:100px;
+    background:rgba(255,255,255,0.35);
+  }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section-label{
+    font-family:'Caveat',cursive; font-size:1.4rem; color:var(--terracota-deep); margin-bottom:8px; display:block;
+  }
+  .section-title{font-size:clamp(2rem,4.5vw,2.9rem); font-weight:600; line-height:1.08; margin-bottom:20px;}
+  .section-intro{max-width:620px; color:var(--marron-suave); font-size:1.05rem; line-height:1.7;}
+
+  .reveal{opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  .about{padding:120px 0 100px; position:relative;}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  .about-portrait{
+    aspect-ratio:4/5; border-radius:6px 60px 6px 60px; position:relative;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(214,163,67,0.55), transparent 55%),
+      radial-gradient(circle at 75% 75%, rgba(184,99,122,0.5), transparent 55%),
+      linear-gradient(160deg, var(--cream-2), var(--cream));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .about-portrait .mark{
+    font-family:'Fraunces',serif; font-style:italic; font-size:5rem; color:var(--terracota); opacity:0.55;
+  }
+  .about-text p{color:var(--marron-suave); font-size:1.03rem; line-height:1.75; margin-bottom:16px;}
+  .about-text strong{color:var(--marron); font-weight:600;}
+  .about-quote{
+    margin-top:26px; padding-left:22px; border-left:3px solid var(--ocre);
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.2rem; color:var(--terracota-deep); line-height:1.5;
+  }
+
+  /* ---------- FIVE SENSES ---------- */
+  .senses{padding:100px 0; background:var(--cream-2); position:relative;}
+  .senses::before, .senses::after{
+    content:''; position:absolute; left:0; right:0; height:60px; background:var(--cream-2);
+  }
+  .senses-header{text-align:center; max-width:640px; margin:0 auto 64px;}
+  .senses-header .section-intro{margin:0 auto;}
+  .senses-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px;}
+  .sense-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:30px 20px;
+    text-align:center; transition:transform .3s, box-shadow .3s, background .3s;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .sense-card:hover{transform:translateY(-8px); box-shadow:0 16px 34px rgba(74,54,38,0.14); background:#fff;}
+  .sense-num{font-family:'Caveat',cursive; font-size:1.1rem; color:var(--ocre);}
+  .sense-icon{
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; color:#fff;
+  }
+  .sense-card:nth-child(1) .sense-icon{background:var(--terracota);}
+  .sense-card:nth-child(2) .sense-icon{background:var(--ocre);}
+  .sense-card:nth-child(3) .sense-icon{background:var(--salvia);}
+  .sense-card:nth-child(4) .sense-icon{background:var(--rosa);}
+  .sense-card:nth-child(5) .sense-icon{background:var(--terracota-deep);}
+  .sense-card h3{font-size:1.15rem; font-weight:600;}
+  .sense-card p{font-size:0.9rem; color:var(--marron-suave); line-height:1.55;}
+
+  /* ---------- SERVICIOS ---------- */
+  .servicios{padding:120px 0;}
+  .serv-header{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:60px; flex-wrap:wrap;}
+  .serv-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .serv-card{
+    border:1px solid var(--line); border-radius:20px; padding:36px 30px; position:relative; overflow:hidden;
+    background:linear-gradient(165deg, rgba(255,255,255,0.5), transparent);
+    transition:transform .35s, box-shadow .35s;
+  }
+  .serv-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(74,54,38,0.16);}
+  .serv-card .emoji{font-size:2rem; margin-bottom:18px; display:block;}
+  .serv-card h3{font-size:1.35rem; margin-bottom:10px;}
+  .serv-card p{color:var(--marron-suave); font-size:0.96rem; line-height:1.65; margin-bottom:18px;}
+  .serv-card .tag{
+    font-size:0.78rem; letter-spacing:0.4px; text-transform:uppercase; color:var(--terracota-deep);
+    border:1px solid var(--terracota); border-radius:100px; padding:5px 14px; display:inline-block;
+  }
+
+  /* ---------- PROCESO / RITUAL PATH ---------- */
+  .proceso{padding:110px 0; background:var(--marron); color:var(--cream); position:relative;}
+  .proceso .section-label{color:var(--ocre);}
+  .proceso .section-title{color:var(--cream);}
+  .proceso .section-intro{color:rgba(251,241,225,0.75);}
+  .path{margin-top:60px; position:relative;}
+  .path-line{position:absolute; top:26px; left:0; right:0; height:1px; background:rgba(251,241,225,0.25);}
+  .path-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative;}
+  .path-step{text-align:left;}
+  .path-dot{
+    width:52px; height:52px; border-radius:50%; background:var(--terracota); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-style:italic;
+    font-size:1.15rem; margin-bottom:22px; position:relative; z-index:2; border:4px solid var(--marron);
+  }
+  .path-step h4{font-size:1.1rem; margin-bottom:8px; color:var(--cream);}
+  .path-step p{font-size:0.9rem; color:rgba(251,241,225,0.7); line-height:1.6;}
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testi{padding:120px 0;}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:56px;}
+  .testi-card{
+    background:var(--cream-2); border-radius:20px; padding:34px 28px; position:relative;
+  }
+  .testi-card .quote-mark{font-family:'Fraunces',serif; font-size:3rem; color:var(--ocre); line-height:0.5; display:block; margin-bottom:14px;}
+  .testi-card p{font-size:0.98rem; line-height:1.7; color:var(--marron); font-style:italic; margin-bottom:20px;}
+  .testi-name{font-size:0.88rem; color:var(--terracota-deep); font-weight:600; letter-spacing:0.3px;}
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-final{
+    padding:130px 0; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-final::before{
+    content:''; position:absolute; inset:0; z-index:-1;
+    background:radial-gradient(circle at 50% 30%, rgba(194,86,53,0.14), transparent 60%);
+  }
+  .cta-final h2{font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:18px; max-width:700px; margin-left:auto; margin-right:auto;}
+  .cta-final .section-intro{margin:0 auto 40px;}
+  .cta-buttons{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;}
+  .btn-whatsapp{
+    background:#25D366; color:#fff; padding:18px 38px; border-radius:100px; font-size:1.05rem; font-weight:500;
+    display:inline-flex; align-items:center; gap:12px; box-shadow:0 12px 28px rgba(37,211,102,0.4);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .btn-whatsapp:hover{transform:translateY(-3px) scale(1.03); box-shadow:0 16px 34px rgba(37,211,102,0.5);}
+  .btn-instagram{
+    background:linear-gradient(135deg,#feda75,#d62976,#962fbf); color:#fff; padding:18px 34px; border-radius:100px;
+    font-size:1.05rem; font-weight:500; display:inline-flex; align-items:center; gap:12px;
+    box-shadow:0 12px 28px rgba(150,47,191,0.35); transition:transform .25s, box-shadow .25s;
+  }
+  .btn-instagram:hover{transform:translateY(-3px) scale(1.03);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:50px 0 34px; border-top:1px solid var(--line);}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .footer-logo{font-family:'Fraunces',serif; font-style:italic; font-size:1.2rem; color:var(--terracota-deep);}
+  .footer-links{display:flex; gap:22px; font-size:0.88rem; color:var(--marron-suave);}
+  .footer-links a:hover{color:var(--terracota);}
+  .footer-copy{font-size:0.8rem; color:var(--marron-suave); margin-top:18px; text-align:center;}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .float-wa{
+    position:fixed; bottom:26px; right:26px; z-index:60; background:#25D366; color:#fff; width:60px; height:60px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem;
+    box-shadow:0 10px 26px rgba(37,211,102,0.5); animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55);}70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .about-grid{grid-template-columns:1fr; gap:40px;}
+    .senses-grid{grid-template-columns:repeat(3,1fr);}
+    .serv-grid{grid-template-columns:repeat(2,1fr);}
+    .path-steps{grid-template-columns:repeat(2,1fr); row-gap:40px;}
+    .path-line{display:none;}
+    .testi-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none;}
+    .senses-grid{grid-template-columns:repeat(2,1fr);}
+    .serv-grid{grid-template-columns:1fr;}
+    .path-steps{grid-template-columns:1fr;}
+    .about-portrait{aspect-ratio:16/10;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sunburst"></div>
+
+<header>
+  <nav>
+    <div class="logo">con<span>5</span>entidos</div>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#sentidos">Los 5 sentidos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+    </div>
+    <a class="nav-cta" href="https://api.whatsapp.com/send/?phone=573152947314&text=Hola%20Mar%C3%ADa%20Fernanda%2C%20quiero%20saber%20m%C3%A1s%20sobre%20con5entidos%20%E2%9C%A8" target="_blank" rel="noopener">Escríbeme</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">bienvenida a</span>
+  <h1>con<span class="cinco">5</span>entidos</h1>
+  <p class="hero-sub">Un espacio de sanación emocional y rituales conscientes para volver a habitar tu cuerpo, tus sentidos y tu verdad interior.</p>
+  <p class="hero-author">María Fernanda Camacho A. · Sanación Emocional y Rituales</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="https://api.whatsapp.com/send/?phone=573152947314&text=Hola%20Mar%C3%ADa%20Fernanda%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20%F0%9F%A4%8D" target="_blank" rel="noopener">🤍 Agenda tu sesión</a>
+    <a class="btn-ghost" href="https://www.instagram.com/con5entidos/" target="_blank" rel="noopener">Ver en Instagram</a>
+  </div>
+  <div class="senses-row">
+    <span class="sense-chip">🤍 Sanación emocional</span>
+    <span class="sense-chip">✨ Rituales conscientes</span>
+    <span class="sense-chip">🔥 Talleres y ceremonias</span>
+    <span class="sense-chip">🌱 Transformación interior</span>
+  </div>
+</section>
+
+<section class="about" id="sobre-mi">
+  <div class="wrap about-grid">
+    <div class="about-portrait reveal">
+      <span class="mark">c5e</span>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-label">quién te acompaña</span>
+      <h2 class="section-title">Hola, soy María Fernanda</h2>
+      <p>Creé <strong>con5entidos</strong> como un puente entre la sanación emocional y el ritual, un lugar donde puedas <strong>sentir antes de entender</strong>, y entender sanando.</p>
+      <p>Acompaño procesos de transformación interior a través de herramientas de conexión, ceremonias conscientes y talleres pensados para que vuelvas a tus cinco sentidos: el lugar donde vive lo que de verdad sientes.</p>
+      <p class="about-quote">"No se trata de escapar de lo que sientes, sino de aprender a habitarlo con los cinco sentidos despiertos."</p>
+    </div>
+  </div>
+</section>
+
+<section class="senses" id="sentidos">
+  <div class="wrap">
+    <div class="senses-header reveal">
+      <span class="section-label">el método con5entidos</span>
+      <h2 class="section-title">Sanamos a través de los 5 sentidos</h2>
+      <p class="section-intro">Cada sentido es una puerta de entrada al cuerpo y a la emoción. Así los trabajamos en cada ritual y sesión.</p>
+    </div>
+    <div class="senses-grid">
+      <div class="sense-card reveal">
+        <span class="sense-num">01</span>
+        <div class="sense-icon">✋</div>
+        <h3>Tacto</h3>
+        <p>Reconexión con el cuerpo como territorio seguro para sentir.</p>
+      </div>
+      <div class="sense-card reveal">
+        <span class="sense-num">02</span>
+        <div class="sense-icon">🌿</div>
+        <h3>Olfato</h3>
+        <p>Inciensos, hierbas y aromas que anclan la memoria y la emoción.</p>
+      </div>
+      <div class="sense-card reveal">
+        <span class="sense-num">03</span>
+        <div class="sense-icon">👁️</div>
+        <h3>Vista</h3>
+        <p>Altares, símbolos y espacios visuales que abren la ceremonia.</p>
+      </div>
+      <div class="sense-card reveal">
+        <span class="sense-num">04</span>
+        <div class="sense-icon">🔔</div>
+        <h3>Oído</h3>
+        <p>Sonidos, cantos y meditaciones guiadas para soltar y escuchar.</p>
+      </div>
+      <div class="sense-card reveal">
+        <span class="sense-num">05</span>
+        <div class="sense-icon">🍯</div>
+        <h3>Gusto</h3>
+        <p>Rituales con cacao e infusiones que endulzan el cierre del proceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="serv-header">
+      <div class="reveal">
+        <span class="section-label">acompañamientos</span>
+        <h2 class="section-title">Cómo podemos trabajar juntas</h2>
+      </div>
+      <p class="section-intro reveal">Sesiones individuales, rituales grupales y talleres para distintos momentos de tu proceso.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card reveal">
+        <span class="emoji">🤍</span>
+        <h3>Sanación emocional</h3>
+        <p>Sesiones individuales para liberar bloqueos emocionales, procesar duelos y reconectar con tu bienestar interior.</p>
+        <span class="tag">Individual</span>
+      </div>
+      <div class="serv-card reveal">
+        <span class="emoji">✨</span>
+        <h3>Rituales conscientes</h3>
+        <p>Ceremonias diseñadas para marcar cierres, nuevos comienzos y momentos de transición en tu vida.</p>
+        <span class="tag">Individual · Grupal</span>
+      </div>
+      <div class="serv-card reveal">
+        <span class="emoji">🔥</span>
+        <h3>Talleres y ceremonias</h3>
+        <p>Espacios grupales de conexión colectiva con herramientas prácticas para el día a día.</p>
+        <span class="tag">Grupal</span>
+      </div>
+      <div class="serv-card reveal">
+        <span class="emoji">🌱</span>
+        <h3>Transformación interior</h3>
+        <p>Procesos de acompañamiento sostenido para quienes buscan un cambio profundo y duradero.</p>
+        <span class="tag">Proceso completo</span>
+      </div>
+      <div class="serv-card reveal">
+        <span class="emoji">🕯️</span>
+        <h3>Herramientas de conexión</h3>
+        <p>Prácticas y recursos personalizados para sostener tu bienestar emocional entre sesiones.</p>
+        <span class="tag">Individual</span>
+      </div>
+      <div class="serv-card reveal">
+        <span class="emoji">🌙</span>
+        <h3>Sesiones a medida</h3>
+        <p>¿Tienes una necesidad específica? Escríbeme y diseñamos juntas el acompañamiento ideal.</p>
+        <span class="tag">Personalizado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="wrap">
+    <span class="section-label">el camino</span>
+    <h2 class="section-title reveal">Así se siente tu proceso</h2>
+    <p class="section-intro reveal">Cuatro momentos que acompañan cada sesión o ritual, del primer contacto a la integración.</p>
+    <div class="path">
+      <div class="path-line"></div>
+      <div class="path-steps">
+        <div class="path-step reveal">
+          <div class="path-dot">1</div>
+          <h4>Primer contacto</h4>
+          <p>Me escribes por WhatsApp y conversamos sobre lo que estás atravesando.</p>
+        </div>
+        <div class="path-step reveal">
+          <div class="path-dot">2</div>
+          <h4>Diseño del espacio</h4>
+          <p>Elegimos juntas la sesión, ritual o taller que mejor se ajusta a tu momento.</p>
+        </div>
+        <div class="path-step reveal">
+          <div class="path-dot">3</div>
+          <h4>El encuentro</h4>
+          <p>Vivimos la sesión activando cuerpo, emoción y los cinco sentidos.</p>
+        </div>
+        <div class="path-step reveal">
+          <div class="path-dot">4</div>
+          <h4>Integración</h4>
+          <p>Te llevas herramientas concretas para sostener lo trabajado en tu día a día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 20px;">
+      <span class="section-label">voces del proceso</span>
+      <h2 class="section-title">Lo que se transforma</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="quote-mark">"</span>
+        <p>Llegué cargando algo que no sabía nombrar y salí con herramientas reales para sostenerme. Un espacio muy honesto.</p>
+        <div class="testi-name">— Participante de ritual grupal</div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="quote-mark">"</span>
+        <p>Las sesiones con María Fernanda me ayudaron a reconectar con mi cuerpo después de mucho tiempo desconectada.</p>
+        <div class="testi-name">— Sesión individual</div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="quote-mark">"</span>
+        <p>El taller fue un antes y un después. Sentí que por fin tenía permiso de sentir todo lo que sentía.</p>
+        <div class="testi-name">— Asistente a taller</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <span class="section-label reveal">¿lista para empezar?</span>
+    <h2 class="reveal">Vuelve a tus cinco sentidos y a tu bienestar emocional</h2>
+    <p class="section-intro reveal">Escríbeme y conversemos sobre el acompañamiento que necesitas ahora mismo.</p>
+    <div class="cta-buttons reveal">
+      <a class="btn-whatsapp" href="https://api.whatsapp.com/send/?phone=573152947314&text=Hola%20Mar%C3%ADa%20Fernanda%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20%F0%9F%A4%8D" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.05h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.17 8.17 0 0 1-1.27-4.34c0-4.51 3.68-8.19 8.2-8.19 2.19 0 4.25.85 5.8 2.4a8.16 8.16 0 0 1 2.4 5.8c0 4.51-3.68 8.19-8.13 8.19Zm4.48-6.14c-.25-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+        Escríbeme por WhatsApp
+      </a>
+      <a class="btn-instagram" href="https://www.instagram.com/con5entidos/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38A5.85 5.85 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 0 0-1.38-2.13A5.85 5.85 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>
+        Síguenos en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-logo">con5entidos</div>
+      <div class="footer-links">
+        <a href="https://api.whatsapp.com/send/?phone=573152947314" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/con5entidos/" target="_blank" rel="noopener">Instagram</a>
+        <a href="#sobre-mi">Sobre mí</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 con5entidos — María Fernanda Camacho A. Sanación Emocional y Rituales. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://api.whatsapp.com/send/?phone=573152947314&text=Hola%20Mar%C3%ADa%20Fernanda%2C%20quiero%20saber%20m%C3%A1s%20sobre%20con5entidos%20%E2%9C%A8" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.05h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.17 8.17 0 0 1-1.27-4.34c0-4.51 3.68-8.19 8.2-8.19 2.19 0 4.25.85 5.8 2.4a8.16 8.16 0 0 1 2.4 5.8c0 4.51-3.68 8.19-8.13 8.19Zm4.48-6.14c-.25-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+</a>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
