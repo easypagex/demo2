@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isabella Guzmán — Psicoterapia para la vida real</title>
+<meta name="description" content="Isabella Guzmán, psicóloga. Terapia para rutinas, vínculos y conciencia. Agenda abierta — escribe por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --musgo:#3C4A3E;        /* tinta principal, verde musgo oscuro */
+    --musgo-suave:#5B6B5C;
+    --arena:#EFE8DA;        /* fondo cálido */
+    --arena-clara:#F8F4EC;
+    --crema:#FBF8F2;
+    --ocre:#BE8C4E;         /* acento cálido, no terracota */
+    --ocre-suave:#D9B37E;
+    --salvia:#8FA08C;       /* verde salvia, secundario */
+    --linea:rgba(60,74,62,0.16);
+    --sombra:rgba(60,74,62,0.12);
+
+    --display: 'Newsreader', serif;
+    --cuerpo: 'Inter', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    font-family:var(--cuerpo);
+    background:var(--arena);
+    color:var(--musgo);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;}
+
+  img,svg{display:block;max-width:100%;}
+
+  .envolvente{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ocre);
+  }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:500;
+    color:var(--musgo);
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(239,232,218,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linea);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1120px; margin:0 auto;
+  }
+  .marca{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:20px;
+    color:var(--musgo);
+  }
+  .nav-links{display:flex; gap:28px; align-items:center;}
+  .nav-links a{
+    font-size:14px; font-weight:500; text-decoration:none;
+    color:var(--musgo-suave);
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--ocre);}
+  .boton-nav{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--musgo); color:var(--crema);
+    padding:9px 18px; border-radius:999px;
+    font-size:13.5px; font-weight:500; text-decoration:none;
+    transition:transform .2s ease, background .2s ease;
+    white-space:nowrap;
+  }
+  .boton-nav:hover{background:var(--ocre); transform:translateY(-1px);}
+  .nav-links a.movil-oculto{display:inline;}
+  @media (max-width:760px){
+    .nav-links a:not(.boton-nav){display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 84px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:64px;}
+    .hero{padding:56px 0 64px;}
+  }
+
+  .ubicacion{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.06em;
+    color:var(--musgo-suave); margin-bottom:18px;
+  }
+
+  .hero h1{
+    font-size:clamp(34px, 5.2vw, 58px);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--ocre);
+  }
+
+  .hero p.lead{
+    font-size:18px;
+    color:var(--musgo-suave);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+
+  .cta-fila{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+
+  .boton-primario{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--musgo); color:var(--crema);
+    padding:15px 26px; border-radius:999px;
+    text-decoration:none; font-weight:500; font-size:15.5px;
+    box-shadow:0 8px 24px -8px var(--sombra);
+    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .boton-primario:hover{background:var(--ocre); transform:translateY(-2px); box-shadow:0 12px 28px -8px var(--sombra);}
+
+  .boton-secundario{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--musgo); text-decoration:none;
+    font-weight:500; font-size:15px;
+    border-bottom:1px solid var(--musgo);
+    padding-bottom:2px;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .boton-secundario:hover{color:var(--ocre); border-color:var(--ocre);}
+
+  .prueba-social{
+    margin-top:30px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--musgo-suave);
+    letter-spacing:0.02em;
+  }
+  .prueba-social strong{color:var(--musgo); font-weight:700;}
+
+  /* --- Respiración: elemento firma --- */
+  .respiracion-wrap{
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    min-height:360px;
+  }
+  .respiracion-texto{
+    position:absolute;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--musgo-suave);
+    animation:ciclo-texto 8s ease-in-out infinite;
+  }
+  @keyframes ciclo-texto{
+    0%,4%{content:""; opacity:0;}
+    6%{opacity:1;}
+    45%{opacity:1;}
+    50%{opacity:0;}
+    55%{opacity:1;}
+    94%{opacity:1;}
+    96%,100%{opacity:0;}
+  }
+  svg.respirar{width:100%; max-width:340px; height:auto;}
+  .anillo{
+    fill:none;
+    stroke:var(--salvia);
+    stroke-width:1;
+    opacity:0.5;
+  }
+  .circulo-respira{
+    fill:var(--ocre-suave);
+    opacity:0.85;
+    transform-origin:center;
+    animation:respirar 8s ease-in-out infinite;
+  }
+  @keyframes respirar{
+    0%,100%{transform:scale(0.62);}
+    45%{transform:scale(1);}
+    50%{transform:scale(1);}
+    95%{transform:scale(0.62);}
+  }
+  .circulo-nucleo{
+    fill:var(--musgo);
+  }
+
+  /* ---------- FRANJA DE PALABRAS CLAVE ---------- */
+  .franja{
+    border-top:1px solid var(--linea);
+    border-bottom:1px solid var(--linea);
+    padding:18px 0;
+    overflow:hidden;
+    background:var(--arena-clara);
+  }
+  .franja-mover{
+    display:flex; gap:48px; white-space:nowrap;
+    animation:desplazar 26s linear infinite;
+    width:max-content;
+  }
+  @keyframes desplazar{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .franja-mover span{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.05em;
+    color:var(--musgo-suave);
+  }
+  .franja-mover span.marcado{color:var(--ocre);}
+
+  /* ---------- SECCIONES GENERALES ---------- */
+  section{padding:88px 0;}
+  .encabezado-seccion{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .encabezado-seccion h2{
+    font-size:clamp(28px,3.6vw,40px);
+    margin-top:12px;
+    line-height:1.15;
+  }
+  .encabezado-seccion p{
+    color:var(--musgo-suave);
+    font-size:16.5px;
+    margin-top:14px;
+    max-width:52ch;
+  }
+
+  /* ---------- SOBRE MI ---------- */
+  .sobre{
+    background:var(--arena-clara);
+    border-top:1px solid var(--linea);
+    border-bottom:1px solid var(--linea);
+  }
+  .sobre-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .sobre-grid{grid-template-columns:1fr;}
+  }
+  .retrato{
+    aspect-ratio:4/5;
+    border-radius:18px;
+    background:
+      radial-gradient(circle at 30% 25%, var(--ocre-suave) 0%, transparent 55%),
+      linear-gradient(155deg, var(--salvia) 0%, var(--musgo) 100%);
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:flex-end;
+    padding:26px;
+  }
+  .retrato-nombre{
+    color:var(--crema);
+    font-family:var(--display);
+    font-style:italic;
+    font-size:22px;
+  }
+  .retrato-nombre small{
+    display:block;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    opacity:0.85;
+    margin-top:6px;
+  }
+
+  .pilares{
+    list-style:none;
+    margin-top:30px;
+    display:grid;
+    gap:18px;
+  }
+  .pilares li{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:16px;
+    align-items:baseline;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--linea);
+  }
+  .pilares li:last-child{border-bottom:none;}
+  .pilares .palabra{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:19px;
+    color:var(--ocre);
+    white-space:nowrap;
+  }
+  .pilares p{color:var(--musgo-suave); font-size:15px;}
+
+  /* ---------- SERVICIOS ---------- */
+  .servicios-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:var(--linea);
+    border:1px solid var(--linea);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  @media (max-width:860px){
+    .servicios-grid{grid-template-columns:1fr;}
+  }
+  .servicio{
+    background:var(--crema);
+    padding:34px 28px;
+    transition:background .25s ease;
+  }
+  .servicio:hover{background:var(--arena-clara);}
+  .servicio .eyebrow{margin-bottom:14px; display:block;}
+  .servicio h3{font-size:21px; margin-bottom:10px;}
+  .servicio p{color:var(--musgo-suave); font-size:14.5px;}
+
+  /* ---------- PROCESO ---------- */
+  .proceso{
+    background:var(--musgo);
+    color:var(--arena-clara);
+  }
+  .proceso .encabezado-seccion h2,
+  .proceso .eyebrow{color:var(--arena-clara);}
+  .proceso .eyebrow{color:var(--ocre-suave);}
+  .proceso .encabezado-seccion p{color:rgba(248,244,236,0.68);}
+
+  .pasos{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    position:relative;
+  }
+  @media (max-width:860px){
+    .pasos{grid-template-columns:1fr; gap:36px;}
+  }
+  .paso{
+    padding-right:28px;
+    position:relative;
+  }
+  .paso:not(:last-child)::after{
+    content:"";
+    position:absolute; top:14px; right:0;
+    width:1px; height:calc(100% - 14px);
+    background:rgba(248,244,236,0.15);
+  }
+  @media (max-width:860px){
+    .paso:not(:last-child)::after{display:none;}
+  }
+  .paso-num{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ocre-suave);
+    margin-bottom:14px;
+  }
+  .paso h3{color:var(--arena-clara); font-size:19px; margin-bottom:10px;}
+  .paso p{color:rgba(248,244,236,0.65); font-size:14.5px;}
+
+  /* ---------- INSTAGRAM ---------- */
+  .comunidad{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .comunidad{grid-template-columns:1fr;}
+  }
+  .cifra{
+    font-family:var(--display);
+    font-size:clamp(48px,7vw,84px);
+    line-height:1;
+    color:var(--ocre);
+  }
+  .cifra + p{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--musgo-suave);
+    margin-top:10px;
+  }
+  .mosaico{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  .mosaico .celda{
+    aspect-ratio:1;
+    border-radius:10px;
+  }
+  .mosaico .celda:nth-child(1){background:linear-gradient(150deg,var(--salvia),var(--musgo));}
+  .mosaico .celda:nth-child(2){background:linear-gradient(150deg,var(--ocre-suave),var(--ocre));}
+  .mosaico .celda:nth-child(3){background:linear-gradient(150deg,var(--musgo-suave),var(--musgo));}
+  .mosaico .celda:nth-child(4){background:linear-gradient(150deg,var(--ocre),var(--salvia));}
+  .mosaico .celda:nth-child(5){background:linear-gradient(150deg,var(--musgo),var(--ocre-suave));}
+  .mosaico .celda:nth-child(6){background:linear-gradient(150deg,var(--salvia),var(--ocre));}
+
+  /* ---------- PREGUNTAS ---------- */
+  .faq-item{
+    border-bottom:1px solid var(--linea);
+    padding:26px 0;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--display);
+    font-size:19px;
+    color:var(--musgo);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    font-family:var(--cuerpo);
+    font-size:22px;
+    color:var(--ocre);
+    transition:transform .25s ease;
+    flex-shrink:0;
+    margin-left:16px;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{
+    margin-top:14px;
+    color:var(--musgo-suave);
+    font-size:15px;
+    max-width:60ch;
+  }
+
+  /* ---------- CTA FINAL ---------- */
+  .cierre{
+    text-align:center;
+    background:var(--arena-clara);
+    border-top:1px solid var(--linea);
+  }
+  .cierre h2{
+    font-size:clamp(30px,4.6vw,48px);
+    max-width:18ch;
+    margin:0 auto 18px;
+  }
+  .cierre p{
+    color:var(--musgo-suave);
+    max-width:48ch;
+    margin:0 auto 34px;
+    font-size:17px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:48px 0 32px;
+  }
+  .pie-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:28px;
+    border-bottom:1px solid var(--linea);
+    margin-bottom:22px;
+  }
+  .pie-marca{font-family:var(--display); font-style:italic; font-size:20px;}
+  .pie-marca small{
+    display:block; font-family:var(--mono); font-style:normal;
+    font-size:11.5px; color:var(--musgo-suave); margin-top:6px; letter-spacing:0.03em;
+  }
+  .pie-links{display:flex; gap:26px; flex-wrap:wrap;}
+  .pie-links a{font-size:14px; text-decoration:none; color:var(--musgo-suave); transition:color .2s ease;}
+  .pie-links a:hover{color:var(--ocre);}
+  .pie-copy{
+    font-family:var(--mono); font-size:11.5px; color:var(--musgo-suave); opacity:0.75;
+  }
+
+  /* ---------- WHATSAPP FLOTANTE ---------- */
+  .flotante{
+    position:fixed;
+    bottom:24px; right:24px;
+    z-index:60;
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--musgo); color:var(--crema);
+    padding:14px 20px; border-radius:999px;
+    text-decoration:none; font-weight:500; font-size:14.5px;
+    box-shadow:0 10px 30px -6px rgba(60,74,62,0.4);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .flotante:hover{background:var(--ocre); transform:translateY(-2px);}
+  @media (max-width:520px){
+    .flotante span{display:none;}
+    .flotante{padding:14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#inicio" class="marca">Isabella Guzmán</a>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="boton-nav" href="https://wa.me/message/QPC2LWK2SFH6P1" target="_blank" rel="noopener">Agendar sesión</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero" id="inicio">
+    <div class="envolvente hero-grid">
+      <div>
+        <div class="ubicacion">📍 ECUADOR · SESIONES ONLINE Y PRESENCIALES</div>
+        <h1>Psicología para <em>la vida real</em>, no para la teoría.</h1>
+        <p class="lead">Soy Isabella Guzmán, psicóloga. Acompaño procesos de terapia enfocados en rutinas, vínculos y conciencia — para que lo que trabajas en sesión se note en tu día a día, no solo en el diván.</p>
+        <div class="cta-fila">
+          <a class="boton-primario" href="https://wa.me/message/QPC2LWK2SFH6P1" target="_blank" rel="noopener">
+            Escríbeme por WhatsApp →
+          </a>
+          <a class="boton-secundario" href="https://www.instagram.com/felicidadmental/" target="_blank" rel="noopener">Ver contenido en Instagram</a>
+        </div>
+        <div class="prueba-social">+125.000 personas siguen <strong>@felicidadmental</strong> · Agenda abierta ❤️</div>
+      </div>
+
+      <div class="respiracion-wrap" aria-hidden="true">
+        <svg class="respirar" viewBox="0 0 200 200">
+          <circle class="anillo" cx="100" cy="100" r="92"></circle>
+          <circle class="anillo" cx="100" cy="100" r="70"></circle>
+          <circle class="circulo-respira" cx="100" cy="100" r="46"></circle>
+          <circle class="circulo-nucleo" cx="100" cy="100" r="5"></circle>
+        </svg>
+        <div class="respiracion-texto">inhala · exhala</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FRANJA -->
+  <div class="franja" aria-hidden="true">
+    <div class="franja-mover">
+      <span class="marcado">RUTINAS</span><span>·</span>
+      <span>VÍNCULOS</span><span>·</span>
+      <span class="marcado">CONCIENCIA</span><span>·</span>
+      <span>SALUD MENTAL EN LA VIDA REAL</span><span>·</span>
+      <span class="marcado">RUTINAS</span><span>·</span>
+      <span>VÍNCULOS</span><span>·</span>
+      <span class="marcado">CONCIENCIA</span><span>·</span>
+      <span>SALUD MENTAL EN LA VIDA REAL</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- SOBRE MI -->
+  <section class="sobre" id="sobre-mi">
+    <div class="envolvente sobre-grid">
+      <div class="retrato">
+        <div class="retrato-nombre">Isabella Guzmán<small>Psicóloga · @felicidadmental</small></div>
+      </div>
+      <div>
+        <span class="eyebrow">Sobre mí</span>
+        <h2>Terapia sin distancia clínica, con criterio profesional.</h2>
+        <p style="color:var(--musgo-suave); margin-top:16px; font-size:16.5px; max-width:52ch;">
+          Empecé a compartir psicología en redes porque la salud mental no debería sentirse lejana ni acartonada. Hoy esa misma manera de explicar las cosas —clara, cercana, sin juicios— es la base de cómo trabajo en consulta.
+        </p>
+        <ul class="pilares">
+          <li>
+            <span class="palabra">Rutinas</span>
+            <p>Hábitos y estructura diaria que sostienen tu bienestar, no solo lo que hablamos una vez a la semana.</p>
+          </li>
+          <li>
+            <span class="palabra">Vínculos</span>
+            <p>Cómo te relacionas contigo y con los demás: familia, pareja, amistades, trabajo.</p>
+          </li>
+          <li>
+            <span class="palabra">Conciencia</span>
+            <p>Entender el porqué detrás de tus patrones, para poder elegir distinto.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="envolvente">
+      <div class="encabezado-seccion">
+        <span class="eyebrow">Servicios</span>
+        <h2>Un espacio de terapia hecho a tu momento de vida.</h2>
+        <p>Sesiones individuales o de pareja, presenciales u online, con seguimiento entre citas cuando lo necesitas.</p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio">
+          <span class="eyebrow">Individual</span>
+          <h3>Terapia individual</h3>
+          <p>Ansiedad, autoestima, duelo, cambios de vida y autoconocimiento. Sesiones semanales o quincenales, presenciales u online.</p>
+        </div>
+        <div class="servicio">
+          <span class="eyebrow">Vínculos</span>
+          <h3>Terapia de pareja</h3>
+          <p>Comunicación, conflictos recurrentes y reconstrucción de confianza, trabajados desde la conciencia y no desde la culpa.</p>
+        </div>
+        <div class="servicio">
+          <span class="eyebrow">Acompañamiento</span>
+          <h3>Rutinas y bienestar</h3>
+          <p>Un espacio para ordenar tu día a día: sueño, hábitos, límites y energía, con seguimiento entre sesiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="proceso" id="proceso">
+    <div class="envolvente">
+      <div class="encabezado-seccion">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>De un mensaje a tu primera sesión.</h2>
+        <p>Sin listas de espera eternas ni procesos confusos. Así se ve empezar.</p>
+      </div>
+      <div class="pasos">
+        <div class="paso">
+          <div class="paso-num">01</div>
+          <h3>Escríbeme</h3>
+          <p>Me cuentas brevemente qué te trae a terapia por WhatsApp.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">02</div>
+          <h3>Agendamos</h3>
+          <p>Buscamos un horario — presencial u online — que se ajuste a tu semana.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">03</div>
+          <h3>Primera sesión</h3>
+          <p>Conversamos sin apuro para entender tu momento y armar un plan real.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">04</div>
+          <h3>Proceso continuo</h3>
+          <p>Seguimos semana a semana, ajustando el ritmo a lo que vas necesitando.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDAD / INSTAGRAM -->
+  <section id="comunidad">
+    <div class="envolvente comunidad">
+      <div>
+        <span class="eyebrow">Comunidad</span>
+        <div class="cifra">125K</div>
+        <p>personas siguiendo contenido sobre salud mental real en @felicidadmental</p>
+        <p style="color:var(--musgo-suave); font-size:15.5px; margin-top:22px; max-width:46ch;">
+          Antes de agendar, puedes conocer mi forma de explicar la psicología a través de mis publicaciones: sin tecnicismos, con ejemplos del día a día.
+        </p>
+        <a class="boton-secundario" style="margin-top:22px; display:inline-flex;" href="https://www.instagram.com/felicidadmental/" target="_blank" rel="noopener">Ir a @felicidadmental →</a>
+      </div>
+      <div class="mosaico" aria-hidden="true">
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section id="preguntas">
+    <div class="envolvente">
+      <div class="encabezado-seccion">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Antes de escribir, quizá esto ayude.</h2>
+      </div>
+
+      <details class="faq-item" open>
+        <summary>¿Las sesiones son presenciales u online?</summary>
+        <p>Ambas modalidades están disponibles. Lo definimos según tu ubicación y preferencia al momento de agendar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo agendo mi primera cita?</summary>
+        <p>Escríbeme directamente por WhatsApp usando el botón de esta página. Te respondo con la disponibilidad de agenda.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Con qué frecuencia son las sesiones?</summary>
+        <p>Generalmente semanal o quincenal, según el proceso. Esto se conversa y ajusta en la primera sesión.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Atiendes fuera de Ecuador?</summary>
+        <p>Sí, las sesiones online permiten trabajar con personas fuera del país. Escríbeme para revisar horarios según tu zona.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="cierre">
+    <div class="envolvente">
+      <span class="eyebrow">Agenda abierta ❤️</span>
+      <h2 style="margin-top:14px;">Dar el primer paso también es parte del proceso.</h2>
+      <p>No necesitas tener todo claro para escribir. Cuéntame brevemente qué está pasando y buscamos el mejor horario.</p>
+      <a class="boton-primario" href="https://wa.me/message/QPC2LWK2SFH6P1" target="_blank" rel="noopener">Escríbeme por WhatsApp →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="envolvente">
+    <div class="pie-grid">
+      <div class="pie-marca">Isabella Guzmán<small>Psicóloga · Salud mental en la vida real</small></div>
+      <div class="pie-links">
+        <a href="https://www.instagram.com/felicidadmental/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/message/QPC2LWK2SFH6P1" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#inicio">Volver arriba</a>
+      </div>
+    </div>
+    <p class="pie-copy">Ecuador · Este sitio no reemplaza atención de urgencias en salud mental. Si estás en crisis, contacta a los servicios de emergencia de tu país.</p>
+  </div>
+</footer>
+
+<a class="flotante" href="https://wa.me/message/QPC2LWK2SFH6P1" target="_blank" rel="noopener">
+  💬 <span>Agenda por WhatsApp</span>
+</a>
+
+</body>
+</html>
