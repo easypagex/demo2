@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mind Club — Psic. Alejandrina Coronado | Terapia Online</title>
+<meta name="description" content="Psicoterapia individual y grupal en línea con la Psic. Alejandrina Coronado. Un espacio seguro y confidencial para trabajar tu ansiedad, autoestima, duelo y bienestar emocional. Agenda tu primera sesión.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2B28;
+    --ink-soft:#3E4E49;
+    --paper:#F1F4EF;
+    --paper-alt:#E7ECE3;
+    --sage:#6F8F7C;
+    --sage-deep:#4C6B5A;
+    --deep:#2C4A52;
+    --peach:#E8AD98;
+    --peach-deep:#D9906F;
+    --cream:#FBFAF6;
+    --line: rgba(30,43,40,0.12);
+    --shadow: 0 20px 60px -25px rgba(30,43,40,0.35);
+    --radius: 22px;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+  em{
+    font-style:italic;
+    color:var(--sage-deep);
+  }
+  p{ margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sage-deep);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--sage-deep);
+    display:inline-block;
+  }
+  section{ padding:110px 0; }
+  @media(max-width:760px){ section{ padding:72px 0; } .wrap{ padding:0 22px; } }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 26px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{
+    background:var(--deep);
+    color:var(--cream);
+    box-shadow:0 14px 30px -12px rgba(44,74,82,0.55);
+  }
+  .btn-primary:hover{ background:var(--sage-deep); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line);
+  }
+  .btn-ghost:hover{ background:var(--cream); border-color:var(--ink); }
+  .btn-peach{
+    background:var(--peach);
+    color:var(--ink);
+  }
+  .btn-peach:hover{ background:var(--peach-deep); color:var(--cream); }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(241,244,239,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+  }
+  .logo .dot{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--sage);
+    animation:pulse 3.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.35); opacity:.6; }
+  }
+  .nav-links{ display:flex; gap:34px; font-size:14.5px; font-weight:500; }
+  .nav-links a{ opacity:.78; transition:opacity .2s; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .burger{ display:none; }
+  @media(max-width:860px){
+    .nav-links{ display:none; }
+    .nav-cta .btn-ghost{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.85fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media(max-width:920px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; height:280px !important; }
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.2vw, 62px);
+    line-height:1.06;
+    margin-bottom:26px;
+  }
+  .hero-sub{
+    font-size:17.5px;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px; }
+  .hero-trust{
+    display:flex; gap:26px; flex-wrap:wrap;
+    font-size:13.5px; color:var(--ink-soft);
+  }
+  .hero-trust span{ display:flex; align-items:center; gap:8px; }
+  .hero-trust svg{ width:16px; height:16px; stroke:var(--sage-deep); flex-shrink:0; }
+
+  .hero-visual{
+    position:relative;
+    height:460px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .breath-ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid var(--sage);
+    opacity:.45;
+  }
+  .r1{ width:220px; height:220px; animation:breathe 8s ease-in-out infinite; }
+  .r2{ width:320px; height:320px; animation:breathe 8s ease-in-out infinite .3s; }
+  .r3{ width:420px; height:420px; animation:breathe 8s ease-in-out infinite .6s; }
+  .breath-core{
+    position:relative;
+    width:150px; height:150px;
+    border-radius:50%;
+    background:radial-gradient(circle at 34% 30%, #fff, var(--peach) 55%, var(--peach-deep) 100%);
+    box-shadow:0 30px 70px -20px rgba(217,144,111,0.65);
+    animation:breatheCore 8s ease-in-out infinite;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .breath-core span{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:15px;
+    color:#5A2F1F;
+    animation:breatheLabel 8s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{ transform:scale(0.86); opacity:.25; }
+    50%{ transform:scale(1); opacity:.55; }
+  }
+  @keyframes breatheCore{
+    0%,100%{ transform:scale(0.88); }
+    50%{ transform:scale(1.08); }
+  }
+  @keyframes breatheLabel{
+    0%,45%{ content:""; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .breath-ring, .breath-core, .logo .dot{ animation:none !important; }
+  }
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--deep);
+    color:var(--cream);
+    padding:16px 0;
+    overflow:hidden;
+  }
+  .strip-track{
+    display:flex;
+    gap:56px;
+    white-space:nowrap;
+    animation:scroll 26s linear infinite;
+    font-size:13.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  @keyframes scroll{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){ .strip-track{ animation:none; overflow-x:auto; } }
+
+  /* ---------- Sobre mi ---------- */
+  .about .wrap{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media(max-width:860px){ .about .wrap{ grid-template-columns:1fr; gap:36px; } }
+  .avatar-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:34px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .avatar-mark{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:18px;
+    background:linear-gradient(155deg, var(--sage) 0%, var(--deep) 100%);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .avatar-mark svg{ width:56%; stroke:var(--cream); }
+  .avatar-name{ font-size:21px; margin-bottom:4px; }
+  .avatar-role{ font-size:14px; color:var(--sage-deep); font-weight:600; margin-bottom:18px; }
+  .avatar-list{ display:flex; flex-direction:column; gap:12px; font-size:14px; color:var(--ink-soft); }
+  .avatar-list li{ display:flex; gap:10px; align-items:flex-start; list-style:none; }
+  .avatar-list svg{ width:16px; height:16px; stroke:var(--sage-deep); flex-shrink:0; margin-top:3px; }
+
+  .about h2{ font-size:clamp(28px,3.4vw,38px); line-height:1.18; margin:14px 0 22px; }
+  .about-text p{ color:var(--ink-soft); font-size:16px; margin-bottom:18px; max-width:620px; }
+  .about-quote{
+    margin-top:28px;
+    padding:22px 26px;
+    border-left:3px solid var(--peach-deep);
+    background:var(--paper-alt);
+    border-radius:0 14px 14px 0;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:17.5px;
+    color:var(--ink);
+  }
+
+  /* ---------- Services ---------- */
+  .services{ background:var(--paper-alt); }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(28px,3.6vw,40px); margin-top:14px; line-height:1.14; }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+  }
+  @media(max-width:920px){ .cards{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:32px 28px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .card-icon{
+    width:48px; height:48px;
+    border-radius:14px;
+    background:var(--paper-alt);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .card-icon svg{ width:24px; height:24px; stroke:var(--sage-deep); }
+  .card h3{ font-size:19px; margin-bottom:10px; }
+  .card p{ font-size:14.5px; color:var(--ink-soft); }
+  .card .tags{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .card .tags span{
+    font-size:12px; font-weight:600; color:var(--sage-deep);
+    background:var(--paper-alt); padding:5px 11px; border-radius:100px;
+  }
+
+  /* ---------- Process ---------- */
+  .process .wrap{ }
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:56px; position:relative; }
+  @media(max-width:860px){ .steps{ grid-template-columns:1fr; gap:34px; } }
+  .step{ position:relative; padding-right:30px; }
+  .step-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:52px;
+    color:var(--sage);
+    opacity:.5;
+    line-height:1;
+    margin-bottom:14px;
+  }
+  .step h3{ font-size:18.5px; margin-bottom:10px; }
+  .step p{ font-size:14.5px; color:var(--ink-soft); max-width:280px; }
+  .step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    top:26px; right:0;
+    width:1px; height:110px;
+    background:var(--line);
+  }
+  @media(max-width:860px){ .step:not(:last-child)::after{ display:none; } }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background:var(--paper-alt); }
+  .faq-list{ max-width:760px; margin-top:50px; }
+  details{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    font-weight:450;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{
+    content:"+";
+    font-family:'Inter', sans-serif;
+    font-size:22px;
+    font-weight:400;
+    color:var(--sage-deep);
+    transition:transform .25s ease;
+    flex-shrink:0;
+  }
+  details[open] summary::after{ content:"–"; }
+  details p{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:640px;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    background:var(--deep);
+    color:var(--cream);
+    border-radius:32px;
+    margin:0 32px;
+    padding:80px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  @media(max-width:760px){ .final-cta{ margin:0 16px; padding:56px 24px; } }
+  .final-cta::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 0%, rgba(232,173,152,0.28), transparent 60%);
+  }
+  .final-cta > *{ position:relative; z-index:1; }
+  .final-cta h2{
+    color:var(--cream);
+    font-size:clamp(28px,4vw,44px);
+    max-width:640px;
+    margin:16px auto 30px;
+    line-height:1.16;
+  }
+  .final-cta .eyebrow{ justify-content:center; color:var(--peach); }
+  .final-cta .eyebrow::before{ background:var(--peach); }
+  .final-ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .final-cta .btn-ghost{ border-color:rgba(251,250,246,0.35); color:var(--cream); }
+  .final-cta .btn-ghost:hover{ background:rgba(251,250,246,0.1); border-color:var(--cream); }
+
+  /* ---------- Footer ---------- */
+  footer{ padding:70px 0 40px; }
+  .foot-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:40px;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--line);
+  }
+  .foot-brand .logo{ margin-bottom:14px; }
+  .foot-brand p{ font-size:14px; color:var(--ink-soft); max-width:280px; }
+  .foot-cols{ display:flex; gap:64px; flex-wrap:wrap; }
+  .foot-col h4{ font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:var(--sage-deep); margin-bottom:16px; font-weight:600; }
+  .foot-col a, .foot-col p{ display:block; font-size:14.5px; color:var(--ink-soft); margin-bottom:10px; }
+  .foot-col a:hover{ color:var(--ink); }
+  .foot-bottom{
+    padding-top:26px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:13px; color:var(--ink-soft);
+  }
+  .ig-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    font-size:13.5px; font-weight:600;
+  }
+  .ig-btn svg{ width:15px; height:15px; stroke:var(--ink); }
+  .ig-btn:hover{ background:var(--cream); }
+
+  /* Reveal animation */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo"><span class="dot"></span>Happy Mind Club</a>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contacto" class="btn btn-ghost">Contacto</a>
+      <a href="https://www.instagram.com/happymindclub_/" target="_blank" rel="noopener" class="btn btn-primary">Agenda tu sesión</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Psicoterapia online · Psic. Alejandrina Coronado</p>
+        <h1>Un espacio seguro para pensar, sentir y <em>sanar</em>.</h1>
+        <p class="hero-sub">Acompañamiento psicológico profesional, cercano y confidencial, desde cualquier lugar. Terapia individual y grupal con enfoque humano, sin listas de espera eternas ni salas frías.</p>
+        <div class="hero-ctas">
+          <a href="https://www.instagram.com/happymindclub_/" target="_blank" rel="noopener" class="btn btn-primary">
+            Agenda tu primera sesión
+          </a>
+          <a href="#servicios" class="btn btn-ghost">Ver cómo puedo ayudarte</a>
+        </div>
+        <div class="hero-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/></svg> Espacio 100% confidencial</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zM6 12v5c0 1.5 2.5 3.5 6 3.5s6-2 6-3.5v-5"/></svg> Lic. en Psicología · Mtría. en Psicoterapia</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Sesiones 100% en línea</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="breath-ring r3"></div>
+        <div class="breath-ring r2"></div>
+        <div class="breath-ring r1"></div>
+        <div class="breath-core"><span>respira</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Ansiedad</span><span>·</span><span>Autoestima</span><span>·</span><span>Duelo</span><span>·</span>
+      <span>Estrés</span><span>·</span><span>Relaciones</span><span>·</span><span>Terapia de grupo</span><span>·</span>
+      <span>Ansiedad</span><span>·</span><span>Autoestima</span><span>·</span><span>Duelo</span><span>·</span>
+      <span>Estrés</span><span>·</span><span>Relaciones</span><span>·</span><span>Terapia de grupo</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- SOBRE MI -->
+  <section class="about" id="sobre-mi">
+    <div class="wrap">
+      <div class="avatar-card reveal">
+        <div class="avatar-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-2.5-8-6-8-11a8 8 0 0116 0c0 5-4 8.5-8 11z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <p class="avatar-name">Psic. Alejandrina Coronado</p>
+        <p class="avatar-role">Fundadora, Happy Mind Club</p>
+        <ul class="avatar-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Licenciada en Psicología</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Maestría en Psicoterapia individual y grupal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Psicoterapia 100% online</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow reveal">Sobre mí</p>
+        <h2 class="reveal">Terapia sin juicios, a tu ritmo y desde donde te sientas cómodo.</h2>
+        <div class="about-text reveal">
+          <p>Soy Alejandrina, psicóloga con formación en psicoterapia individual y grupal. Creé Happy Mind Club porque creo que cuidar tu salud mental no debería depender de encontrar tiempo para trasladarte a un consultorio, ni de esperar semanas para una primera cita.</p>
+          <p>Trabajo contigo desde un enfoque cercano y basado en evidencia, sin tecnicismos ni juicios. Mi trabajo es ayudarte a entender lo que sientes, ponerle palabras y construir, sesión a sesión, herramientas reales para tu día a día.</p>
+        </div>
+        <div class="about-quote reveal">
+          "No necesitas estar 'muy mal' para merecer un espacio de acompañamiento. Cuidar tu mente también es prevención."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Servicios</p>
+        <h2>Encuentra el tipo de acompañamiento que necesitas hoy.</h2>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+          <h3>Terapia individual</h3>
+          <p>Un espacio solo para ti, para trabajar aquello que te inquieta a tu propio ritmo, con total confidencialidad.</p>
+          <div class="tags"><span>Ansiedad</span><span>Autoestima</span><span>Estrés</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M2.5 20c0-3.5 2.7-6.2 5.7-6.2S14 16.5 14 20"/><path d="M14.5 14.6c2.4.2 4.5 2.6 4.5 5.4"/></svg></div>
+          <h3>Terapia grupal</h3>
+          <p>Sesiones en grupo guiadas para compartir, aprender de otras experiencias y sentirte acompañado, no solo.</p>
+          <div class="tags"><span>Habilidades sociales</span><span>Comunidad</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div>
+          <h3>Primera consulta</h3>
+          <p>Una sesión inicial para conocernos, entender qué te trae aquí y definir juntos el plan que mejor se ajuste a ti.</p>
+          <div class="tags"><span>Evaluación</span><span>Sin compromiso</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process" id="proceso">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Empezar es más simple de lo que crees.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Escríbeme</h3>
+          <p>Mándame un mensaje por Instagram o WhatsApp contándome un poco de lo que buscas.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3>Agendamos tu sesión</h3>
+          <p>Buscamos juntas el horario ideal para tu primera sesión, siempre en línea y desde donde estés.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3>Construimos tu proceso</h3>
+          <p>Definimos objetivos claros y avanzamos sesión a sesión, a tu ritmo y con seguimiento constante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Todo lo que quizá te preguntas antes de escribir.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details open>
+          <summary>¿Cómo son las sesiones en línea?</summary>
+          <p>Las sesiones se realizan por videollamada, en un horario que acordamos juntas. Solo necesitas un espacio privado y conexión a internet.</p>
+        </details>
+        <details>
+          <summary>¿Es realmente confidencial?</summary>
+          <p>Sí. Todo lo que compartas en sesión se maneja bajo el código de ética profesional de la psicología, con total discreción.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura cada sesión y con qué frecuencia son?</summary>
+          <p>Por lo general las sesiones tienen una duración estándar y frecuencia semanal o quincenal, pero esto se ajusta a tus necesidades y disponibilidad. Lo definimos juntas en la primera consulta.</p>
+        </details>
+        <details>
+          <summary>¿Necesito tener un diagnóstico o "estar muy mal" para empezar?</summary>
+          <p>No. Puedes acudir a terapia para procesar una etapa de cambio, mejorar tu bienestar general o simplemente tener un espacio propio, no solo ante una crisis.</p>
+        </details>
+        <details>
+          <summary>¿Cómo agendo mi primera sesión?</summary>
+          <p>Escríbeme directamente por Instagram o por WhatsApp y coordinamos tu primera sesión en un par de mensajes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="wrap">
+      <div class="final-cta reveal">
+        <p class="eyebrow">Da el primer paso</p>
+        <h2>Tu bienestar emocional no puede seguir esperando en la lista de pendientes.</h2>
+        <div class="final-ctas">
+          <a href="https://www.instagram.com/happymindclub_/" target="_blank" rel="noopener" class="btn btn-peach">Escríbeme por Instagram</a>
+          <a href="#contacto" class="btn btn-ghost">Otras formas de contacto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER / CONTACTO -->
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="dot"></span>Happy Mind Club</a>
+        <p>Psicoterapia individual y grupal en línea con la Psic. Alejandrina Coronado. Un espacio seguro para tu salud mental.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Contacto</h4>
+          <a href="https://www.instagram.com/happymindclub_/" target="_blank" rel="noopener" class="ig-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            @happymindclub_
+          </a>
+          <p style="margin-top:14px;">✎ Actualiza aquí tu WhatsApp / correo</p>
+        </div>
+        <div class="foot-col">
+          <h4>Explora</h4>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#faq">Preguntas frecuentes</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Happy Mind Club. Todos los derechos reservados.</span>
+      <span>Diseñado con calma, para ayudarte a encontrar la tuya.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el=> io.observe(el));
+</script>
+
+</body>
+</html>
