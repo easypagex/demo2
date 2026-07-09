@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melisa López · Terapia TCC · León</title>
+<meta name="description" content="Melisa López — Terapia Cognitivo Conductual individual y de pareja, con perspectiva de género. Sesiones online. Pocos lugares disponibles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDF2E9;
+    --peach:#FBE4CF;
+    --plum:#3F2140;
+    --plum-soft:#6B4569;
+    --coral:#E4674F;
+    --coral-deep:#C94E38;
+    --sage:#6F8F6A;
+    --gold:#E3A857;
+    --ink:#2B1B2A;
+    --paper:#FFFBF6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:var(--plum);
+    line-height:1.08;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:700;
+    color:var(--coral-deep);
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,242,233,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(63,33,64,.08);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--plum);
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo-dot{width:9px;height:9px;border-radius:50%;background:var(--coral);display:inline-block;}
+  .nav-cta{
+    background:var(--plum);color:var(--paper);
+    padding:10px 20px;border-radius:100px;
+    font-size:.85rem;font-weight:600;
+    transition:transform .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--coral-deep);transform:translateY(-1px);}
+  .nav-links{display:none;}
+  @media(min-width:720px){
+    .nav-links{display:flex;gap:28px;font-size:.9rem;font-weight:500;color:var(--plum-soft);}
+    .nav-links a:hover{color:var(--coral-deep);}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:76px 0 60px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1fr;gap:40px;
+    position:relative;z-index:2;
+  }
+  @media(min-width:860px){
+    .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center;}
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--paper);
+    border:1px solid rgba(63,33,64,.12);
+    padding:7px 14px;border-radius:100px;
+    font-size:.78rem;font-weight:600;color:var(--plum-soft);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,5.6vw,3.8rem);
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--coral-deep);
+  }
+  .hero p.lead{
+    font-size:1.12rem;color:var(--plum-soft);max-width:480px;margin-bottom:30px;
+  }
+  .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .tag{
+    background:var(--paper);
+    border:1px solid rgba(63,33,64,.1);
+    padding:8px 15px;border-radius:100px;
+    font-size:.84rem;font-weight:600;color:var(--plum);
+    display:flex;align-items:center;gap:7px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn-primary{
+    background:var(--coral);color:var(--paper);
+    padding:15px 28px;border-radius:100px;
+    font-weight:700;font-size:.95rem;
+    box-shadow:0 10px 24px -8px rgba(228,103,79,.55);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn-primary:hover{transform:translateY(-2px);background:var(--coral-deep);box-shadow:0 14px 30px -8px rgba(201,78,56,.6);}
+  .btn-ghost{
+    font-weight:600;font-size:.9rem;color:var(--plum);
+    border-bottom:2px solid var(--gold);padding-bottom:2px;
+  }
+  .spots-note{
+    font-family:'Space Mono',monospace;font-size:.76rem;color:var(--sage);
+    margin-top:18px;display:flex;align-items:center;gap:8px;
+  }
+  .pulse-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--sage);
+    box-shadow:0 0 0 0 rgba(111,143,106,.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(111,143,106,.55);}
+    70%{box-shadow:0 0 0 9px rgba(111,143,106,0);}
+    100%{box-shadow:0 0 0 0 rgba(111,143,106,0);}
+  }
+
+  /* ---------- HERO VISUAL: waveform / "voz en sesión" ---------- */
+  .hero-visual{
+    position:relative;
+    background:var(--paper);
+    border-radius:28px;
+    padding:34px 28px;
+    border:1px solid rgba(63,33,64,.08);
+    box-shadow:0 30px 60px -30px rgba(63,33,64,.35);
+  }
+  .hv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+  .hv-avatar{
+    width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(135deg,var(--coral),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--paper);font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;
+  }
+  .hv-name{font-weight:700;color:var(--plum);font-size:.95rem;}
+  .hv-loc{font-size:.78rem;color:var(--plum-soft);}
+  .waveform{
+    display:flex;align-items:flex-end;gap:4px;height:88px;margin:18px 0 20px;
+  }
+  .waveform span{
+    flex:1;background:linear-gradient(180deg,var(--coral),var(--gold));
+    border-radius:6px;min-height:6px;
+    animation:wave 1.6s ease-in-out infinite;
+  }
+  @keyframes wave{
+    0%,100%{transform:scaleY(.35);}
+    50%{transform:scaleY(1);}
+  }
+  .hv-caption{
+    font-family:'Space Mono',monospace;font-size:.72rem;color:var(--plum-soft);
+    display:flex;justify-content:space-between;border-top:1px dashed rgba(63,33,64,.15);padding-top:14px;
+  }
+  .float-card{
+    position:absolute;background:var(--sage);color:var(--paper);
+    padding:12px 16px;border-radius:16px;font-size:.78rem;font-weight:600;
+    box-shadow:0 16px 30px -12px rgba(111,143,106,.55);
+    bottom:-16px;left:-16px;
+    display:flex;align-items:center;gap:8px;
+  }
+  @media(max-width:859px){.float-card{position:static;margin-top:16px;display:inline-flex;}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:80px 0;}
+  .section-head{max-width:600px;margin-bottom:48px;}
+  .section-head .eyebrow{margin-bottom:12px;display:block;}
+  .section-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);}
+  .section-head p{color:var(--plum-soft);margin-top:14px;font-size:1.02rem;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- SOBRE MI ---------- */
+  .about{background:var(--paper);}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}
+  @media(min-width:820px){.about-grid{grid-template-columns:.85fr 1.15fr;}}
+  .about-art{
+    aspect-ratio:4/5;border-radius:24px;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(228,103,79,.35), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(227,168,87,.4), transparent 55%),
+      linear-gradient(160deg, var(--peach), var(--cream));
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-art::before{
+    content:'TCC';
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:5rem;color:rgba(63,33,64,.14);
+  }
+  .about-copy p{color:var(--plum-soft);font-size:1.05rem;margin-bottom:16px;max-width:520px;}
+  .about-copy strong{color:var(--plum);}
+  .stat-row{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap;}
+  .stat b{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--coral-deep);display:block;}
+  .stat span{font-size:.8rem;color:var(--plum-soft);}
+
+  /* ---------- SERVICIOS ---------- */
+  .services-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:720px){.services-grid{grid-template-columns:repeat(3,1fr);}}
+  .service-card{
+    background:var(--paper);
+    border:1px solid rgba(63,33,64,.09);
+    border-radius:22px;padding:32px 26px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    position:relative;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -20px rgba(63,33,64,.25);border-color:transparent;}
+  .service-icon{
+    width:50px;height:50px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;margin-bottom:18px;
+  }
+  .service-card:nth-child(1) .service-icon{background:rgba(228,103,79,.16);}
+  .service-card:nth-child(2) .service-icon{background:rgba(227,168,87,.22);}
+  .service-card:nth-child(3) .service-icon{background:rgba(111,143,106,.18);}
+  .service-card h3{font-size:1.25rem;margin-bottom:10px;}
+  .service-card p{color:var(--plum-soft);font-size:.94rem;}
+
+  /* ---------- PODCAST ---------- */
+  .podcast{
+    background:var(--plum);
+    color:var(--cream);
+    border-radius:32px;
+    margin:0 auto;
+    max-width:1080px;
+    padding:56px 40px;
+    position:relative;overflow:hidden;
+  }
+  .podcast::after{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 85% 20%, rgba(228,103,79,.35), transparent 55%),
+               radial-gradient(circle at 10% 90%, rgba(227,168,87,.25), transparent 50%);
+    pointer-events:none;
+  }
+  .podcast-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:30px;}
+  @media(min-width:780px){.podcast-inner{grid-template-columns:auto 1fr;align-items:center;}}
+  .podcast-badge{
+    width:110px;height:110px;border-radius:24px;
+    background:linear-gradient(135deg,var(--coral),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;font-weight:600;
+    color:var(--plum);text-align:center;line-height:1.2;
+    box-shadow:0 20px 40px -14px rgba(0,0,0,.4);
+  }
+  .podcast h2{color:var(--cream);font-size:1.9rem;margin-bottom:10px;}
+  .podcast p{color:#E6D9E4;font-size:1rem;max-width:520px;}
+  .podcast .eyebrow{color:var(--gold);}
+  .podcast-cta{
+    margin-top:20px;display:inline-flex;align-items:center;gap:8px;
+    color:var(--cream);font-weight:700;font-size:.9rem;
+    border-bottom:2px solid var(--coral);padding-bottom:3px;
+  }
+
+  /* ---------- ENFOQUE / PERSPECTIVA DE GENERO ---------- */
+  .approach{background:var(--peach);}
+  .approach-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:700px){.approach-grid{grid-template-columns:1fr 1fr;}}
+  .approach-item{
+    background:var(--paper);border-radius:20px;padding:26px;
+    border-left:4px solid var(--coral);
+  }
+  .approach-item:nth-child(2){border-left-color:var(--sage);}
+  .approach-item:nth-child(3){border-left-color:var(--gold);}
+  .approach-item:nth-child(4){border-left-color:var(--plum-soft);}
+  .approach-item h3{font-size:1.05rem;margin-bottom:6px;}
+  .approach-item p{color:var(--plum-soft);font-size:.92rem;}
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testimonials{background:var(--paper);}
+  .t-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:760px){.t-grid{grid-template-columns:repeat(3,1fr);}}
+  .t-card{
+    background:var(--cream);border-radius:20px;padding:26px;
+    font-size:.95rem;color:var(--plum-soft);position:relative;
+  }
+  .t-card::before{
+    content:'"';font-family:'Fraunces',serif;font-size:3rem;color:var(--coral);
+    opacity:.35;line-height:0;display:block;margin-bottom:10px;
+  }
+  .t-who{margin-top:16px;font-weight:700;color:var(--plum);font-size:.85rem;}
+  .t-who span{display:block;font-weight:400;color:var(--plum-soft);font-size:.78rem;}
+
+  /* ---------- CTA FINAL ---------- */
+  .final-cta{
+    text-align:center;
+    background:linear-gradient(160deg, var(--coral) 0%, var(--coral-deep) 100%);
+    color:var(--paper);
+    border-radius:32px;
+    max-width:1080px;margin:0 auto;
+    padding:70px 30px;
+  }
+  .final-cta h2{color:var(--paper);font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:14px;}
+  .final-cta p{max-width:480px;margin:0 auto 30px;color:#FCE9E1;font-size:1.05rem;}
+  .btn-white{
+    background:var(--paper);color:var(--coral-deep);
+    padding:16px 32px;border-radius:100px;font-weight:700;
+    display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 16px 34px -12px rgba(0,0,0,.35);
+    transition:transform .25s ease;
+  }
+  .btn-white:hover{transform:translateY(-2px) scale(1.02);}
+  .spots-final{
+    margin-top:22px;font-family:'Space Mono',monospace;font-size:.78rem;
+    display:flex;justify-content:center;align-items:center;gap:8px;color:#FCE0D6;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:44px 0 34px;text-align:center;}
+  footer .logo{justify-content:center;margin-bottom:14px;}
+  .footer-links{display:flex;justify-content:center;gap:22px;margin-bottom:18px;flex-wrap:wrap;font-size:.86rem;color:var(--plum-soft);font-weight:500;}
+  .footer-links a:hover{color:var(--coral-deep);}
+  footer .fine{font-size:.76rem;color:var(--plum-soft);opacity:.75;}
+
+  ::selection{background:var(--coral);color:var(--paper);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><span class="logo-dot"></span>Melisa López</div>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Terapia</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#testimonios">Testimonios</a>
+    </div>
+    <a class="nav-cta" href="https://www.instagram.com/melisa.lopezterapeuta/" target="_blank" rel="noopener">Reservar sesión</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-badge">📍 León · 🌎 Sesiones online</div>
+      <h1>Un espacio para pensarte<br><em>sin juicio</em>, con enfoque real.</h1>
+      <p class="lead">Soy Melisa López, psicóloga especializada en Terapia Cognitivo Conductual (TCC). Acompaño procesos individuales y de pareja, con perspectiva de género, desde donde estés.</p>
+      <div class="tag-row">
+        <span class="tag">❤️ TCC</span>
+        <span class="tag">✨ Terapia 1:1 y de pareja</span>
+        <span class="tag">💜 Perspectiva de género</span>
+        <span class="tag">💚 Podcast Psicoreflexiona</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://www.instagram.com/melisa.lopezterapeuta/" target="_blank" rel="noopener">Escríbeme por Instagram →</a>
+        <a class="btn-ghost" href="#servicios">Ver cómo trabajo</a>
+      </div>
+      <div class="spots-note"><span class="pulse-dot"></span>Pocos lugares disponibles esta temporada</div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hv-top">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="hv-avatar">ML</div>
+          <div>
+            <div class="hv-name">Melisa López</div>
+            <div class="hv-loc">León 📌 · En línea 🌎</div>
+          </div>
+        </div>
+      </div>
+      <div class="waveform" id="waveform"></div>
+      <div class="hv-caption">
+        <span>Sesión en curso</span>
+        <span>TCC · Perspectiva de género</span>
+      </div>
+      <div class="float-card">🎙️ Psicoreflexiona — nuevo episodio</div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="sobre-mi">
+  <div class="wrap about-grid reveal">
+    <div class="about-art"></div>
+    <div class="about-copy">
+      <span class="eyebrow">Sobre mí</span>
+      <h2 style="margin:12px 0 18px;">Terapia con base científica y mirada humana</h2>
+      <p>Trabajo desde la <strong>Terapia Cognitivo Conductual (TCC)</strong>, un enfoque con evidencia que te da herramientas concretas para entender cómo piensas, sientes y actúas — y para empezar a cambiar lo que ya no te sirve.</p>
+      <p>Además del trabajo individual, acompaño a <strong>parejas</strong> que buscan comunicarse mejor, y sostengo un enfoque de <strong>perspectiva de género</strong> en cada proceso: tu contexto, tu historia y tus relaciones importan.</p>
+      <p>Todo esto también lo comparto en <strong>Psicoreflexiona</strong>, mi podcast, donde llevo la psicología a conversaciones cercanas y reales.</p>
+      <div class="stat-row">
+        <div class="stat"><b>1:1</b><span>Terapia individual</span></div>
+        <div class="stat"><b>+2</b><span>Modalidad de pareja</span></div>
+        <div class="stat"><b>🌎</b><span>Sesiones 100% online</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cómo puedo acompañarte</span>
+      <h2>Un proceso pensado para ti</h2>
+      <p>Elige el espacio que necesitas hoy. Todos los procesos se adaptan a tu ritmo y a tus objetivos.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Terapia individual (TCC)</h3>
+        <p>Un espacio 1:1 para trabajar ansiedad, autoestima, duelo o cualquier proceso que estés atravesando, con herramientas prácticas basadas en evidencia.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💞</div>
+        <h3>Terapia de pareja</h3>
+        <p>Sesiones para mejorar la comunicación, resolver conflictos recurrentes y reconstruir la conexión desde un lugar seguro para ambos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💜</div>
+        <h3>Perspectiva de género</h3>
+        <p>Un enfoque terapéutico que reconoce cómo el género atraviesa tus relaciones, tu cuerpo y tu historia — sin recetas genéricas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="podcast">
+  <div class="wrap reveal">
+    <div class="podcast">
+      <div class="podcast-inner">
+        <div class="podcast-badge">Psico<br>reflexiona</div>
+        <div>
+          <span class="eyebrow">🎙️ Podcast</span>
+          <h2>Psicoreflexiona</h2>
+          <p>Conversaciones sobre salud mental, vínculos y perspectiva de género, pensadas para acompañarte incluso fuera de la sesión. Un podcast para seguir reflexionando cuando lo necesites.</p>
+          <a class="podcast-cta" href="https://www.instagram.com/melisa.lopezterapeuta/" target="_blank" rel="noopener">Escuchar y seguir el podcast →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Mi enfoque</span>
+      <h2>Terapia que se adapta a tu realidad</h2>
+    </div>
+    <div class="approach-grid reveal">
+      <div class="approach-item">
+        <h3>🌎 100% online</h3>
+        <p>Estés donde estés, podemos trabajar juntas desde la comodidad de tu espacio, con la misma cercanía que una sesión presencial.</p>
+      </div>
+      <div class="approach-item">
+        <h3>❤️ Basado en evidencia</h3>
+        <p>La TCC es uno de los enfoques con mayor respaldo científico para tratar ansiedad, depresión y dificultades relacionales.</p>
+      </div>
+      <div class="approach-item">
+        <h3>💜 Con perspectiva de género</h3>
+        <p>Cada historia se entiende dentro de su contexto: tus vínculos, tu identidad y las estructuras que también te atraviesan.</p>
+      </div>
+      <div class="approach-item">
+        <h3>✨ Espacios limitados</h3>
+        <p>Trabajo con pocos lugares a la vez para poder sostener procesos con calidad y presencia real en cada sesión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que dicen quienes ya empezaron su proceso</span>
+      <h2>Historias reales, cambios reales</h2>
+    </div>
+    <div class="t-grid reveal">
+      <div class="t-card">
+        Encontré herramientas concretas que puedo usar en mi día a día, no solo hablar por hablar.
+        <div class="t-who">Paciente en terapia individual<span>Sesiones online</span></div>
+      </div>
+      <div class="t-card">
+        Como pareja, aprendimos a discutir sin destruirnos. El espacio se siente seguro para los dos.
+        <div class="t-who">Pareja en proceso conjunto<span>Terapia de pareja</span></div>
+      </div>
+      <div class="t-card">
+        Sentí que por fin alguien entendía mi contexto, no solo mis síntomas.
+        <div class="t-who">Paciente con enfoque de género<span>Sesiones online</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap reveal">
+    <div class="final-cta">
+      <h2>Quedan pocos lugares<br>disponibles esta temporada</h2>
+      <p>Si sientes que es momento de empezar tu proceso, escríbeme por Instagram y coordinamos tu primera sesión.</p>
+      <a class="btn-white" href="https://www.instagram.com/melisa.lopezterapeuta/" target="_blank" rel="noopener">📩 Escríbeme por Instagram</a>
+      <div class="spots-final"><span class="pulse-dot" style="background:#FCE0D6;"></span>Cupos limitados · León 📌 · En línea 🌎</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><span class="logo-dot"></span>Melisa López</div>
+    <div class="footer-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Terapia</a>
+      <a href="#podcast">Psicoreflexiona</a>
+      <a href="https://www.instagram.com/melisa.lopezterapeuta/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="fine">© 2026 Melisa López · Terapia TCC · León 📌 · En línea 🌎</p>
+  </div>
+</footer>
+
+<script>
+  // Waveform bars
+  const wf = document.getElementById('waveform');
+  const heights = [40,70,35,90,55,100,45,80,30,65,95,50,75,40,60];
+  heights.forEach((h,i)=>{
+    const bar = document.createElement('span');
+    bar.style.animationDelay = (i*0.08)+'s';
+    wf.appendChild(bar);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
