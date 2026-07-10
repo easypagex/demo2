@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nalagus — Pía | Kinesióloga & Terapeuta Sintergética</title>
+<meta name="description" content="Bienestar emocional a través de aromas y pequeños rituales. Terapias integrales, kinesiología y sintergética con reserva previa. Velas, guardianas y papelería con intención.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#241726;
+    --bg-darker:#160D18;
+    --bg-panel:#2E1C31;
+    --accent-amber:#E3A857;
+    --accent-amber-soft:#f0c98a;
+    --accent-wine:#8B4257;
+    --accent-sage:#93A47F;
+    --text-cream:#F3ECE0;
+    --text-muted:#C6B4C0;
+    --line:rgba(243,236,224,0.14);
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-deep);
+    color:var(--text-cream);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent-amber); color:var(--bg-darker);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  h1,h2,h3,.serif{font-family:'Fraunces', serif; font-weight:400; letter-spacing:0.2px;}
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    color:var(--accent-amber);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px;
+    background:var(--accent-amber);
+    display:inline-block;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  /* ---------- focus visibility ---------- */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent-amber);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(22,13,24,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    letter-spacing:0.5px;
+    color:var(--text-cream);
+  }
+  .logo span{color:var(--accent-amber);}
+  .nav-links{display:flex; gap:34px; align-items:center;}
+  .nav-links a{
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--text-muted);
+    transition:color .25s ease;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--accent-amber);}
+  .nav-cta{
+    border:1px solid var(--accent-amber);
+    padding:10px 20px;
+    color:var(--accent-amber-soft) !important;
+    border-radius:var(--radius);
+    letter-spacing:0.12em !important;
+  }
+  .nav-cta:hover{background:var(--accent-amber); color:var(--bg-darker) !important;}
+  .menu-toggle{display:none; background:none; border:0; color:var(--text-cream); font-size:1.6rem; cursor:pointer;}
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed; top:76px; left:0; right:0;
+      flex-direction:column; align-items:flex-start;
+      background:var(--bg-darker);
+      padding:26px 22px 34px;
+      gap:22px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+    }
+    .nav-links.open{opacity:1; transform:translateY(0); pointer-events:auto;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex; align-items:center;
+    padding:150px 0 90px;
+    background:
+      radial-gradient(ellipse 60% 50% at 78% 18%, rgba(227,168,87,0.16), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 15% 85%, rgba(139,66,87,0.22), transparent 65%),
+      var(--bg-deep);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:center;
+    width:100%;
+  }
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr; gap:56px;}}
+  .hero h1{
+    font-size:clamp(2.5rem, 5.4vw, 4.1rem);
+    line-height:1.08;
+    margin:22px 0 26px;
+    font-weight:400;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--accent-amber-soft);
+    font-weight:400;
+  }
+  .hero p.lead{
+    font-size:1.08rem;
+    color:var(--text-muted);
+    max-width:480px;
+    margin-bottom:38px;
+  }
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 28px;
+    font-family:'Jost', sans-serif;
+    font-size:0.86rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    border-radius:var(--radius);
+    transition:transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--accent-amber);
+    color:var(--bg-darker);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 30px -8px rgba(227,168,87,0.55);}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--text-cream);
+  }
+  .btn-ghost:hover{border-color:var(--accent-amber); color:var(--accent-amber-soft); transform:translateY(-2px);}
+
+  /* candle signature visual */
+  .candle-scene{
+    display:flex; justify-content:center; align-items:flex-end;
+    height:420px;
+  }
+  .flame{
+    animation:flicker 3.2s ease-in-out infinite;
+    transform-origin:50% 90%;
+  }
+  @keyframes flicker{
+    0%,100%{ transform: scaleY(1) scaleX(1) rotate(0deg); }
+    20%{ transform: scaleY(1.05) scaleX(0.97) rotate(-1.5deg); }
+    45%{ transform: scaleY(0.94) scaleX(1.03) rotate(1.5deg); }
+    65%{ transform: scaleY(1.08) scaleX(0.95) rotate(-1deg); }
+    85%{ transform: scaleY(0.97) scaleX(1.02) rotate(1deg); }
+  }
+  .glow{
+    animation:glowpulse 3.2s ease-in-out infinite;
+  }
+  @keyframes glowpulse{
+    0%,100%{ opacity:0.55; }
+    50%{ opacity:0.85; }
+  }
+
+  /* wax-drip divider */
+  .drip{ display:block; width:100%; height:44px; }
+  .drip path{ fill:var(--bg-panel); }
+  .drip.to-deep path{ fill:var(--bg-deep); }
+  .drip.to-panel path{ fill:var(--bg-panel); }
+  .drip.to-darker path{ fill:var(--bg-darker); }
+
+  section{position:relative;}
+  .section-pad{padding:100px 0;}
+  @media(max-width:640px){.section-pad{padding:74px 0;}}
+
+  .panel-bg{background:var(--bg-panel);}
+  .darker-bg{background:var(--bg-darker);}
+
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:16px;}
+  .section-head p{color:var(--text-muted); margin-top:16px; font-size:1.02rem;}
+
+  /* ---------- SOBRE MI ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-portrait{
+    aspect-ratio:4/5;
+    border-radius:var(--radius);
+    background:
+      radial-gradient(circle at 32% 28%, rgba(227,168,87,0.35), transparent 55%),
+      linear-gradient(160deg, var(--accent-wine), var(--bg-darker));
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-portrait svg{width:58%; opacity:0.92;}
+  .about-text p{color:var(--text-muted); margin-bottom:18px; font-size:1.02rem;}
+  .about-text p:first-of-type{color:var(--text-cream); font-size:1.14rem; font-family:'Fraunces',serif; font-style:italic; line-height:1.5;}
+  .signature-line{
+    margin-top:28px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--accent-amber-soft);
+    font-size:1.2rem;
+  }
+
+  /* ---------- SERVICIOS ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(max-width:860px){.services-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--bg-deep);
+    padding:42px 34px;
+    transition:background .3s ease;
+  }
+  .service-card:hover{background:#2b1a2e;}
+  .service-icon{margin-bottom:22px;}
+  .service-card h3{font-size:1.3rem; margin-bottom:12px; color:var(--text-cream);}
+  .service-card p{color:var(--text-muted); font-size:0.96rem;}
+
+  /* ---------- TIENDA ---------- */
+  .shop-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  @media(max-width:860px){.shop-grid{grid-template-columns:1fr;}}
+  .shop-card{
+    border:1px solid var(--line);
+    padding:36px 30px;
+    border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .shop-card:hover{transform:translateY(-4px); border-color:var(--accent-amber);}
+  .shop-card .tag{
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.18em;
+    color:var(--accent-sage); margin-bottom:16px; display:block;
+  }
+  .shop-card h3{font-size:1.4rem; margin-bottom:10px;}
+  .shop-card p{color:var(--text-muted); font-size:0.95rem; margin-bottom:20px;}
+  .shop-card a{font-size:0.82rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent-amber-soft); border-bottom:1px solid rgba(227,168,87,0.4); padding-bottom:3px;}
+
+  /* ---------- COMO RESERVAR ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    counter-reset:step;
+  }
+  @media(max-width:860px){.steps{grid-template-columns:1fr; gap:36px;}}
+  .step{position:relative; padding-left:0;}
+  .step .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.6rem;
+    color:var(--accent-amber);
+    display:block;
+    margin-bottom:14px;
+    opacity:0.85;
+  }
+  .step h3{font-size:1.15rem; margin-bottom:10px; color:var(--text-cream);}
+  .step p{color:var(--text-muted); font-size:0.95rem;}
+
+  /* ---------- CONTACTO ---------- */
+  .contact-panel{
+    background:linear-gradient(135deg, var(--accent-wine), #4a2334 60%, var(--bg-darker));
+    border-radius:var(--radius);
+    padding:64px 56px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+  }
+  @media(max-width:860px){.contact-panel{grid-template-columns:1fr; padding:44px 28px;}}
+  .contact-panel::before{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 85% 20%, rgba(227,168,87,0.25), transparent 55%);
+    pointer-events:none;
+  }
+  .contact-panel h2{font-size:clamp(1.8rem,3.4vw,2.4rem); position:relative;}
+  .contact-panel p{color:rgba(243,236,224,0.82); margin-top:16px; max-width:420px; position:relative;}
+  .contact-actions{display:flex; flex-direction:column; gap:14px; position:relative;}
+  .contact-actions .btn{justify-content:center; width:100%;}
+  .whatsapp-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--text-cream);
+    text-align:center;
+    margin-top:4px;
+    opacity:0.85;
+  }
+
+  footer{
+    padding:48px 0 40px;
+    border-top:1px solid var(--line);
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+  }
+  .footer-links{display:flex; gap:26px;}
+  .footer-links a{font-size:0.82rem; color:var(--text-muted); letter-spacing:0.05em;}
+  .footer-links a:hover{color:var(--accent-amber-soft);}
+  .footer-note{font-size:0.78rem; color:var(--text-muted); opacity:0.7;}
+
+  /* floating whatsapp */
+  .float-wa{
+    position:fixed; bottom:24px; right:24px; z-index:90;
+    width:58px; height:58px;
+    background:var(--accent-sage);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 26px -6px rgba(0,0,0,0.5);
+    transition:transform .25s ease;
+  }
+  .float-wa:hover{transform:scale(1.08);}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">nala<span>g</span>us</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Terapias</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#reservar">Cómo reservar</a>
+      <a href="#contacto" class="nav-cta">Reservar hora</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Kinesiología · Sintergética · Rituales</span>
+        <h1>Un ritual para<br><em>volver a ti</em></h1>
+        <p class="lead">Soy Pía: kinesióloga y terapeuta sintergética. Acompaño procesos de bienestar emocional a través de terapias integrales, aromas y pequeños rituales pensados para reconectarte con tu cuerpo.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/56982767454?text=Hola%20Pía%2C%20quiero%20agendar%20una%20sesión" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/nalagus_/" target="_blank" rel="noopener">Ver en Instagram</a>
+        </div>
+      </div>
+      <div class="candle-scene" aria-hidden="true">
+        <svg viewBox="0 0 220 420" width="220" height="420">
+          <ellipse class="glow" cx="110" cy="150" rx="95" ry="120" fill="url(#glowGrad)"/>
+          <defs>
+            <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#E3A857" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#E3A857" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="waxGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F3ECE0"/>
+              <stop offset="100%" stop-color="#CBB9A3"/>
+            </linearGradient>
+          </defs>
+          <!-- flame -->
+          <g class="flame">
+            <path d="M110 130 C 128 160, 132 185, 112 205 C 92 185, 96 160, 110 130 Z" fill="#E3A857"/>
+            <path d="M110 150 C 120 168, 122 184, 110 197 C 98 184, 100 168, 110 150 Z" fill="#f7d9a0"/>
+          </g>
+          <rect x="103" y="200" width="6" height="16" fill="#5c4630"/>
+          <!-- candle body -->
+          <rect x="70" y="216" width="80" height="180" rx="4" fill="url(#waxGrad)"/>
+          <rect x="70" y="216" width="80" height="14" fill="#fff" opacity="0.35"/>
+          <!-- base -->
+          <ellipse cx="110" cy="398" rx="60" ry="10" fill="#160D18" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <svg class="drip to-panel" viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,20 C1100,40 1000,10 900,26 C800,42 700,8 600,24 C500,40 400,6 300,22 C200,38 100,10 0,20 Z"></path></svg>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="panel-bg section-pad">
+    <div class="wrap about-grid">
+      <div class="about-portrait reveal">
+        <svg viewBox="0 0 200 240" aria-hidden="true">
+          <circle cx="100" cy="90" r="46" fill="#F3ECE0" opacity="0.92"/>
+          <path d="M40 220 C 40 160, 70 130, 100 130 C 130 130, 160 160, 160 220 Z" fill="#F3ECE0" opacity="0.92"/>
+          <circle cx="100" cy="90" r="60" fill="none" stroke="#E3A857" stroke-width="1" opacity="0.6"/>
+          <circle cx="100" cy="90" r="72" fill="none" stroke="#E3A857" stroke-width="0.5" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">Sobre mí</span>
+        <p>Cada sesión es un espacio para escuchar al cuerpo antes que a la urgencia.</p>
+        <p>Formada como kinesióloga, encontré en la terapia sintergética una forma de mirar la salud desde lo emocional y lo energético, sin dejar de lado lo físico. Trabajo integrando ambas miradas para acompañar procesos de bienestar reales, a tu ritmo.</p>
+        <p>Nalagus nació como una extensión de ese trabajo: aromas, velas y objetos con intención que sostienen los rituales que enseño en terapia, para que también puedan vivir en tu casa.</p>
+        <p class="signature-line">— Pía, Nalagus</p>
+      </div>
+    </div>
+  </section>
+
+  <svg class="drip to-deep" viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,22 C1100,4 1000,38 900,24 C800,10 700,40 600,22 C500,6 400,36 300,20 C200,4 100,34 0,18 Z"></path></svg>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Terapias integrales</span>
+        <h2>Sesiones con reserva previa</h2>
+        <p>Todas las terapias se agendan con anticipación por WhatsApp para poder preparar un espacio pensado para ti.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <svg class="service-icon" width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="15" stroke="#E3A857" stroke-width="1.4"/><path d="M17 8v9l6 4" stroke="#E3A857" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h3>Kinesiología</h3>
+          <p>Evaluación y tratamiento del cuerpo desde el movimiento, buscando el origen físico del malestar.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 4 C22 12 30 14 30 17 C30 20 22 22 17 30 C12 22 4 20 4 17 C4 14 12 12 17 4Z" stroke="#E3A857" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <h3>Terapia sintergética</h3>
+          <p>Un abordaje energético y emocional que trabaja en conjunto con el cuerpo para liberar bloqueos.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 5v24M6 17h22" stroke="#E3A857" stroke-width="1.4" stroke-linecap="round"/><circle cx="17" cy="17" r="12" stroke="#E3A857" stroke-width="1.2"/></svg>
+          <h3>Sesión integral</h3>
+          <p>Kinesiología y sintergética combinadas en una misma sesión, para un acompañamiento más completo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary" href="https://wa.me/56982767454?text=Hola%20Pía%2C%20quiero%20más%20información%20sobre%20las%20terapias" target="_blank" rel="noopener">Consultar disponibilidad</a>
+    </div>
+  </section>
+
+  <svg class="drip to-panel" viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,20 C1100,40 1000,10 900,26 C800,42 700,8 600,24 C500,40 400,6 300,22 C200,38 100,10 0,20 Z"></path></svg>
+
+  <!-- TIENDA -->
+  <section id="tienda" class="panel-bg section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Papelería, velas y objetos rituales</span>
+        <h2>Para sostener el ritual en casa</h2>
+        <p>Cada producto está pensado para acompañar procesos de bienestar emocional entre sesión y sesión.</p>
+      </div>
+      <div class="shop-grid reveal">
+        <div class="shop-card">
+          <span class="tag">Protección</span>
+          <h3>Guardianas</h3>
+          <p>Velas ritual pensadas como acompañantes simbólicas de protección e intención personal.</p>
+          <a href="https://wa.me/56982767454?text=Hola%2C%20quiero%20consultar%20por%20las%20Guardianas" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+        </div>
+        <div class="shop-card">
+          <span class="tag">Aroma</span>
+          <h3>Velas</h3>
+          <p>Aromas trabajados para acompañar calma, foco o cierre, según el momento que estés viviendo.</p>
+          <a href="https://wa.me/56982767454?text=Hola%2C%20quiero%20consultar%20por%20las%20velas" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+        </div>
+        <div class="shop-card">
+          <span class="tag">Intención</span>
+          <h3>Papelería</h3>
+          <p>Objetos de papelería con intención, para escribir, agendar o ritualizar lo cotidiano.</p>
+          <a href="https://wa.me/56982767454?text=Hola%2C%20quiero%20consultar%20por%20la%20papelería" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="drip to-deep" viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,22 C1100,4 1000,38 900,24 C800,10 700,40 600,22 C500,6 400,36 300,20 C200,4 100,34 0,18 Z"></path></svg>
+
+  <!-- COMO RESERVAR -->
+  <section id="reservar" class="section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Cómo reservar</span>
+        <h2>Agendar tu hora toma tres pasos</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Escríbenos por WhatsApp</h3>
+          <p>Cuéntanos si buscas kinesiología, sintergética o una sesión integral.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Coordinamos tu hora</h3>
+          <p>Te proponemos disponibilidad según el tipo de sesión que necesites.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Vives el ritual</h3>
+          <p>Llegas a tu sesión y te acompañamos en un espacio preparado para ti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section-pad">
+    <div class="wrap">
+      <div class="contact-panel reveal">
+        <div>
+          <span class="eyebrow" style="color:var(--accent-amber-soft);">Reserva tu hora</span>
+          <h2>Escríbenos y comienza tu ritual</h2>
+          <p>Respondemos por WhatsApp para coordinar tu sesión o resolver dudas sobre los productos.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/56982767454?text=Hola%20Pía%2C%20quiero%20agendar%20una%20sesión" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/nalagus_/" target="_blank" rel="noopener" style="border-color:rgba(243,236,224,0.35);">Seguir @nalagus_</a>
+          <span class="whatsapp-num">+56 9 8276 7454</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="darker-bg">
+  <div class="wrap footer-grid">
+    <a href="#top" class="logo" style="font-size:1.2rem;">nala<span>g</span>us</a>
+    <div class="footer-links">
+      <a href="https://wa.me/56982767454" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/nalagus_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#servicios">Terapias</a>
+      <a href="#tienda">Tienda</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:22px;">
+    <p class="footer-note">© <span id="year"></span> Nalagus — Pía. Bienestar emocional a través de aromas y pequeños rituales.</p>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/56982767454?text=Hola%20Pía%2C%20quiero%20más%20información" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Z" fill="#160D18" opacity="0.001"/><path d="M17.4 14.4c-.28-.14-1.64-.8-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.63-1.54-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47-.16-.01-.34-.01-.53-.01s-.48.07-.74.34c-.25.28-.96.94-.96 2.28s.98 2.65 1.12 2.83c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.64-.67 1.87-1.31.23-.65.23-1.2.16-1.31-.07-.11-.25-.18-.53-.32Z" fill="#160D18"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
