@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Despensa de Nathalia · Postres caseros con encanto</title>
+<meta name="description" content="Postres caseros hechos con amor: tortas, cupcakes, galletas y más. Pide el tuyo por Instagram o WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#FCEEF2;
+    --blush-deep:#F6D9E2;
+    --berry:#6E2A49;
+    --berry-deep:#4F1C34;
+    --butter:#F3C459;
+    --choco:#3B2417;
+    --pink:#EE9BB8;
+    --cream-card:#FFFBF7;
+    --shadow: 0 18px 40px -20px rgba(78, 28, 50, 0.35);
+    --radius: 22px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--blush);
+    color:var(--choco);
+    font-family:'Nunito', sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--berry-deep);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  section{position:relative;}
+
+  /* ---------- scalloped divider (piped-frosting edge) ---------- */
+  .scallop{
+    height:26px;
+    width:100%;
+    background-image: radial-gradient(circle at 12px 0px, transparent 13px, var(--edge-color, var(--blush)) 13.5px);
+    background-size: 26px 26px;
+    background-repeat: repeat-x;
+    background-position: top;
+  }
+  .scallop.flip{ transform: rotate(180deg); }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(252,238,242,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(110,42,73,0.08);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.25rem; color:var(--berry-deep);
+    text-decoration:none;
+  }
+  .logo svg{width:34px;height:34px;flex-shrink:0;}
+  .navlinks{display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none; font-weight:700; font-size:0.92rem; color:var(--berry-deep);
+    position:relative; padding:4px 0;
+  }
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--pink);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:999px; font-weight:800; font-size:0.92rem;
+    text-decoration:none; border:2px solid transparent; cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--berry-deep); color:#fff; box-shadow:var(--shadow);}
+  .btn-primary:hover{box-shadow:0 20px 34px -16px rgba(78,28,50,.55);}
+  .btn-secondary{background:#fff; color:var(--berry-deep); border-color:var(--berry-deep);}
+  .btn-ghost{background:transparent;color:var(--berry-deep);border-color:rgba(110,42,73,.25);}
+  .navcta{display:flex; gap:10px;}
+  .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .mobile-toggle svg{width:26px;height:26px;color:var(--berry-deep);}
+
+  @media (max-width:820px){
+    .navlinks{display:none;}
+    .navcta .btn-secondary{display:none;}
+    .mobile-toggle{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:64px 0 40px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blush-deep); color:var(--berry-deep);
+    font-weight:800; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+    padding:8px 16px; border-radius:999px; margin-bottom:20px;
+  }
+  .hero h1{font-size:clamp(2.3rem, 4.6vw, 3.6rem); line-height:1.06;}
+  .hero h1 em{font-style:normal; color:var(--pink); position:relative; white-space:nowrap;}
+  .hero p.lead{
+    font-size:1.15rem; line-height:1.6; color:var(--choco); opacity:.85;
+    margin:22px 0 30px; max-width:46ch;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .trust-row{
+    display:flex; gap:22px; margin-top:34px; flex-wrap:wrap;
+    font-size:.85rem; font-weight:700; color:var(--berry-deep); opacity:.75;
+  }
+  .trust-row span{display:flex; align-items:center; gap:6px;}
+
+  .hero-visual{position:relative; height:420px;}
+  .hero-card{
+    position:absolute; background:var(--cream-card); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:18px;
+  }
+  .hero-card.main{
+    width:78%; height:80%; left:11%; top:6%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    border:2px dashed rgba(110,42,73,.28); text-align:center; gap:10px; z-index:2;
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero-card.main span.tag{
+    font-size:.78rem; font-weight:800; color:var(--berry); background:var(--blush-deep);
+    padding:6px 12px; border-radius:999px;
+  }
+  .hero-card.main p{font-size:.85rem; color:var(--choco); opacity:.65; max-width:24ch;}
+  .hero-card.small{width:38%; padding:10px; z-index:3;}
+  .hero-card.small.a{top:-4%; right:2%; transform:rotate(6deg); animation: float 5s ease-in-out infinite .4s;}
+  .hero-card.small.b{bottom:-2%; left:0%; transform:rotate(-7deg); animation: float 7s ease-in-out infinite .8s;}
+  .hero-card.small svg{width:100%; height:64px;}
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(var(--r,0deg));}
+    50%{transform:translateY(-10px) rotate(var(--r,0deg));}
+  }
+  .hero-card.small.a{--r:6deg;}
+  .hero-card.small.b{--r:-7deg;}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; padding-top:36px;}
+    .hero-visual{height:320px; order:-1;}
+  }
+
+  /* ---------- section headings ---------- */
+  .section-head{max-width:640px; margin:0 auto 44px; text-align:center;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem);}
+  .section-head p{font-size:1.05rem; opacity:.75; margin-top:14px; line-height:1.6;}
+
+  /* ---------- productos ---------- */
+  .productos{background:var(--cream-card); padding:70px 0 80px;}
+  .grid-productos{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+  }
+  @media (max-width:900px){.grid-productos{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.grid-productos{grid-template-columns:1fr;}}
+  .card-producto{
+    background:var(--blush); border-radius:var(--radius); padding:28px 24px;
+    text-align:left; transition:transform .25s ease, box-shadow .25s ease;
+    border:1px solid rgba(110,42,73,.08);
+  }
+  .card-producto:hover{transform:translateY(-6px) rotate(-0.6deg); box-shadow:var(--shadow);}
+  .card-producto .icon-wrap{
+    width:58px; height:58px; border-radius:16px; background:#fff;
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+    box-shadow:0 8px 18px -10px rgba(110,42,73,.3);
+  }
+  .card-producto .icon-wrap svg{width:32px;height:32px;color:var(--berry);}
+  .card-producto h3{font-size:1.2rem; margin-bottom:8px; color:var(--berry-deep);}
+  .card-producto p{font-size:.92rem; line-height:1.55; opacity:.75; margin:0 0 14px;}
+  .card-producto a{font-size:.85rem; font-weight:800; color:var(--pink); text-decoration:none;}
+  .card-producto a:hover{text-decoration:underline;}
+
+  /* ---------- como pedir ---------- */
+  .pasos{padding:80px 0;}
+  .pasos-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; counter-reset:paso;
+  }
+  @media (max-width:900px){.pasos-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.pasos-grid{grid-template-columns:1fr;}}
+  .paso{position:relative; padding-top:8px;}
+  .paso .num{
+    font-family:'Fraunces',serif; font-size:2.6rem; font-weight:700; color:var(--pink);
+    line-height:1; margin-bottom:12px; display:block;
+  }
+  .paso h3{font-size:1.05rem; margin-bottom:8px;}
+  .paso p{font-size:.9rem; opacity:.72; line-height:1.55; margin:0;}
+
+  /* ---------- comunidad / instagram ---------- */
+  .comunidad{
+    background:var(--berry-deep); color:#fff; padding:80px 0 90px; text-align:center;
+  }
+  .comunidad .eyebrow{background:rgba(255,255,255,.14); color:#fff;}
+  .comunidad h2{color:#fff;}
+  .comunidad p.lead{color:rgba(255,255,255,.8); max-width:52ch; margin:16px auto 34px; line-height:1.6;}
+  .insta-grid{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:12px; max-width:760px; margin:0 auto 36px;
+  }
+  @media (max-width:700px){.insta-grid{grid-template-columns:repeat(3,1fr);}}
+  .insta-tile{
+    aspect-ratio:1/1; border-radius:14px; background:rgba(255,255,255,.08);
+    display:flex; align-items:center; justify-content:center;
+    border:1px dashed rgba(255,255,255,.35); transition:background .2s ease;
+  }
+  .insta-tile:hover{background:rgba(255,255,255,.16);}
+  .insta-tile svg{width:26px;height:26px; opacity:.7;}
+
+  /* ---------- CTA final ---------- */
+  .cta-final{padding:80px 0; text-align:center;}
+  .cta-final h2{font-size:clamp(2rem,4vw,2.8rem); max-width:16ch; margin:0 auto 16px;}
+  .cta-final p{opacity:.75; max-width:44ch; margin:0 auto 30px; line-height:1.6;}
+  .cta-final .hero-ctas{justify-content:center;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--choco); color:rgba(255,247,240,.85); padding:50px 0 28px;}
+  .footer-grid{display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; margin-bottom:34px;}
+  .footer-brand .logo{color:#fff;}
+  .footer-brand p{opacity:.65; max-width:32ch; margin-top:10px; font-size:.9rem; line-height:1.6;}
+  .footer-col h4{font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; color:var(--butter); margin-bottom:14px;}
+  .footer-col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{text-decoration:none; font-size:.92rem; opacity:.8;}
+  .footer-col a:hover{opacity:1; text-decoration:underline;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12); padding-top:20px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:.8rem; opacity:.55;
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero-card.main, .hero-card.small{animation:none;}
+    .reveal{transition:none; opacity:1; transform:none;}
+  }
+
+  /* customize notice */
+  .customize-note{
+    background:var(--butter); color:var(--choco); text-align:center; font-size:.82rem;
+    font-weight:700; padding:8px 14px;
+  }
+  .customize-note code{background:rgba(0,0,0,.08); padding:1px 6px; border-radius:6px;}
+</style>
+</head>
+<body>
+
+<div class="customize-note">
+  ✏️ Nota para Nathalia: reemplaza el número de WhatsApp de ejemplo y las fotos marcadas antes de publicar el sitio.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="#inicio" class="logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 6c-3 4-3 7 0 10 3-3 3-6 0-10Z" fill="#EE9BB8"/>
+        <path d="M10 20c0-6 6-10 14-10s14 4 14 10c0 2-1 3-2 4H12c-1-1-2-2-2-4Z" fill="#6E2A49"/>
+        <path d="M9 24h30l-3 16a4 4 0 0 1-4 3.4H16a4 4 0 0 1-4-3.4L9 24Z" fill="#F3C459"/>
+        <circle cx="17" cy="30" r="1.6" fill="#6E2A49"/>
+        <circle cx="24" cy="33" r="1.6" fill="#6E2A49"/>
+        <circle cx="31" cy="30" r="1.6" fill="#6E2A49"/>
+      </svg>
+      La Despensa de Nathalia
+    </a>
+    <ul class="navlinks">
+      <li><a href="#postres">Postres</a></li>
+      <li><a href="#como-pedir">Cómo pedir</a></li>
+      <li><a href="#comunidad">Comunidad</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="navcta">
+      <a href="#contacto" class="btn btn-secondary">Contacto</a>
+      <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener" class="btn btn-primary">Pedir ahora</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Abrir menú" onclick="document.getElementById('mobilemenu').classList.toggle('open')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
+  <div id="mobilemenu" style="display:none; flex-direction:column; gap:2px; padding:0 24px 18px;">
+    <a href="#postres" style="padding:10px 0; font-weight:700; color:var(--berry-deep); text-decoration:none;">Postres</a>
+    <a href="#como-pedir" style="padding:10px 0; font-weight:700; color:var(--berry-deep); text-decoration:none;">Cómo pedir</a>
+    <a href="#comunidad" style="padding:10px 0; font-weight:700; color:var(--berry-deep); text-decoration:none;">Comunidad</a>
+    <a href="#contacto" style="padding:10px 0; font-weight:700; color:var(--berry-deep); text-decoration:none;">Contacto</a>
+  </div>
+</header>
+<script>
+  const mm = document.getElementById('mobilemenu');
+  const toggle = document.querySelector('.mobile-toggle');
+  toggle.addEventListener('click', ()=>{ mm.style.display = mm.style.display==='none' ? 'flex' : 'none'; });
+</script>
+
+<section id="inicio" class="hero wrap">
+  <div>
+    <span class="eyebrow">🍰 Postres caseros con encanto</span>
+    <h1>Postres que te transportan a <em>un mundo mágico</em> 😍</h1>
+    <p class="lead">Fáciles, divertidos y llenos de sabor 💕 Cada postre se hace a mano, con ingredientes reales y el mismo cariño de una receta familiar. Cuéntame tu antojo y lo preparo para ti.</p>
+    <div class="hero-ctas">
+      <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+        Escríbeme por Instagram
+      </a>
+      <a href="https://wa.me/50000000000?text=Hola%20Nathalia%2C%20quiero%20pedir%20un%20postre" target="_blank" rel="noopener" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5 0-.2 0-.3 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        WhatsApp directo
+      </a>
+    </div>
+    <div class="trust-row">
+      <span>💕 Hecho a pedido</span>
+      <span>🍓 Ingredientes reales</span>
+      <span>📦 Recogida o entrega a coordinar</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card main">
+      <span class="tag">Foto real aquí</span>
+      <svg width="70" height="70" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="#F6D9E2"/><path d="M14 22c0-6 4.5-10 10-10s10 4 10 10" stroke="#6E2A49" stroke-width="2"/><path d="M12 26h24l-2.4 12.8A3 3 0 0 1 30.6 41H17.4a3 3 0 0 1-3-2.2L12 26Z" fill="#F3C459"/></svg>
+      <p>Sustituye este espacio por una foto real de tus postres — así los antojos se sienten aún más cerca.</p>
+    </div>
+    <div class="hero-card small a">
+      <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#FCEEF2"/><path d="M14 24a10 10 0 0 1 20 0" stroke="#6E2A49" stroke-width="2"/><circle cx="24" cy="26" r="3" fill="#EE9BB8"/></svg>
+    </div>
+    <div class="hero-card small b">
+      <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="18" width="28" height="16" rx="4" fill="#F3C459"/><path d="M14 18c0-6 4.5-10 10-10s10 4 10 10" stroke="#6E2A49" stroke-width="2" fill="none"/></svg>
+    </div>
+  </div>
+</section>
+
+<div class="scallop" style="--edge-color: var(--cream-card);"></div>
+
+<section id="postres" class="productos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Menú dulce</span>
+      <h2>¿Qué antojo tienes hoy?</h2>
+      <p>Estas son las categorías más pedidas. Escríbeme y armamos juntas el sabor, tamaño y diseño perfecto para tu ocasión.</p>
+    </div>
+    <div class="grid-productos">
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10a8 8 0 0 1 16 0"/><path d="M3 12h18l-2 8.5a2 2 0 0 1-2 1.5H7a2 2 0 0 1-2-1.5L3 12Z"/></svg></div>
+        <h3>Tortas personalizadas</h3>
+        <p>Para cumpleaños, aniversarios o esa ocasión que merece algo especial. Sabor, tamaño y decoración a tu gusto.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 10c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M4 10h16l-1.4 9.3A2 2 0 0 1 16.6 21H7.4a2 2 0 0 1-2-1.7L4 10Z"/><circle cx="9" cy="14" r=".8" fill="currentColor"/><circle cx="15" cy="16" r=".8" fill="currentColor"/></svg></div>
+        <h3>Cupcakes decorados</h3>
+        <p>Ideales para compartir en pequeñas cantidades o regalar. Perfectos para endulzar a quien tú quieras.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><circle cx="12" cy="14" r=".8" fill="currentColor"/><circle cx="16" cy="13" r=".8" fill="currentColor"/></svg></div>
+        <h3>Galletas artesanales</h3>
+        <p>Crujientes o suaves, clásicas o con relleno. Se preparan en tandas frescas, nunca de sobra.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v5a5 5 0 0 0 10 0V3"/><path d="M8 21h8"/><path d="M12 13v8"/></svg></div>
+        <h3>Postres en vaso</h3>
+        <p>Capas de sabor listas para disfrutar de inmediato. Perfectos para antojos rápidos o pedidos individuales.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div>
+        <h3>Brownies y bocaditos</h3>
+        <p>Chocolate intenso en formato individual. Ideales para regalar en cajitas o compartir en la oficina.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+      <div class="card-producto reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h16"/><path d="M6 18V9c0-1 1-2 2-2h8c1 0 2 1 2 2v9"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
+        <h3>Mesas dulces para eventos</h3>
+        <p>Una selección variada de postres para bodas, baby showers o fiestas. Cuéntame tu evento y armamos la mesa ideal.</p>
+        <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Preguntar por esta →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="como-pedir" class="pasos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sin complicaciones</span>
+      <h2>Cómo pedir tu postre</h2>
+      <p>Cuatro pasos y tu antojo está en camino.</p>
+    </div>
+    <div class="pasos-grid">
+      <div class="paso reveal">
+        <span class="num">1</span>
+        <h3>Escríbeme</h3>
+        <p>Cuéntame qué antojo tienes por Instagram o WhatsApp.</p>
+      </div>
+      <div class="paso reveal">
+        <span class="num">2</span>
+        <h3>Elegimos juntas</h3>
+        <p>Sabor, tamaño, decoración y fecha ideal para ti.</p>
+      </div>
+      <div class="paso reveal">
+        <span class="num">3</span>
+        <h3>Confirmamos</h3>
+        <p>Coordinamos el pago y el punto de entrega o recogida.</p>
+      </div>
+      <div class="paso reveal">
+        <span class="num">4</span>
+        <h3>Endulza tu día</h3>
+        <p>Recibes tu postre fresco, recién hecho con cariño.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comunidad" class="comunidad">
+  <div class="wrap">
+    <span class="eyebrow reveal">Etiqueta a quien quieras endulzar 💕</span>
+    <h2 class="reveal">Así vive la comunidad de La Despensa</h2>
+    <p class="lead reveal">En Instagram comparto cada postre nuevo, antojos del momento y los pedidos de quienes ya endulzaron su día. Sígueme para no perderte nada.</p>
+    <div class="insta-grid reveal">
+      <div class="insta-tile"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M20.8 4.6c-1.7-3-5.7-3-7.5-.3L12 5.8l-1.3-1.5C9 1.6 5 1.6 3.3 4.6c-1.4 2.5-.7 5.7 1.6 8L12 20l7-7.4c2.4-2.3 3.1-5.5 1.8-8Z"/></svg></div>
+      <div class="insta-tile"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.6"/></svg></div>
+      <div class="insta-tile"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M4 10a8 8 0 0 1 16 0"/><path d="M3 12h18l-2 8.5a2 2 0 0 1-2 1.5H7a2 2 0 0 1-2-1.5L3 12Z"/></svg></div>
+      <div class="insta-tile"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div>
+      <div class="insta-tile"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r=".8" fill="white"/><circle cx="14" cy="9" r=".8" fill="white"/><circle cx="12" cy="14" r=".8" fill="white"/></svg></div>
+    </div>
+    <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener" class="btn btn-secondary reveal" style="background:#fff;">
+      Ver @ladespensadenathalia en Instagram →
+    </a>
+  </div>
+</section>
+
+<div class="scallop flip" style="--edge-color: var(--blush);"></div>
+
+<section id="contacto" class="cta-final">
+  <div class="wrap">
+    <h2 class="reveal">¿Antojo de algo dulce hoy? 😍</h2>
+    <p class="reveal">Escríbeme y en minutos armamos tu pedido. Respondo por Instagram y WhatsApp todos los días.</p>
+    <div class="hero-ctas reveal">
+      <a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener" class="btn btn-primary">Escribir por Instagram</a>
+      <a href="https://wa.me/50000000000?text=Hola%20Nathalia%2C%20quiero%20pedir%20un%20postre" target="_blank" rel="noopener" class="btn btn-secondary">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+            <path d="M24 6c-3 4-3 7 0 10 3-3 3-6 0-10Z" fill="#EE9BB8"/>
+            <path d="M10 20c0-6 6-10 14-10s14 4 14 10c0 2-1 3-2 4H12c-1-1-2-2-2-4Z" fill="#fff"/>
+            <path d="M9 24h30l-3 16a4 4 0 0 1-4 3.4H16a4 4 0 0 1-4-3.4L9 24Z" fill="#F3C459"/>
+          </svg>
+          La Despensa de Nathalia
+        </a>
+        <p>Postres caseros, fáciles, divertidos y llenos de sabor. Hechos a pedido, con amor real.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#postres">Postres</a></li>
+          <li><a href="#como-pedir">Cómo pedir</a></li>
+          <li><a href="#comunidad">Comunidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/ladespensadenathalia/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/50000000000">WhatsApp (reemplazar número)</a></li>
+          <li><a href="#">Ciudad · agrega tu ubicación</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 La Despensa de Nathalia · Hecho con 💕</span>
+      <span>Sitio hecho para conseguir clientes, un antojo a la vez</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  reveals.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
