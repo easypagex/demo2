@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Beauty Bar Mallorca — Estética y Bienestar en Palma</title>
+<meta name="description" content="Lashes, cejas, faciales, maquillaje y masajes en el corazón de Palma. Reserva tu cita en The Beauty Bar Mallorca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F0E6;
+    --paper:#FBF8F2;
+    --ink:#26241F;
+    --ink-soft:#4A4740;
+    --sage:#5F6B4A;
+    --sage-dark:#3E4630;
+    --sage-tint:#E4E7DA;
+    --gold:#B8935A;
+    --gold-soft:#DCC49B;
+    --wine:#7A3434;
+    --wine-dark:#5A2626;
+    --line: rgba(38,36,31,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--sage-dark);
+  }
+  em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--wine);
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1rem;
+    color:var(--wine);
+    letter-spacing:0.02em;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:26px; height:1px;
+    background:var(--wine);
+    display:inline-block;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,240,230,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.32rem;
+    font-weight:600;
+    color:var(--sage-dark);
+    letter-spacing:0.01em;
+    text-decoration:none;
+    display:flex; flex-direction:column; line-height:1;
+  }
+  .logo span{
+    font-family:'Manrope', sans-serif;
+    font-size:0.56rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--wine);
+    font-weight:700;
+    margin-top:4px;
+  }
+  .nav-links{
+    display:flex; gap:30px; align-items:center;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-size:0.88rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    letter-spacing:0.01em;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--wine);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:0.86rem;
+    text-decoration:none;
+    letter-spacing:0.01em;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-wine{
+    background:var(--wine);
+    color:var(--paper);
+    box-shadow:0 8px 20px -8px rgba(122,52,52,0.55);
+  }
+  .btn-wine:hover{background:var(--wine-dark); transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--sage-dark);
+    color:var(--sage-dark);
+  }
+  .btn-outline:hover{background:var(--sage-dark); color:var(--paper);}
+  .nav-cta{display:flex; align-items:center; gap:16px;}
+  .burger{display:none; background:none; border:none; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 40px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4.1rem);
+    line-height:1.03;
+  }
+  .hero p.lede{
+    margin-top:26px;
+    font-size:1.13rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    margin-top:34px;
+    display:flex; gap:16px; flex-wrap:wrap;
+  }
+  .hero-tags{
+    margin-top:44px;
+    display:flex; gap:28px; flex-wrap:wrap;
+  }
+  .hero-tags div{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-weight:700;
+    color:var(--sage-dark);
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-tags div::before{
+    content:'✦';
+    color:var(--gold);
+    font-size:0.9rem;
+  }
+
+  /* Arch signature element */
+  .arch-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:3/4;
+    border-radius:280px 280px 14px 14px;
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(184,147,90,0.35), transparent 60%),
+      linear-gradient(160deg, var(--sage) 0%, var(--sage-dark) 100%);
+    overflow:hidden;
+    box-shadow:0 40px 70px -30px rgba(38,36,31,0.45);
+  }
+  .arch-frame::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 26px);
+  }
+  .arch-frame .arch-inner{
+    position:absolute; inset:22px;
+    border-radius:260px 260px 6px 6px;
+    border:1px solid rgba(251,248,242,0.35);
+    display:flex; align-items:flex-end; justify-content:center;
+    padding-bottom:34px;
+  }
+  .arch-frame .arch-caption{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--paper);
+    font-size:1.05rem;
+    text-align:center;
+    padding:0 30px;
+  }
+  .arch-badge{
+    position:absolute;
+    left:-18px; bottom:36px;
+    background:var(--paper);
+    border-radius:20px;
+    padding:18px 22px;
+    box-shadow:0 20px 40px -16px rgba(38,36,31,0.35);
+    display:flex; align-items:center; gap:14px;
+    max-width:230px;
+  }
+  .arch-badge .num{
+    font-family:'Fraunces', serif;
+    font-size:1.9rem;
+    color:var(--wine);
+    line-height:1;
+  }
+  .arch-badge .txt{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    font-weight:600;
+    line-height:1.3;
+  }
+
+  /* ---------- SECTION generic ---------- */
+  section{padding:104px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 0 56px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 3.4vw, 2.7rem);
+    margin-top:16px;
+    line-height:1.12;
+  }
+  .section-head p{
+    margin-top:18px;
+    color:var(--ink-soft);
+    font-size:1.03rem;
+    line-height:1.6;
+  }
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--paper);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .service-card{
+    background:var(--cream);
+    border-radius:200px 200px 18px 18px;
+    padding:52px 30px 36px;
+    text-align:center;
+    position:relative;
+    border:1px solid var(--line);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 26px 50px -24px rgba(38,36,31,0.3);
+  }
+  .service-icon{
+    width:64px; height:64px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-icon svg{width:28px; height:28px; stroke:var(--paper); fill:none; stroke-width:1.6;}
+  .service-card h3{
+    font-size:1.28rem;
+    margin-bottom:10px;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:0.93rem;
+    line-height:1.55;
+    margin:0;
+  }
+  .service-card .tag{
+    display:inline-block;
+    margin-top:16px;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--wine);
+  }
+
+  /* ---------- WHY US ---------- */
+  .why{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:center;
+  }
+  .why-list{list-style:none; margin:34px 0 0; padding:0; display:flex; flex-direction:column; gap:26px;}
+  .why-list li{
+    display:flex; gap:20px; align-items:flex-start;
+  }
+  .why-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--gold);
+    min-width:44px;
+  }
+  .why-list h4{
+    font-family:'Fraunces', serif;
+    font-size:1.12rem;
+    font-weight:600;
+    color:var(--sage-dark);
+    margin:0 0 6px;
+  }
+  .why-list p{margin:0; color:var(--ink-soft); font-size:0.95rem; line-height:1.55;}
+  .why-visual{
+    background:var(--sage-dark);
+    border-radius:20px;
+    padding:44px;
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .why-visual::before{
+    content:'';
+    position:absolute; right:-60px; top:-60px;
+    width:220px; height:220px;
+    border-radius:50%;
+    background:rgba(184,147,90,0.25);
+  }
+  .why-quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    position:relative;
+    z-index:1;
+  }
+  .why-quote-by{
+    margin-top:22px;
+    font-family:'Manrope';
+    font-style:normal;
+    font-size:0.85rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    position:relative; z-index:1;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--sage-tint);}
+  .t-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .t-card{
+    background:var(--paper);
+    border-radius:18px;
+    padding:32px 28px;
+    border:1px solid var(--line);
+  }
+  .t-stars{color:var(--gold); font-size:0.95rem; letter-spacing:2px; margin-bottom:14px;}
+  .t-card p{
+    font-size:0.96rem;
+    line-height:1.6;
+    color:var(--ink);
+    margin:0 0 18px;
+  }
+  .t-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--sage-dark);
+    font-size:0.95rem;
+  }
+  .t-source{font-size:0.78rem; color:var(--ink-soft);}
+
+  /* ---------- FORMACION ---------- */
+  .formacion{
+    background:var(--wine);
+    color:var(--paper);
+    border-radius:28px;
+    margin:0 28px;
+    padding:70px 60px;
+    max-width:1124px;
+    margin-left:auto; margin-right:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+  }
+  .formacion .eyebrow{color:var(--gold-soft);}
+  .formacion .eyebrow::before{background:var(--gold-soft);}
+  .formacion h2{color:var(--paper); font-size:2.1rem; margin-top:14px;}
+  .formacion p{color:rgba(251,248,242,0.85); margin-top:16px; line-height:1.6;}
+  .formacion-list{list-style:none; padding:0; margin:26px 0 0; display:flex; flex-direction:column; gap:14px;}
+  .formacion-list li{display:flex; gap:12px; font-size:0.95rem;}
+  .formacion-list li::before{content:'✦'; color:var(--gold-soft);}
+  .formacion .btn-outline{border-color:var(--paper); color:var(--paper); margin-top:30px;}
+  .formacion .btn-outline:hover{background:var(--paper); color:var(--wine);}
+
+  /* ---------- LOCATION / CONTACT ---------- */
+  .location{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .info-row{
+    display:flex; gap:18px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .info-row:first-child{padding-top:0;}
+  .info-icon{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--sage-tint);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .info-icon svg{width:20px; height:20px; stroke:var(--sage-dark); fill:none; stroke-width:1.6;}
+  .info-row h4{font-family:'Fraunces', serif; font-weight:600; margin:0 0 4px; color:var(--sage-dark);}
+  .info-row p, .info-row a{margin:0; color:var(--ink-soft); font-size:0.95rem; text-decoration:none;}
+  .info-row a:hover{color:var(--wine);}
+  .map-card{
+    background:var(--sage-dark);
+    border-radius:22px;
+    padding:46px 40px;
+    color:var(--paper);
+    height:100%;
+    display:flex; flex-direction:column; justify-content:space-between;
+    min-height:420px;
+    position:relative;
+    overflow:hidden;
+  }
+  .map-card::after{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(184,147,90,0.25), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(184,147,90,0.18), transparent 40%);
+  }
+  .map-card > *{position:relative; z-index:1;}
+  .map-pin{
+    width:56px; height:56px; border-radius:50%;
+    background:var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:26px;
+  }
+  .map-pin svg{width:26px; height:26px; stroke:var(--sage-dark); fill:none; stroke-width:1.7;}
+  .map-card h3{color:var(--paper); font-size:1.5rem;}
+  .map-card address{
+    font-style:normal; margin-top:14px; line-height:1.6; color:rgba(251,248,242,0.85);
+  }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding-top:60px;
+  }
+  .final-cta h2{font-size:clamp(2.1rem,4vw,3.1rem); max-width:16ch; margin:18px auto 0;}
+  .final-cta p{max-width:52ch; margin:20px auto 0; color:var(--ink-soft); font-size:1.05rem; line-height:1.6;}
+  .final-cta .hero-ctas{justify-content:center; margin-top:36px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--cream);
+    padding:60px 0 30px;
+  }
+  .foot-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(245,240,230,0.15);
+  }
+  .foot-logo{font-family:'Fraunces', serif; font-size:1.4rem; color:var(--cream);}
+  .foot-links{display:flex; gap:40px; flex-wrap:wrap;}
+  .foot-col h5{
+    text-transform:uppercase; letter-spacing:0.1em; font-size:0.75rem;
+    color:var(--gold-soft); margin:0 0 14px;
+  }
+  .foot-col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .foot-col a{color:rgba(245,240,230,0.8); text-decoration:none; font-size:0.9rem;}
+  .foot-col a:hover{color:var(--gold-soft);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    padding-top:26px; font-size:0.8rem; color:rgba(245,240,230,0.55);
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .float-cta{
+    position:fixed; right:24px; bottom:24px; z-index:60;
+    background:var(--wine); color:var(--paper);
+    border-radius:100px; padding:15px 22px;
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none; font-weight:700; font-size:0.86rem;
+    box-shadow:0 16px 34px -12px rgba(122,52,52,0.6);
+    transition:transform .2s ease;
+  }
+  .float-cta:hover{transform:translateY(-3px);}
+  .float-cta svg{width:18px; height:18px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .hero-grid, .why, .location{grid-template-columns:1fr;}
+    .why-visual{order:-1;}
+    .service-grid, .t-grid{grid-template-columns:repeat(2,1fr);}
+    .formacion{grid-template-columns:1fr; padding:48px 32px;}
+  }
+  @media (max-width:680px){
+    .nav-links{display:none;}
+    .service-grid, .t-grid{grid-template-columns:1fr;}
+    section{padding:72px 0;}
+    .arch-badge{left:8px;}
+    .formacion{margin:0 16px; padding:40px 26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">The Beauty Bar <span>Mallorca · Palma</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotras">Por qué elegirnos</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-wine" href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">Reservar cita</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Estética &amp; bienestar en Palma</span>
+        <h1>Tu piel, tu mirada<br>y tu calma, <em>en un mismo lugar.</em></h1>
+        <p class="lede">En Carrer de Pere Oliver Domenge 24 cuidamos cada detalle: lashes, cejas, faciales, maquillaje y masajes pensados para que salgas de aquí sintiéndote exactamente como querías verte.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-wine" href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">Reservar cita online</a>
+          <a class="btn btn-outline" href="https://www.instagram.com/thebeautybarmallorca/" target="_blank" rel="noopener">Ver Instagram</a>
+        </div>
+        <div class="hero-tags">
+          <div>Lashes &amp; cejas</div>
+          <div>Faciales</div>
+          <div>Makeup</div>
+          <div>Masajes</div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="arch-frame">
+          <div class="arch-inner">
+            <div class="arch-caption">"Ya sabes que aquí tienes tu casa"</div>
+          </div>
+        </div>
+        <div class="arch-badge">
+          <div class="num">5★</div>
+          <div class="txt">Valoradas por clientas fieles en Palma</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Nuestros servicios</span>
+        <h2>Todo lo que necesitas para brillar, en una sola cita</h2>
+        <p>Cada tratamiento se adapta a ti: a tu piel, a tu mirada y al resultado natural que buscas.</p>
+      </div>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Lashes</h3>
+          <p>Lifting y extensiones de pestañas para una mirada intensa sin necesidad de máscara cada día.</p>
+          <span class="tag">Reserva en 2 min</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 15c2-6 6-9 8-9s6 3 8 9"/></svg></div>
+          <h3>Cejas</h3>
+          <p>Diseño, laminado y depilación con cera o hilo para unas cejas con la forma perfecta para tu rostro.</p>
+          <span class="tag">Resultado natural</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 13c1 1.5 2.4 2.2 4 2.2s3-.7 4-2.2"/><circle cx="9" cy="10" r="0.6"/><circle cx="15" cy="10" r="0.6"/></svg></div>
+          <h3>Faciales</h3>
+          <p>Tratamientos personalizados según las necesidades de tu piel, para una piel más luminosa y cuidada.</p>
+          <span class="tag">A medida</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/></svg></div>
+          <h3>Makeup</h3>
+          <p>Maquillaje profesional para eventos, sesiones de fotos o esa ocasión en la que quieres ir perfecta.</p>
+          <span class="tag">Eventos y bodas</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 12c0-4 3-8 8-8M20 12c0 4-3 8-8 8"/></svg></div>
+          <h3>Masajes</h3>
+          <p>Un espacio para desconectar de verdad: masajes relajantes y descontracturantes en un ambiente acogedor.</p>
+          <span class="tag">Desconexión total</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M7 10.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-5.5"/></svg></div>
+          <h3>Formación</h3>
+          <p>Talleres y cursos de estética para quienes quieren aprender y llevarse la técnica a casa.</p>
+          <span class="tag">Grupos reducidos</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section id="nosotras">
+    <div class="wrap why">
+      <div>
+        <span class="eyebrow">Por qué elegirnos</span>
+        <h2>No es solo un tratamiento, es tu momento</h2>
+        <ul class="why-list">
+          <li>
+            <span class="why-num">01</span>
+            <div>
+              <h4>Trato cercano y profesional</h4>
+              <p>Te explicamos cada paso del tratamiento para que te sientas cómoda y segura en todo momento.</p>
+            </div>
+          </li>
+          <li>
+            <span class="why-num">02</span>
+            <div>
+              <h4>Resultados naturales</h4>
+              <p>Buscamos siempre realzar tu belleza, no cambiarla: miradas, pieles y looks que se ven como tú, mejorada.</p>
+            </div>
+          </li>
+          <li>
+            <span class="why-num">03</span>
+            <div>
+              <h4>Un espacio pensado para ti</h4>
+              <p>Centro acogedor, limpio y ordenado en pleno Palma, fácil de reservar y de encontrar.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-visual">
+        <p class="why-quote">"El sitio es súper bonito, acogedor, limpio y muy ordenado. Servicio de 10, con un trato cercano y profesional."</p>
+        <p class="why-quote-by">— Clienta en Booksy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section class="testimonials" id="opiniones">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Opiniones reales</span>
+        <h2>Lo que dicen quienes ya nos han visitado</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p>Me hicieron lifting de pestañas y depilación de cejas con cera y me encantó el resultado y todo el proceso. Sin duda mi lugar favorito en Mallorca.</p>
+          <div class="t-name">Florencia</div>
+          <div class="t-source">Reseña en Booksy</div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p>Llegué con las uñas y las pestañas descuidadas y no pensaba que fuera posible un cambio así. El equipo se lo tomó como un reto y el resultado fue increíble.</p>
+          <div class="t-name">Alicia</div>
+          <div class="t-source">Reseña en Booksy</div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p>Estoy encantada, los labios me quedaron hidratados y con mucha más forma. Soy muy sensible al dolor y no sentí ninguna molestia durante el tratamiento.</p>
+          <div class="t-name">Carolina</div>
+          <div class="t-source">Reseña en Booksy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section id="formacion">
+    <div class="formacion wrap">
+      <div>
+        <span class="eyebrow">Formación &amp; talleres</span>
+        <h2>Aprende el oficio con quienes lo viven cada día</h2>
+        <p>Organizamos formaciones, talleres y eventos para profesionales y curiosas de la estética que quieren dar el salto o perfeccionar su técnica.</p>
+        <ul class="formacion-list">
+          <li>Grupos reducidos y práctica real</li>
+          <li>Técnicas actuales en lashes, cejas y faciales</li>
+          <li>Certificado de asistencia</li>
+        </ul>
+        <a class="btn btn-outline" href="https://www.instagram.com/thebeautybarmallorca/" target="_blank" rel="noopener">Consultar próximas fechas</a>
+      </div>
+      <div>
+        <div class="why-visual" style="background:rgba(251,248,242,0.08); box-shadow:none;">
+          <p class="why-quote" style="color:var(--paper);">"Nuestro objetivo es hacer magia y ayudaros a veros aún más bellas de lo que ya sois."</p>
+          <p class="why-quote-by" style="color:var(--gold-soft);">— Equipo The Beauty Bar Mallorca</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section id="ubicacion">
+    <div class="wrap location">
+      <div>
+        <span class="eyebrow">Visítanos</span>
+        <h2 style="margin-top:16px;">Te esperamos en el centro de Palma</h2>
+        <div style="margin-top:34px;">
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Carrer de Pere Oliver Domenge 24, local 3<br>07013 Palma de Mallorca, España</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 9h16M9 4v5"/></svg></div>
+            <div>
+              <h4>Reservas</h4>
+              <a href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">Reserva tu cita online en Booksy →</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6"/></svg></div>
+            <div>
+              <h4>Síguenos</h4>
+              <a href="https://www.instagram.com/thebeautybarmallorca/" target="_blank" rel="noopener">@thebeautybarmallorca →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-card">
+        <div>
+          <div class="map-pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+          <h3>The Beauty Bar Mallorca</h3>
+          <address>Carrer de Pere Oliver Domenge 24, local 3<br>07013 Palma de Mallorca, Islas Baleares, España</address>
+        </div>
+        <a class="btn btn-outline" style="border-color:var(--paper); color:var(--paper); align-self:flex-start;" href="https://maps.app.goo.gl/vHq8XMfnsov9QLhc9" target="_blank" rel="noopener">Cómo llegar en Google Maps →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final-cta">
+    <div class="wrap">
+      <span class="eyebrow center" style="display:flex; justify-content:center;">Reserva ya</span>
+      <h2 class="center">Tu próxima cita empieza con un clic</h2>
+      <p class="center">Elige el tratamiento, el día y la hora que mejor te vayan. Confirmamos tu reserva al instante.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wine" href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">Reservar cita online</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">The Beauty Bar Mallorca</div>
+        <p style="color:rgba(245,240,230,0.65); font-size:0.9rem; max-width:32ch; margin-top:12px;">Estética y bienestar en el corazón de Palma.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Explorar</h5>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#opiniones">Opiniones</a></li>
+            <li><a href="#formacion">Formación</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Reservar</h5>
+          <ul>
+            <li><a href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">Booksy</a></li>
+            <li><a href="https://www.instagram.com/thebeautybarmallorca/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Visítanos</h5>
+          <ul>
+            <li><a href="https://maps.app.goo.gl/vHq8XMfnsov9QLhc9" target="_blank" rel="noopener">Google Maps</a></li>
+            <li>Carrer de Pere Oliver Domenge 24, Palma</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Beauty Bar Mallorca. Todos los derechos reservados.</span>
+      <span>Palma de Mallorca, España</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-cta" href="https://booksy.com/es-es/instant-experiences/widget/139952" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 9h16M9 4v5"/></svg>
+  Reservar cita
+</a>
+
+</body>
+</html>
