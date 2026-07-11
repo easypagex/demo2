@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariser | Crochet — Piezas tejidas a mano en Madrid</title>
+<meta name="description" content="Encarga tu pieza de crochet hecha a mano o aprende a tejer con Mariser, tejedora colombiana en Madrid. Escríbeme por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5EDE1;
+    --cream-2:#EFE4D3;
+    --ink:#2E2019;
+    --ink-soft:#5A493F;
+    --rose:#C1546F;
+    --rose-dark:#8F3B50;
+    --sage:#7C8B5B;
+    --sage-dark:#57623D;
+    --gold:#D9A441;
+    --gold-dark:#A87B26;
+    --paper:#FBF7F0;
+    --line:rgba(46,32,25,0.14);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0 0 0.4em;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--rose-dark);
+    display:inline-block;
+    transform:rotate(-2deg);
+    margin-bottom:0.3em;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--rose);color:#fff;box-shadow:0 6px 0 var(--rose-dark);}
+  .btn-primary:hover{box-shadow:0 8px 0 var(--rose-dark);}
+  .btn-primary:active{transform:translateY(2px);box-shadow:0 3px 0 var(--rose-dark);}
+  .btn-outline{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--cream);}
+  .btn-sm{padding:10px 18px;font-size:0.88rem;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,237,225,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1120px;margin:0 auto;}
+  .logo{font-family:'Fraunces', serif;font-weight:600;font-size:1.3rem;text-decoration:none;color:var(--ink);}
+  .logo span{color:var(--rose);font-style:italic;}
+  .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav-links a{text-decoration:none;font-size:0.95rem;font-weight:500;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--rose-dark);}
+  .nav-cta{display:flex;align-items:center;}
+  .burger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--ink);}
+
+  @media(max-width:820px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:72px 0 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.08;
+  }
+  .hero h1 em{font-style:italic;color:var(--rose-dark);}
+  .hero p.lead{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 1.8em;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .thread-note{
+    margin-top:22px;
+    font-family:'Caveat', cursive;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--sage-dark);
+  }
+
+  .granny-cluster{position:relative;width:100%;aspect-ratio:1/1;}
+  .granny{
+    position:absolute;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(46,32,25,0.12);
+  }
+
+  /* ---------- section basics ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3.2vw,2.4rem);}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;}
+  .divider-thread{width:100%;height:40px;margin:0 auto;display:block;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-copy p{color:var(--ink-soft);font-size:1.05rem;}
+  .tag{
+    display:inline-block;
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.5rem;
+    background:var(--gold);
+    color:#4A3105;
+    padding:8px 20px 10px;
+    border-radius:6px;
+    transform:rotate(-2deg);
+    margin-top:14px;
+  }
+  .flags{display:flex;gap:10px;margin:10px 0 22px;}
+  .flag-dot{width:12px;height:12px;border-radius:50%;}
+
+  /* ---------- services ---------- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;height:6px;
+  }
+  .card.rose::before{background:var(--rose);}
+  .card.sage::before{background:var(--sage);}
+  .card h3{font-size:1.5rem;margin-bottom:0.3em;}
+  .card p{color:var(--ink-soft);}
+  .card ul{padding-left:20px;color:var(--ink-soft);margin:16px 0 24px;}
+  .card ul li{margin-bottom:6px;}
+
+  /* ---------- process ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    counter-reset:step;
+  }
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr;}}
+  .step{position:relative;padding-top:52px;}
+  .step .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.4rem;
+    color:var(--rose);
+    position:absolute;top:0;left:0;
+    opacity:0.85;
+  }
+  .step h3{font-size:1.08rem;margin-bottom:0.35em;}
+  .step p{color:var(--ink-soft);font-size:0.95rem;}
+
+  /* ---------- instagram teaser ---------- */
+  .insta{background:var(--ink);color:var(--cream);}
+  .insta .section-head h2{color:var(--cream);}
+  .insta .section-head p{color:#D9C9BA;}
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:14px;
+    max-width:760px;
+    margin:0 auto 36px;
+  }
+  @media(max-width:640px){.swatch-grid{grid-template-columns:repeat(3,1fr);}}
+  .swatch{aspect-ratio:1/1;border-radius:12px;}
+  .insta-cta{text-align:center;}
+  .insta-cta .btn-outline{border-color:var(--cream);color:var(--cream);}
+  .insta-cta .btn-outline:hover{background:var(--cream);color:var(--ink);}
+
+  /* ---------- final cta ---------- */
+  .final{
+    background:var(--rose);
+    color:#fff;
+    text-align:center;
+    border-radius:28px;
+    margin:0 24px;
+    padding:64px 24px;
+  }
+  .final-inner{max-width:640px;margin:0 auto;}
+  .final h2{color:#fff;font-size:clamp(1.9rem,4vw,2.6rem);}
+  .final p{color:#F6DDE4;font-size:1.08rem;margin-bottom:2em;}
+  .final .btn-primary{background:#fff;color:var(--rose-dark);box-shadow:0 6px 0 rgba(0,0,0,0.18);}
+  .final .btn-outline{border-color:#fff;color:#fff;}
+  .final .btn-outline:hover{background:#fff;color:var(--rose-dark);}
+  .final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- footer ---------- */
+  footer{padding:48px 24px 32px;text-align:center;color:var(--ink-soft);font-size:0.9rem;}
+  footer .flinks{display:flex;justify-content:center;gap:22px;margin-bottom:14px;flex-wrap:wrap;}
+  footer a{text-decoration:none;font-weight:500;}
+  footer a:hover{color:var(--rose-dark);}
+
+  /* ---------- whatsapp float ---------- */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    background:#25D366;color:#fff;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    text-decoration:none;
+  }
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">Mariser <span>| Crochet</span></a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener">Escríbeme</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🇨🇴 Colombiana tejiendo en Madrid 🇪🇸</span>
+        <h1>Tejer es mi <em>lugar seguro</em>.<br>Deja que teja algo tuyo.</h1>
+        <p class="lead">Piezas de crochet hechas a mano, con paciencia y cariño, punto a punto. Encarga tu pieza a medida o aprende a tejer conmigo desde cero.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener">Encargar mi pieza por WhatsApp</a>
+          <a class="btn btn-outline" href="https://marisercrochetes.taplink.bio/" target="_blank" rel="noopener">Ver clases y tienda</a>
+        </div>
+        <p class="thread-note">— hecho punto por punto, en Madrid</p>
+      </div>
+      <div class="granny-cluster" id="grannyCluster" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <svg class="divider-thread" viewBox="0 0 1120 40" preserveAspectRatio="none">
+    <path d="M0 20 Q 40 0, 80 20 T 160 20 T 240 20 T 320 20 T 400 20 T 480 20 T 560 20 T 640 20 T 720 20 T 800 20 T 880 20 T 960 20 T 1040 20 T 1120 20" fill="none" stroke="#C1546F" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  </svg>
+
+  <!-- SOBRE MI -->
+  <section class="about" id="sobre-mi">
+    <div class="wrap about-grid reveal">
+      <div class="granny-cluster" id="grannySmall" aria-hidden="true"></div>
+      <div class="about-copy">
+        <h2>De Colombia a Madrid, con el hilo como brújula</h2>
+        <div class="flags">
+          <span class="flag-dot" style="background:#D9A441"></span>
+          <span class="flag-dot" style="background:#7C8B5B"></span>
+          <span class="flag-dot" style="background:#C1546F"></span>
+        </div>
+        <p>Soy Mariser. Llegué a Madrid desde Colombia y, entre tantos cambios, el crochet ha sido lo único que no se ha movido de sitio: cada punto me devuelve la calma.</p>
+        <p>Hoy tejo piezas a mano para quienes buscan algo hecho con tiempo, no en serie. Y si te pica la curiosidad, también enseño a tejer, aunque nunca hayas tocado una aguja.</p>
+        <span class="tag">Tejer es mi lugar seguro ❤️‍🩹</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Dos formas de tejer conmigo</h2>
+        <p>Elige si quieres una pieza única hecha para ti, o si prefieres aprender el oficio con tus propias manos.</p>
+      </div>
+      <div class="cards reveal">
+        <div class="card rose">
+          <h3>Piezas a medida</h3>
+          <p>Cuéntame qué tienes en mente y lo tejo para ti, con los colores y el tamaño que quieras.</p>
+          <ul>
+            <li>Bufandas, gorros y chalecos</li>
+            <li>Bolsos y carteras tejidas</li>
+            <li>Amigurumis y muñecos</li>
+            <li>Mantas y piezas para el hogar</li>
+          </ul>
+          <a class="btn btn-primary btn-sm" href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener">Pedir mi pieza</a>
+        </div>
+        <div class="card sage">
+          <h3>Clases de crochet</h3>
+          <p>Aprende punto a punto, a tu ritmo, empezando desde lo más básico hasta tu primera pieza terminada.</p>
+          <ul>
+            <li>Ideal si nunca has tejido</li>
+            <li>Técnicas y puntos explicados con calma</li>
+            <li>Acompañamiento durante todo el proceso</li>
+            <li>Cupos y horarios en el enlace</li>
+          </ul>
+          <a class="btn btn-outline btn-sm" href="https://marisercrochetes.taplink.bio/" target="_blank" rel="noopener">Ver clases disponibles</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" style="background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Cómo funciona un encargo</h2>
+        <p>Cuatro pasos, sin complicaciones, desde la idea hasta que la pieza llega a tus manos.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><span class="num">01</span><h3>Me cuentas tu idea</h3><p>Escríbeme por WhatsApp con lo que imaginas: colores, tamaño o inspiración.</p></div>
+        <div class="step"><span class="num">02</span><h3>Diseño y presupuesto</h3><p>Te propongo cómo tejerlo y cuánto cuesta, sin compromiso.</p></div>
+        <div class="step"><span class="num">03</span><h3>Tejo tu pieza</h3><p>Cada punto se teje a mano, con tiempo, cuidado y buenos materiales.</p></div>
+        <div class="step"><span class="num">04</span><h3>Entrega</h3><p>Coordinamos la entrega en Madrid o el envío hasta tu puerta.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="insta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Cada pieza empieza como una historia en Instagram</h2>
+        <p>Ahí comparto el proceso completo: el hilo, los puntos y las piezas terminadas.</p>
+      </div>
+      <div class="swatch-grid reveal" id="swatchGrid" aria-hidden="true"></div>
+      <div class="insta-cta reveal">
+        <a class="btn btn-outline" href="https://www.instagram.com/mariser.crochetess/" target="_blank" rel="noopener">Seguir @mariser.crochetess</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="final reveal">
+      <div class="final-inner">
+        <h2>¿Lista la idea? Tejámosla.</h2>
+        <p>Cuéntame qué quieres tejer y te respondo directo por WhatsApp con el diseño y el presupuesto.</p>
+        <div class="final-ctas">
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn btn-outline" href="https://marisercrochetes.taplink.bio/" target="_blank" rel="noopener">Ver todos los enlaces</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="flinks">
+    <a href="https://www.instagram.com/mariser.crochetess/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://marisercrochetes.taplink.bio/" target="_blank" rel="noopener">Todos los enlaces</a>
+  </div>
+  <p>Mariser | Crochet — piezas tejidas a mano en Madrid.</p>
+</footer>
+
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=34614556434" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.47L4 29l7.72-1.865A11.94 11.94 0 0 0 16.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm0 21.818a9.77 9.77 0 0 1-4.983-1.363l-.357-.212-4.583 1.107 1.13-4.47-.233-.366A9.77 9.77 0 0 1 6.182 15c0-5.418 4.4-9.818 9.819-9.818S25.818 9.582 25.818 15 21.42 24.818 16.001 24.818zm5.36-7.34c-.293-.147-1.735-.856-2.005-.954-.27-.098-.466-.147-.663.147-.196.293-.76.954-.932 1.15-.171.196-.343.22-.636.073-.293-.147-1.235-.455-2.352-1.451-.87-.775-1.457-1.732-1.628-2.025-.171-.293-.018-.452.129-.598.132-.132.293-.343.44-.514.147-.171.196-.293.294-.489.098-.196.049-.367-.024-.514-.073-.147-.663-1.6-.909-2.191-.24-.575-.483-.497-.663-.506l-.564-.01c-.196 0-.514.073-.783.367-.27.293-1.03 1.006-1.03 2.454s1.055 2.847 1.202 3.043c.147.196 2.077 3.17 5.033 4.446.703.303 1.252.484 1.68.62.706.224 1.348.192 1.856.117.566-.084 1.735-.71 1.98-1.394.244-.685.244-1.272.171-1.394-.073-.122-.269-.196-.563-.343z"/></svg>
+</a>
+
+<script>
+  // ---- decorative granny squares (CSS-only illustration, no external images) ----
+  var palette = ['#C1546F','#D9A441','#7C8B5B','#B7CBA0','#EED9A6','#E3A6B4'];
+  function buildCluster(id, count, sizeMin, sizeMax){
+    var el = document.getElementById(id);
+    if(!el) return;
+    for(var i=0;i<count;i++){
+      var s = document.createElement('div');
+      s.className = 'granny';
+      var size = Math.round(sizeMin + Math.random()*(sizeMax-sizeMin));
+      s.style.width = size+'px';
+      s.style.height = size+'px';
+      s.style.left = Math.round(Math.random()*70)+'%';
+      s.style.top = Math.round(Math.random()*70)+'%';
+      s.style.background = palette[i % palette.length];
+      s.style.transform = 'rotate('+(Math.random()*16-8)+'deg)';
+      s.innerHTML = '<div style="width:70%;height:70%;border:2px solid rgba(255,255,255,0.55);border-radius:8px;"></div>';
+      el.appendChild(s);
+    }
+  }
+  buildCluster('grannyCluster', 6, 90, 170);
+  buildCluster('grannySmall', 5, 70, 130);
+
+  var grid = document.getElementById('swatchGrid');
+  if(grid){
+    for(var i=0;i<12;i++){
+      var d = document.createElement('div');
+      d.className = 'swatch';
+      d.style.background = palette[i % palette.length];
+      grid.appendChild(d);
+    }
+  }
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(function(r){ io.observe(r); });
+  } else {
+    reveals.forEach(function(r){ r.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
