@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las Pacas — Pizzas de Masa Madre, Empanadas y Canastas Gourmet | La Reja</title>
+<meta name="description" content="Pizzas de masa madre, empanadas y canastas gourmet artesanales en La Reja, Buenos Aires. Delivery o take away, todos los días de 10 a 23 hs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Archivo:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oven-black:#221912;
+    --oven-black-2:#2c2016;
+    --dough-cream:#f4ead3;
+    --dough-cream-2:#eaddc0;
+    --wheat-gold:#d9a441;
+    --brick:#a6402b;
+    --brick-deep:#7f2f20;
+    --basil:#4c5b3a;
+    --kraft:#8b5e34;
+    --ember:#f2b356;
+    --shadow: 0 18px 40px -18px rgba(34,25,18,0.55);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--dough-cream);
+    color:var(--oven-black);
+    font-family:'Archivo', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* -------- texture -------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:2; opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* -------- nav -------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(244,234,211,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(34,25,18,0.1);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:800; font-size:1.3rem;
+    color:var(--oven-black);
+  }
+  .logo .dot{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--brick);
+    box-shadow:0 0 0 3px rgba(166,64,43,0.18);
+  }
+  .nav-links{display:flex; gap:26px; align-items:center;}
+  .nav-links a{font-weight:600; font-size:0.92rem; color:var(--oven-black-2); opacity:0.85;}
+  .nav-links a:hover{opacity:1; color:var(--brick);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:700; font-size:0.92rem;
+    padding:11px 20px; border-radius:999px;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .btn-primary{
+    background:var(--brick); color:var(--dough-cream);
+    box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); background:var(--brick-deep); }
+  .btn-outline{
+    background:transparent; border-color:var(--oven-black); color:var(--oven-black);
+  }
+  .btn-outline:hover{ background:var(--oven-black); color:var(--dough-cream); }
+  .btn svg{width:18px; height:18px;}
+
+  /* -------- hero -------- */
+  .hero{
+    position:relative;
+    padding:64px 28px 40px;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(217,164,65,0.25), transparent 60%),
+      var(--dough-cream);
+    overflow:hidden;
+  }
+  .hero-grid{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Caveat', cursive; font-size:1.5rem; font-weight:700;
+    color:var(--brick);
+    margin-bottom:6px;
+    transform:rotate(-2deg);
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4rem);
+    line-height:1.02;
+    color:var(--oven-black);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--brick); font-weight:600;
+  }
+  .hero-sub{
+    margin-top:18px; font-size:1.08rem; line-height:1.55;
+    color:var(--oven-black-2); max-width:46ch;
+  }
+  .hero-meta{
+    margin-top:26px; display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .chip{
+    display:flex; align-items:center; gap:8px;
+    background:rgba(34,25,18,0.05);
+    border:1px solid rgba(34,25,18,0.12);
+    padding:8px 14px; border-radius:999px;
+    font-size:0.85rem; font-weight:600; color:var(--oven-black-2);
+  }
+  .chip svg{width:16px; height:16px; color:var(--brick); flex-shrink:0;}
+  .hero-ctas{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
+
+  /* -------- oven arch (signature element) -------- */
+  .oven-stage{
+    position:relative; aspect-ratio:1/1.05; max-width:420px; margin:0 auto;
+  }
+  .oven-glow{
+    position:absolute; inset:8%;
+    border-radius:50% 50% 46% 46% / 60% 60% 40% 40%;
+    background:radial-gradient(circle at 50% 40%, var(--ember) 0%, var(--brick) 46%, var(--brick-deep) 72%, transparent 100%);
+    filter:blur(2px);
+    animation:emberPulse 3.4s ease-in-out infinite;
+  }
+  @keyframes emberPulse{
+    0%,100%{ filter:brightness(1) blur(2px); }
+    50%{ filter:brightness(1.12) blur(1px); }
+  }
+  .oven-arch{ position:relative; width:100%; height:100%; }
+  .oven-arch svg{ width:100%; height:100%; overflow:visible; }
+  .steam{
+    position:absolute; bottom:58%; left:50%;
+    width:6px; height:6px; border-radius:50%;
+    background:rgba(244,234,211,0.9);
+    filter:blur(3px);
+    opacity:0;
+    animation:rise 4.5s ease-in infinite;
+  }
+  .steam:nth-child(1){ left:38%; animation-delay:0s; }
+  .steam:nth-child(2){ left:50%; animation-delay:1.2s; }
+  .steam:nth-child(3){ left:61%; animation-delay:2.4s; }
+  .steam:nth-child(4){ left:45%; animation-delay:3.4s; }
+  @keyframes rise{
+    0%{ transform:translateY(0) scale(0.6); opacity:0; }
+    18%{ opacity:0.55; }
+    100%{ transform:translateY(-160px) scale(1.6); opacity:0; }
+  }
+  .oven-label{
+    position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+    background:var(--oven-black); color:var(--dough-cream);
+    font-family:'Caveat', cursive; font-weight:700; font-size:1.35rem;
+    padding:8px 22px; border-radius:999px;
+    box-shadow:var(--shadow);
+    white-space:nowrap;
+  }
+
+  section{ padding:88px 0; position:relative; }
+  .section-head{ max-width:640px; margin:0 auto 52px; text-align:center; }
+  .section-tag{
+    font-family:'Caveat', cursive; font-size:1.4rem; font-weight:700; color:var(--brick);
+  }
+  .section-head h2{ font-size:clamp(2rem, 3.4vw, 2.7rem); margin-top:4px; }
+  .section-head p{ margin-top:14px; color:var(--oven-black-2); font-size:1.02rem; line-height:1.55; }
+
+  /* -------- reveal -------- */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* -------- menu cards -------- */
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+  }
+  .menu-card{
+    background:var(--oven-black);
+    color:var(--dough-cream);
+    border-radius:28px 28px 14px 14px;
+    padding:36px 26px 30px;
+    position:relative;
+    box-shadow:var(--shadow);
+    transition:transform 0.3s ease;
+  }
+  .menu-card:hover{ transform:translateY(-6px); }
+  .menu-card .arch-icon{
+    width:64px; height:64px; margin:0 auto 18px;
+    color:var(--wheat-gold);
+  }
+  .menu-card h3{ font-size:1.35rem; color:var(--dough-cream); text-align:center; }
+  .menu-card p{
+    margin-top:12px; font-size:0.94rem; line-height:1.6; text-align:center;
+    color:rgba(244,234,211,0.75);
+  }
+  .menu-card .tag{
+    display:block; text-align:center; margin-top:16px;
+    font-family:'Caveat', cursive; font-size:1.15rem; color:var(--ember);
+  }
+
+  /* -------- masa madre timeline -------- */
+  .timeline-wrap{ background:var(--dough-cream-2); }
+  .timeline{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0; position:relative; margin-top:20px;
+  }
+  .timeline::before{
+    content:''; position:absolute; top:26px; left:8%; right:8%; height:2px;
+    background:repeating-linear-gradient(90deg, var(--kraft) 0 10px, transparent 10px 18px);
+  }
+  .t-step{ text-align:center; padding:0 14px; }
+  .t-hour{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--dough-cream); border:2px solid var(--kraft);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 18px; position:relative; z-index:1;
+    font-family:'Fraunces', serif; font-weight:700; font-size:0.95rem; color:var(--brick);
+  }
+  .t-step h3{ font-size:1.1rem; }
+  .t-step p{ margin-top:8px; font-size:0.9rem; color:var(--oven-black-2); line-height:1.5; }
+
+  /* -------- info / horarios -------- */
+  .info-band{
+    background:var(--oven-black); color:var(--dough-cream);
+    border-radius:32px;
+    margin:0 28px;
+    padding:56px 40px;
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  .info-band .section-tag{ color:var(--ember); }
+  .info-band h2{ color:var(--dough-cream); }
+  .info-list{ margin-top:22px; display:flex; flex-direction:column; gap:16px; }
+  .info-item{ display:flex; gap:14px; align-items:flex-start; }
+  .info-item svg{ width:22px; height:22px; color:var(--wheat-gold); flex-shrink:0; margin-top:2px; }
+  .info-item div p{ font-size:0.92rem; color:rgba(244,234,211,0.72); margin-top:2px; }
+  .info-item div strong{ font-size:1rem; }
+  .map-card{
+    background:rgba(244,234,211,0.06);
+    border:1px solid rgba(244,234,211,0.15);
+    border-radius:22px; padding:30px; text-align:center;
+  }
+  .map-card svg{ width:44px; height:44px; margin:0 auto 14px; color:var(--brick-deep); background:var(--wheat-gold); border-radius:50%; padding:10px; }
+  .map-card h3{ color:var(--dough-cream); font-size:1.2rem; }
+  .map-card p{ margin-top:8px; color:rgba(244,234,211,0.7); font-size:0.92rem; }
+
+  /* -------- pedidos / CTA -------- */
+  .cta-band{ text-align:center; }
+  .cta-band .section-tag{ }
+  .cta-buttons{ margin-top:32px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn-lg{ padding:16px 30px; font-size:1.02rem; border-radius:999px; }
+  .btn-whatsapp{
+    background:var(--basil); color:var(--dough-cream);
+  }
+  .btn-whatsapp:hover{ background:#3c4830; transform:translateY(-2px); }
+  .btn-insta{
+    background:transparent; border:2px solid var(--oven-black);
+  }
+  .btn-insta:hover{ background:var(--oven-black); color:var(--dough-cream); }
+
+  footer{
+    background:var(--oven-black); color:rgba(244,234,211,0.65);
+    padding:40px 28px; text-align:center; font-size:0.85rem;
+  }
+  footer .foot-logo{
+    font-family:'Fraunces', serif; font-weight:800; font-size:1.2rem; color:var(--dough-cream);
+    margin-bottom:10px;
+  }
+  footer a{ color:var(--wheat-gold); font-weight:600; }
+  footer a:hover{ text-decoration:underline; }
+
+  /* -------- floating whatsapp -------- */
+  .float-wa{
+    position:fixed; bottom:22px; right:22px; z-index:50;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--basil); color:var(--dough-cream);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(76,91,58,0.55);
+    animation:floatPulse 2.6s ease-in-out infinite;
+  }
+  .float-wa svg{ width:28px; height:28px; }
+  @keyframes floatPulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.06); }
+  }
+
+  @media (max-width: 880px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .oven-stage{ order:-1; max-width:280px; }
+    .menu-grid{ grid-template-columns:1fr; }
+    .timeline{ grid-template-columns:1fr; gap:34px; }
+    .timeline::before{ display:none; }
+    .info-band{ grid-template-columns:1fr; margin:0 16px; padding:40px 24px; }
+    .nav-links{ display:none; }
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span class="dot"></span>Las Pacas</div>
+    <nav class="nav-links">
+      <a href="#menu">Menú</a>
+      <a href="#masa-madre">Masa madre</a>
+      <a href="#horarios">Horarios</a>
+    </nav>
+    <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5491171156700" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.94-.2-.31A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.36-5.86c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+      Pedir ahora
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow">✎ La Reja, Buenos Aires</div>
+      <h1>Pizzas de <em>masa madre</em>, empanadas y canastas gourmet</h1>
+      <p class="hero-sub">Elaboración artesanal de barrio: fermentamos nuestra masa 48 horas, armamos las empanadas a mano y preparamos canastas gourmet para compartir. Todo pensado para pedir y disfrutar en casa.</p>
+
+      <div class="hero-meta">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Todos los días · 10 a 23 hs
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          Delivery o take away
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Elaboración artesanal
+        </span>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5491171156700" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.94-.2-.31A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.36-5.86c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+          Pedir por WhatsApp
+        </a>
+        <a class="btn btn-outline" href="https://www.instagram.com/laspacas.pizzeria/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          @laspacas.pizzeria
+        </a>
+      </div>
+    </div>
+
+    <div class="oven-stage reveal in">
+      <div class="oven-glow"></div>
+      <div class="oven-arch">
+        <svg viewBox="0 0 300 320">
+          <path d="M20 300 L20 150 C20 60 90 20 150 20 C210 20 280 60 280 150 L280 300 Z"
+                fill="none" stroke="#221912" stroke-width="14" stroke-linejoin="round"/>
+          <path d="M46 300 L46 152 C46 78 100 44 150 44 C200 44 254 78 254 152 L254 300 Z"
+                fill="none" stroke="#8b5e34" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+        </svg>
+        <div class="steam"></div>
+        <div class="steam"></div>
+        <div class="steam"></div>
+        <div class="steam"></div>
+      </div>
+      <div class="oven-label">48hs de fermentación 🔥</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Lo nuestro</div>
+      <h2>Tres formas de comer rico en La Reja</h2>
+      <p>Cada producto sale del mismo horno, con la misma dedicación de siempre.</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <svg class="arch-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 56V28C10 15 20 6 32 6C44 6 54 15 54 28V56"/><circle cx="24" cy="24" r="2.5" fill="currentColor" stroke="none"/><circle cx="36" cy="18" r="2.5" fill="currentColor" stroke="none"/><circle cx="30" cy="32" r="2.5" fill="currentColor" stroke="none"/></svg>
+        <h3>Pizzas de masa madre</h3>
+        <p>Masa fermentada 48 hs, borde alveolado y sabor con carácter. Clásicas y de autor, para comer en casa como recién salidas del horno.</p>
+        <span class="tag">la especialidad de la casa</span>
+      </div>
+      <div class="menu-card reveal">
+        <svg class="arch-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 32c0-13 10-24 24-24s24 11 24 24-24 24-24 24S8 45 8 32z"/><path d="M18 30h28"/></svg>
+        <h3>Empanadas</h3>
+        <p>Repulgo a mano, rellenos generosos y horneadas al momento. Ideales para pedir por docena y compartir.</p>
+        <span class="tag">hechas una por una</span>
+      </div>
+      <div class="menu-card reveal">
+        <svg class="arch-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 30h44l-6 26H16z"/><path d="M10 30l4-10h36l4 10"/><path d="M24 30V16M40 30V16"/></svg>
+        <h3>Canastas gourmet</h3>
+        <p>Selecciones armadas con lo mejor de la casa, pensadas para regalar o para una picada especial en familia.</p>
+        <span class="tag">para agasajar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="masa-madre" class="timeline-wrap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Nuestro proceso</div>
+      <h2>El camino de la masa madre</h2>
+      <p>No apuramos los tiempos: la fermentación lenta es lo que le da a nuestra masa su textura y sabor.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-step reveal">
+        <div class="t-hour">0h</div>
+        <h3>Mezcla y amasado</h3>
+        <p>Harina, agua, sal y nuestra masa madre viva. Amasado artesanal, sin apuro.</p>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-hour">24h</div>
+        <h3>Fermentación lenta</h3>
+        <p>La masa descansa en frío y desarrolla el sabor y las burbujas características de la masa madre.</p>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-hour">48h</div>
+        <h3>Horneado del día</h3>
+        <p>Recién antes de tu pedido, armamos y horneamos cada pizza para que llegue en su punto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios">
+  <div class="info-band reveal">
+    <div>
+      <div class="section-tag">Dónde y cuándo</div>
+      <h2>Siempre cerca, siempre a horario</h2>
+      <div class="info-list">
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><strong>Todos los días, de 10 a 23 hs</strong><p>Sin días de cierre — pedí cuando se te antoje.</p></div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <div><strong>Delivery o take away</strong><p>Lo recibís en tu casa o lo pasás a buscar vos mismo.</p></div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>La Reja, Buenos Aires</strong><p>Argentina 🇦🇷 — coordinamos la zona de envío por WhatsApp.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="map-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <h3>La Reja</h3>
+      <p>Zona de Moreno, Buenos Aires. Preguntanos por WhatsApp si hacemos envíos a tu dirección.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Pedidos</div>
+      <h2>¿Con qué antojo venís hoy?</h2>
+      <p>Escribinos por WhatsApp para hacer tu pedido, o seguinos en Instagram para ver las novedades del día.</p>
+    </div>
+    <div class="cta-buttons reveal">
+      <a class="btn btn-whatsapp btn-lg" href="https://api.whatsapp.com/send/?phone=5491171156700" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.94-.2-.31A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.36-5.86c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a class="btn btn-insta btn-lg" href="https://www.instagram.com/laspacas.pizzeria/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        Seguir en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Las Pacas</div>
+  <p>Pizzas de masa madre, empanadas y canastas gourmet · La Reja, Buenos Aires, Argentina</p>
+  <p style="margin-top:10px;">
+    <a href="https://www.instagram.com/laspacas.pizzeria/" target="_blank" rel="noopener">Instagram</a>
+    &nbsp;·&nbsp;
+    <a href="https://api.whatsapp.com/send/?phone=5491171156700" target="_blank" rel="noopener">WhatsApp</a>
+  </p>
+</footer>
+
+<a class="float-wa" href="https://api.whatsapp.com/send/?phone=5491171156700" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.94-.2-.31A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.36-5.86c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
