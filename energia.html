@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energía Cristal — Graciela | Lectura y armonización de chakras con péndulo</title>
+<meta name="description" content="Lectura y armonización de chakras con péndulo a distancia. Sesiones online con Graciela, Energía Cristal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --obsidian:#15111f;
+    --panel:#1e1830;
+    --panel-2:#241c38;
+    --bone:#f2ece0;
+    --bone-dim:#c9c0d6;
+    --gold:#c9a15f;
+    --gold-soft:#e3c98f;
+
+    --root:#c1443c;
+    --sacral:#d97a3f;
+    --solar:#d4ab3f;
+    --heart:#6ea36b;
+    --throat:#4f8fb0;
+    --thirdeye:#4a5fa0;
+    --crown:#8b6bb8;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--obsidian);
+    color:var(--bone);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(139,107,184,0.14), transparent 60%),
+      radial-gradient(ellipse 50% 35% at 85% 25%, rgba(79,143,176,0.10), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 50% 90%, rgba(201,161,95,0.08), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:500;
+  }
+
+  /* ===== chakra strip — real sequence, used as recurring motif ===== */
+  .chakra-strip{
+    display:flex;
+    width:100%;
+    height:4px;
+    position:relative;
+    z-index:5;
+  }
+  .chakra-strip span{flex:1;}
+  .chakra-strip .c1{background:var(--root);}
+  .chakra-strip .c2{background:var(--sacral);}
+  .chakra-strip .c3{background:var(--solar);}
+  .chakra-strip .c4{background:var(--heart);}
+  .chakra-strip .c5{background:var(--throat);}
+  .chakra-strip .c6{background:var(--thirdeye);}
+  .chakra-strip .c7{background:var(--crown);}
+
+  /* ===== nav ===== */
+  header{
+    position:fixed;
+    top:4px;left:0;right:0;
+    z-index:100;
+    background:rgba(21,17,31,0.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(201,161,95,0.15);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:1.15rem;
+    letter-spacing:0.03em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-mark{
+    width:11px;height:11px;
+    background:linear-gradient(135deg,var(--gold-soft),var(--crown));
+    transform:rotate(45deg);
+    border-radius:2px;
+    box-shadow:0 0 12px rgba(201,161,95,0.6);
+  }
+  .nav-links{display:flex;gap:32px;font-size:0.85rem;color:var(--bone-dim);}
+  .nav-links a:hover{color:var(--gold-soft);}
+  .nav-cta{
+    font-size:0.8rem;
+    padding:9px 20px;
+    border:1px solid var(--gold);
+    border-radius:100px;
+    color:var(--gold-soft) !important;
+    letter-spacing:0.02em;
+    transition:all .25s ease;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--obsidian) !important;}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:110px;
+    padding-bottom:80px;
+    z-index:2;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media(max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .pendulum-stage{order:-1;}
+  }
+
+  .hero h1{
+    font-size:clamp(2.6rem,5.4vw,4.1rem);
+    line-height:1.05;
+    font-weight:500;
+    margin:18px 0 22px;
+    color:var(--bone);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:transparent;
+    background:linear-gradient(100deg,var(--gold-soft),var(--crown) 70%);
+    -webkit-background-clip:text;
+    background-clip:text;
+  }
+  .hero p.lead{
+    font-size:1.08rem;
+    line-height:1.65;
+    color:var(--bone-dim);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:14px 26px;
+    border-radius:100px;
+    font-size:0.92rem;
+    letter-spacing:0.02em;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg,var(--gold-soft),var(--gold));
+    color:var(--obsidian);
+    font-weight:500;
+    box-shadow:0 8px 30px rgba(201,161,95,0.25);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,161,95,0.4);}
+  .btn-ghost{
+    border:1px solid rgba(242,236,224,0.3);
+    color:var(--bone);
+  }
+  .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft);transform:translateY(-2px);}
+
+  /* pendulum */
+  .pendulum-stage{
+    position:relative;
+    height:420px;
+    display:flex;
+    justify-content:center;
+  }
+  .pendulum-string{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:1px;
+    height:170px;
+    background:linear-gradient(to bottom, rgba(201,161,95,0), rgba(201,161,95,0.55));
+    transform-origin:top center;
+    animation:swing 4.5s ease-in-out infinite;
+  }
+  .pendulum-crystal{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:46px;
+    height:64px;
+    clip-path:polygon(50% 0%, 100% 30%, 82% 100%, 18% 100%, 0% 30%);
+    background:linear-gradient(160deg,#e3c98f 0%, #8b6bb8 45%, #4a5fa0 100%);
+    box-shadow:0 0 40px rgba(139,107,184,0.55), 0 0 80px rgba(201,161,95,0.25);
+    cursor:pointer;
+  }
+  .pendulum-hint{
+    position:absolute;
+    bottom:-38px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:0.75rem;
+    color:var(--bone-dim);
+    letter-spacing:0.05em;
+    white-space:nowrap;
+    opacity:0.7;
+  }
+  @keyframes swing{
+    0%,100%{transform:rotate(-9deg);}
+    50%{transform:rotate(9deg);}
+  }
+  .pendulum-string.active{animation:swingFast 0.5s ease-in-out;}
+  @keyframes swingFast{
+    0%{transform:rotate(-9deg);}
+    25%{transform:rotate(22deg);}
+    50%{transform:rotate(-20deg);}
+    75%{transform:rotate(12deg);}
+    100%{transform:rotate(-9deg);}
+  }
+  .oracle-msg{
+    position:absolute;
+    top:190px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--gold-soft);
+    opacity:0;
+    transition:opacity .5s ease;
+    width:260px;
+    text-align:center;
+    pointer-events:none;
+  }
+  .oracle-msg.show{opacity:1;}
+
+  /* ===== section shell ===== */
+  section{position:relative;z-index:2;padding:110px 0;}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:14px;color:var(--bone);}
+  .section-head p{color:var(--bone-dim);margin-top:14px;line-height:1.65;font-size:1rem;}
+
+  /* about */
+  .about{background:linear-gradient(180deg, transparent, rgba(30,24,48,0.5) 15%, rgba(30,24,48,0.5) 85%, transparent);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;}}
+  .about-portrait{
+    aspect-ratio:4/5;
+    border-radius:6px;
+    position:relative;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(227,201,143,0.35), transparent 45%),
+      radial-gradient(circle at 70% 70%, rgba(139,107,184,0.4), transparent 50%),
+      linear-gradient(160deg,#241c38,#15111f);
+    border:1px solid rgba(201,161,95,0.2);
+    overflow:hidden;
+  }
+  .about-portrait::after{
+    content:"✦";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3rem;
+    color:rgba(201,161,95,0.4);
+  }
+  .about-text p{color:var(--bone-dim);line-height:1.75;font-size:1rem;margin-bottom:16px;}
+  .about-text strong{color:var(--gold-soft);font-weight:500;}
+  .signature{
+    margin-top:24px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--bone);
+  }
+
+  /* services / chakras */
+  .services{background:var(--obsidian);}
+  .chakra-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media(max-width:900px){.chakra-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.chakra-grid{grid-template-columns:1fr;}}
+
+  .chakra-card{
+    background:var(--panel);
+    border:1px solid rgba(242,236,224,0.08);
+    border-radius:10px;
+    padding:26px 24px;
+    position:relative;
+    overflow:hidden;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .chakra-card:hover{transform:translateY(-4px);border-color:rgba(201,161,95,0.35);}
+  .chakra-card::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:3px;
+    background:var(--dot);
+  }
+  .chakra-card .dot{
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--dot);
+    box-shadow:0 0 12px var(--dot);
+    margin-bottom:16px;
+  }
+  .chakra-card h3{font-size:1.15rem;color:var(--bone);margin-bottom:4px;font-weight:500;}
+  .chakra-card .sanskrit{font-size:0.75rem;color:var(--bone-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;display:block;}
+  .chakra-card p{font-size:0.9rem;color:var(--bone-dim);line-height:1.6;}
+
+  .service-featured{
+    grid-column:1 / -1;
+    background:linear-gradient(120deg, var(--panel-2), var(--panel));
+    border:1px solid rgba(201,161,95,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .service-featured h3{font-size:1.4rem;}
+  .service-featured p{max-width:44ch;}
+
+  /* how it works */
+  .steps{background:linear-gradient(180deg, transparent, rgba(30,24,48,0.5) 15%, rgba(30,24,48,0.5) 85%, transparent);}
+  .step-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  @media(max-width:820px){.step-row{grid-template-columns:1fr;gap:40px;}}
+  .step{position:relative;padding-left:0;}
+  .step .num{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:2.6rem;
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold-soft);
+    display:block;
+    margin-bottom:14px;
+  }
+  .step h3{font-size:1.1rem;color:var(--bone);margin-bottom:10px;font-weight:500;}
+  .step p{color:var(--bone-dim);font-size:0.92rem;line-height:1.6;}
+
+  /* testimonials */
+  .testimonials .wrap{max-width:920px;}
+  .quote-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media(max-width:820px){.quote-grid{grid-template-columns:1fr;}}
+  .quote-card{
+    background:var(--panel);
+    border-radius:10px;
+    padding:28px 24px;
+    border:1px solid rgba(242,236,224,0.08);
+  }
+  .quote-card p{font-family:'Fraunces',serif;font-style:italic;color:var(--bone);line-height:1.6;font-size:1rem;margin-bottom:16px;}
+  .quote-card span{font-size:0.8rem;color:var(--bone-dim);letter-spacing:0.02em;}
+
+  /* final cta */
+  .final-cta{
+    text-align:center;
+    padding:130px 0 140px;
+  }
+  .final-cta .eyebrow{display:block;margin-bottom:18px;}
+  .final-cta h2{font-size:clamp(2.2rem,5vw,3.4rem);max-width:14ch;margin:0 auto 22px;}
+  .final-cta p{color:var(--bone-dim);max-width:48ch;margin:0 auto 38px;line-height:1.65;}
+  .social-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+
+  footer{
+    padding:50px 0 40px;
+    border-top:1px solid rgba(242,236,224,0.08);
+    position:relative;z-index:2;
+  }
+  .foot-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .foot-links{display:flex;gap:24px;font-size:0.85rem;color:var(--bone-dim);}
+  .foot-links a:hover{color:var(--gold-soft);}
+  .foot-note{font-size:0.78rem;color:rgba(201,192,214,0.5);margin-top:22px;text-align:center;}
+
+  ::selection{background:var(--gold);color:var(--obsidian);}
+
+  @media(prefers-reduced-motion:reduce){
+    .pendulum-string{animation:none;}
+    .reveal{transition:none;opacity:1;transform:none;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold-soft);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="logo-mark"></span>Energía Cristal</div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre Graciela</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo funciona</a>
+    </div>
+    <a class="nav-cta" href="https://www.instagram.com/energiacrist/" target="_blank" rel="noopener">Reservar sesión</a>
+  </nav>
+</header>
+<div class="chakra-strip" style="position:fixed;top:0;left:0;right:0;z-index:101;">
+  <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span><span class="c5"></span><span class="c6"></span><span class="c7"></span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Lectura y armonización energética · a distancia</span>
+      <h1>Tus chakras, <em>en equilibrio</em>, desde donde estés.</h1>
+      <p class="lead">Soy Graciela. Este espacio es para quienes creen en los cristales y la energía. Trabajo la lectura y armonización de chacras con péndulo, de forma remota — sin importar en qué ciudad te encuentres.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.instagram.com/energiacrist/" target="_blank" rel="noopener">Escribime por Instagram</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+      </div>
+    </div>
+    <div class="pendulum-stage">
+      <div class="pendulum-string active" id="pendString">
+        <div class="pendulum-crystal" id="pendCrystal"></div>
+      </div>
+      <div class="oracle-msg" id="oracleMsg"></div>
+      <span class="pendulum-hint">tocá el péndulo ✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div class="about-portrait" aria-hidden="true"></div>
+      <div class="about-text">
+        <span class="eyebrow">Sobre mí</span>
+        <h2 style="margin:14px 0 20px;">Graciela — Energía Cristal</h2>
+        <p>Este espacio nació para acompañar a quienes sienten que algo en su energía necesita reordenarse. Trabajo con <strong>cristales</strong> y con el <strong>péndulo</strong> como herramientas de lectura, buscando dónde está bloqueada tu energía y qué chacra necesita atención.</p>
+        <p>Cada sesión es a distancia: no necesitás estar en un lugar en particular, solo estar dispuesta a abrirte al proceso. Te cuento lo que percibo con honestidad y calidez, y te doy herramientas simples para sostener el equilibrio después de la lectura.</p>
+        <p class="signature">— Graciela</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS / CHAKRAS -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2>Una lectura para cada chakra que lo necesite</h2>
+      <p>Identificamos juntas en qué centro energético está el desequilibrio y trabajamos desde ahí, con péndulo y armonización a distancia.</p>
+    </div>
+
+    <div class="chakra-grid reveal">
+      <div class="service-featured chakra-card" style="--dot:var(--gold-soft);">
+        <div>
+          <span class="sanskrit">Servicio principal</span>
+          <h3>Lectura y armonización de chacras con péndulo</h3>
+          <p>Sesión completa a distancia: repaso los 7 centros energéticos, identifico bloqueos y armonizo tu campo con el péndulo. Incluye devolución hablada y recomendaciones.</p>
+        </div>
+        <a class="btn btn-primary" href="https://www.instagram.com/energiacrist/" target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+
+      <div class="chakra-card" style="--dot:var(--root);">
+        <span class="dot"></span>
+        <span class="sanskrit">Muladhara · Raíz</span>
+        <h3>Chakra Raíz</h3>
+        <p>Para quienes sienten inestabilidad, miedo o desconexión con el cuerpo y lo material.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--sacral);">
+        <span class="dot"></span>
+        <span class="sanskrit">Svadhisthana · Sacro</span>
+        <h3>Chakra Sacro</h3>
+        <p>Bloqueos vinculados a la creatividad, el deseo y las emociones que cuesta soltar.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--solar);">
+        <span class="dot"></span>
+        <span class="sanskrit">Manipura · Plexo solar</span>
+        <h3>Plexo Solar</h3>
+        <p>Trabajamos la confianza, la voluntad y la energía personal cuando se sienten apagadas.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--heart);">
+        <span class="dot"></span>
+        <span class="sanskrit">Anahata · Corazón</span>
+        <h3>Chakra Corazón</h3>
+        <p>Para procesos de duelo, vínculos difíciles o dificultad para dar y recibir amor.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--throat);">
+        <span class="dot"></span>
+        <span class="sanskrit">Vishuddha · Garganta</span>
+        <h3>Chakra Garganta</h3>
+        <p>Cuando cuesta expresar lo que sentís o poner límites con claridad.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--thirdeye);">
+        <span class="dot"></span>
+        <span class="sanskrit">Ajna · Tercer ojo</span>
+        <h3>Tercer Ojo</h3>
+        <p>Para abrir intuición, claridad mental y confianza en tu propia percepción.</p>
+      </div>
+      <div class="chakra-card" style="--dot:var(--crown);">
+        <span class="dot"></span>
+        <span class="sanskrit">Sahasrara · Corona</span>
+        <h3>Chakra Corona</h3>
+        <p>Conexión espiritual, sentido de propósito y paz interior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="steps" id="proceso">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Tu sesión a distancia, paso a paso</h2>
+    </div>
+    <div class="step-row reveal">
+      <div class="step">
+        <span class="num">I</span>
+        <h3>Me escribís</h3>
+        <p>Por Instagram o Facebook me contás qué te trae a buscar una lectura y coordinamos día y horario.</p>
+      </div>
+      <div class="step">
+        <span class="num">II</span>
+        <h3>Hacemos la lectura</h3>
+        <p>Con tu nombre y foto, trabajo con el péndulo sobre tus chakras y registro lo que va apareciendo.</p>
+      </div>
+      <div class="step">
+        <span class="num">III</span>
+        <h3>Te comparto la devolución</h3>
+        <p>Te cuento qué encontré, armonizamos lo que esté bloqueado y te dejo recomendaciones para sostenerlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que cuentan</span>
+      <h2>Energía que se siente del otro lado</h2>
+    </div>
+    <div class="quote-grid reveal">
+      <div class="quote-card">
+        <p>"Sentí el cambio en mi cuerpo apenas terminó la sesión. Nunca pensé que algo a distancia pudiera sentirse tan real."</p>
+        <span>— Sesión de chakra corazón</span>
+      </div>
+      <div class="quote-card">
+        <p>"Graciela puso en palabras cosas que yo no había podido nombrar. La devolución fue muy precisa."</p>
+        <span>— Lectura completa de chacras</span>
+      </div>
+      <div class="quote-card">
+        <p>"Volví a sentirme con energía para arrancar proyectos que tenía pausados. Totalmente recomendable."</p>
+        <span>— Armonización plexo solar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final-cta">
+  <div class="wrap reveal">
+    <span class="eyebrow">Empecemos</span>
+    <h2>Tu energía está esperando que la escuches.</h2>
+    <p>Escribime por Instagram o Facebook y coordinamos tu lectura y armonización de chacras con péndulo, a distancia.</p>
+    <div class="social-row">
+      <a class="btn btn-primary" href="https://www.instagram.com/energiacrist/" target="_blank" rel="noopener">@energiacrist en Instagram</a>
+      <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=100063670776329" target="_blank" rel="noopener">Energía Cristal en Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="logo"><span class="logo-mark"></span>Energía Cristal</div>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/energiacrist/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100063670776329" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <p class="foot-note">Energía Cristal — Graciela · Lecturas y armonizaciones a distancia · Hecho con intención ✦</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // pendulum interaction + soft chime via Web Audio API
+  const crystal = document.getElementById('pendCrystal');
+  const string = document.getElementById('pendString');
+  const oracle = document.getElementById('oracleMsg');
+  const messages = [
+    "El péndulo se inclina hacia el sí.",
+    "La energía dice: es momento.",
+    "Percibo un bloqueo en el chakra corazón.",
+    "El péndulo gira en calma: hay claridad.",
+    "Siento una respuesta afirmativa.",
+    "Hay algo por sanar en el plexo solar.",
+    "La energía fluye libremente hoy."
+  ];
+
+  let audioCtx;
+  function chime(){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioCtx.currentTime;
+      [880, 1320, 1760].forEach((freq, i)=>{
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0, now + i*0.06);
+        gain.gain.linearRampToValueAtTime(0.05, now + i*0.06 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + i*0.06 + 1.1);
+        osc.connect(gain).connect(audioCtx.destination);
+        osc.start(now + i*0.06);
+        osc.stop(now + i*0.06 + 1.2);
+      });
+    }catch(e){ /* audio not available, fail silently */ }
+  }
+
+  let msgTimeout;
+  crystal.addEventListener('click', ()=>{
+    string.classList.remove('active');
+    void string.offsetWidth; // restart animation
+    string.classList.add('active');
+    chime();
+    const msg = messages[Math.floor(Math.random()*messages.length)];
+    oracle.textContent = msg;
+    oracle.classList.add('show');
+    clearTimeout(msgTimeout);
+    msgTimeout = setTimeout(()=>oracle.classList.remove('show'), 3200);
+  });
+})();
+</script>
+
+</body>
+</html>
