@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solsticio — Velas aromáticas y jabones artesanales</title>
+<meta name="description" content="Solsticio: velas aromáticas y jabones artesanales hechos a mano con ingredientes naturales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dawn:#FDF6E8;
+    --gold:#F2A93B;
+    --ember:#E8582C;
+    --dusk:#7A2E5C;
+    --night:#1B1B3A;
+    --herb:#4C7A4A;
+    --ink:#2A2118;
+    --cream-ink:#4a3f30;
+    --paper: rgba(255,255,255,0.55);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--dawn);
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:lowercase;
+    opacity:0.75;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.05;
+  }
+  .italic{font-style:italic; font-weight:400;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.55em;
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    padding:0.9em 1.6em;
+    border-radius:999px;
+    border:1px solid currentColor;
+    text-decoration:none;
+    transition:transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+    cursor:pointer;
+    background:transparent;
+  }
+  .btn:hover, .btn:focus-visible{
+    transform:translateY(-2px);
+  }
+  .btn:focus-visible{
+    outline:2px solid currentColor;
+    outline-offset:3px;
+  }
+  .btn-solid{
+    background:var(--ink);
+    color:var(--dawn);
+    border-color:var(--ink);
+  }
+  .btn-solid:hover{background:var(--ember); border-color:var(--ember); color:var(--dawn);}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.3rem 6vw;
+    mix-blend-mode:normal;
+    color:var(--ink);
+    transition:color 0.4s ease;
+  }
+  header.on-dark{color:var(--dawn);}
+  .brandmark{
+    display:flex; align-items:center; gap:0.6rem;
+    text-decoration:none;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:inherit;
+  }
+  .wheel-mini{width:26px; height:26px; flex-shrink:0;}
+  .wheel-mini circle, .wheel-mini line{stroke:currentColor; fill:none; stroke-width:1.4;}
+  .wheel-mini{animation:spin 40s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  nav a{
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    text-decoration:none;
+    margin-left:1.6rem;
+    opacity:0.85;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:opacity 0.3s ease, border-color 0.3s ease;
+  }
+  nav a:hover, nav a:focus-visible{opacity:1; border-color:currentColor;}
+  nav{display:none;}
+  @media(min-width:760px){nav{display:block;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding-top:6rem;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(242,169,59,0.35), transparent 55%),
+      linear-gradient(180deg, var(--dawn) 0%, #FBEBCB 100%);
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    align-items:center;
+  }
+  @media(min-width:860px){
+    .hero-inner{grid-template-columns:1.1fr 0.9fr;}
+  }
+  .hero h1{
+    font-size:clamp(3.2rem, 9vw, 6.4rem);
+    letter-spacing:-0.01em;
+  }
+  .hero p.lede{
+    font-size:clamp(1.05rem, 1.6vw, 1.25rem);
+    max-width:34ch;
+    margin-top:1.2rem;
+    color:var(--cream-ink);
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.9rem;
+    margin-top:2.2rem;
+  }
+  .candle-scene{
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    height:clamp(260px, 40vw, 420px);
+  }
+  .candle{position:relative; width:64px;}
+  .candle .wax{
+    width:64px; height:200px;
+    background:linear-gradient(180deg, #FFF7E6, #F2D89B);
+    border-radius:6px 6px 3px 3px;
+    box-shadow:inset -6px 0 14px rgba(0,0,0,0.08), 0 18px 40px rgba(232,88,44,0.18);
+  }
+  .candle.tall .wax{height:260px;}
+  .candle.short{width:46px;}
+  .candle.short .wax{width:46px; height:130px; background:linear-gradient(180deg,#FFEFD6,#E9C27E);}
+  .wick{
+    width:3px; height:14px; background:#3a2d20; margin:0 auto;
+  }
+  .flame{
+    width:16px; height:26px; margin:0 auto -2px;
+    background:radial-gradient(circle at 50% 70%, #FFF3B0 0%, var(--gold) 45%, var(--ember) 85%);
+    border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+    transform-origin:50% 90%;
+    filter:blur(0.2px);
+    animation:flicker 2.6s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%,100%{transform:rotate(-2deg) scaleY(1);}
+    25%{transform:rotate(2deg) scaleY(1.05);}
+    50%{transform:rotate(-1deg) scaleY(0.96);}
+    75%{transform:rotate(3deg) scaleY(1.02);}
+  }
+  .glow{
+    position:absolute; bottom:20%; left:50%; translate:-50% 0;
+    width:220px; height:220px;
+    background:radial-gradient(circle, rgba(242,169,59,0.45), transparent 70%);
+    filter:blur(8px);
+    pointer-events:none;
+    z-index:-1;
+  }
+  .scroll-cue{
+    position:absolute; bottom:2.2rem; left:6vw;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.18em;
+    opacity:0.6;
+    display:flex; align-items:center; gap:0.6rem;
+  }
+  .scroll-cue .line{width:26px; height:1px; background:currentColor; display:inline-block;}
+
+  /* ---------- SECTION DIVIDER (sun wheel) ---------- */
+  .divider{
+    display:flex; align-items:center; justify-content:center;
+    padding:3.2rem 0;
+  }
+  .divider svg{width:56px; height:56px; animation:spin 60s linear infinite;}
+  .divider.light svg *{stroke:var(--ember);}
+  .divider.dark svg *{stroke:var(--gold);}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity:0; transform:translateY(24px);
+    transition:opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- STORY SECTION ---------- */
+  .story{
+    background:linear-gradient(180deg, #FBEBCB 0%, #F6C979 55%, var(--gold) 100%);
+    padding:7rem 0 8rem;
+  }
+  .story .grid{
+    display:grid; gap:3rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:820px){
+    .story .grid{grid-template-columns:0.85fr 1.15fr; align-items:start;}
+  }
+  .story h2{font-size:clamp(2.2rem,4.5vw,3.2rem); max-width:12ch;}
+  .story .body-copy p{max-width:56ch; margin-bottom:1.1rem; color:var(--ink);}
+  .story .body-copy p:last-child{margin-bottom:0;}
+
+  /* ---------- PRODUCTS ---------- */
+  .products{
+    background:linear-gradient(180deg, var(--gold) 0%, #E97A3A 45%, var(--ember) 100%);
+    padding:7rem 0 8rem;
+    color:#2A1A10;
+  }
+  .section-head{
+    display:flex; flex-direction:column; gap:0.7rem;
+    margin-bottom:3.2rem;
+    max-width:46ch;
+  }
+  .section-head h2{font-size:clamp(2.1rem,4.2vw,3rem);}
+  .card-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.6rem;
+  }
+  @media(min-width:640px){.card-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1000px){.card-grid.candles{grid-template-columns:repeat(4,1fr);}}
+  @media(min-width:1000px){.card-grid.soaps{grid-template-columns:repeat(4,1fr);}}
+  .card{
+    background:var(--paper);
+    backdrop-filter:blur(6px);
+    border-radius:18px;
+    padding:1.6rem 1.4rem 1.8rem;
+    display:flex; flex-direction:column; gap:0.9rem;
+    border:1px solid rgba(255,255,255,0.4);
+    transition:transform 0.4s ease, background 0.4s ease;
+  }
+  .card:hover{transform:translateY(-6px); background:rgba(255,255,255,0.7);}
+  .card-icon{height:88px; display:flex; align-items:flex-end; justify-content:center;}
+  .card h3{font-size:1.25rem; font-weight:500;}
+  .card p.desc{font-size:0.92rem; color:#3a2413; opacity:0.85;}
+  .tags{display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.2rem;}
+  .tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.04em;
+    padding:0.25em 0.65em;
+    border-radius:999px;
+    background:rgba(42,26,16,0.08);
+  }
+  .mini-soap{
+    width:70px; height:44px;
+    border-radius:10px;
+    position:relative;
+    box-shadow:0 10px 18px rgba(0,0,0,0.15);
+  }
+  .mini-soap::after{
+    content:'';
+    position:absolute; inset:6px;
+    border-radius:6px;
+    border:1px dashed rgba(255,255,255,0.5);
+  }
+
+  .subsection-label{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.16em;
+    text-transform:lowercase;
+    opacity:0.75;
+    margin:3.6rem 0 1.4rem;
+  }
+  .subsection-label:first-of-type{margin-top:0;}
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background:linear-gradient(180deg, var(--ember) 0%, var(--dusk) 100%);
+    color:var(--dawn);
+    padding:7rem 0 8rem;
+  }
+  .process .section-head{color:var(--dawn);}
+  .process-list{
+    display:grid; gap:2.4rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.process-list{grid-template-columns:1fr 1fr;}}
+  .process-item{
+    border-top:1px solid rgba(253,246,232,0.3);
+    padding-top:1.1rem;
+  }
+  .process-item .num{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    opacity:0.6;
+    display:block;
+    margin-bottom:0.5rem;
+  }
+  .process-item h3{font-size:1.35rem; font-weight:500; margin-bottom:0.5rem;}
+  .process-item p{font-size:0.95rem; opacity:0.85; max-width:42ch;}
+
+  /* ---------- INSTAGRAM ---------- */
+  .instagram{
+    background:linear-gradient(180deg, var(--dusk) 0%, var(--night) 100%);
+    color:var(--dawn);
+    padding:7rem 0 8rem;
+    text-align:center;
+  }
+  .instagram .section-head{margin-left:auto; margin-right:auto; align-items:center; text-align:center;}
+  .ig-handle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(2rem,5vw,3.4rem);
+    text-decoration:none;
+    color:var(--dawn);
+    display:inline-flex; align-items:center; gap:0.5rem;
+    border-bottom:1px solid rgba(253,246,232,0.35);
+    padding-bottom:0.2rem;
+    transition:opacity 0.3s ease;
+  }
+  .ig-handle:hover, .ig-handle:focus-visible{opacity:0.75;}
+  .ig-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0.9rem;
+    max-width:640px;
+    margin:3rem auto 2.6rem;
+  }
+  @media(min-width:640px){.ig-grid{grid-template-columns:repeat(4,1fr);}}
+  .ig-tile{
+    aspect-ratio:1;
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    color:var(--dawn);
+    border:1px solid rgba(253,246,232,0.18);
+    transition:transform 0.4s ease, border-color 0.4s ease;
+  }
+  .ig-tile:hover, .ig-tile:focus-visible{transform:scale(1.04); border-color:rgba(253,246,232,0.5);}
+  .ig-tile svg{width:34%; height:34%; opacity:0.9;}
+  .ig-tile.t1{background:radial-gradient(circle at 30% 30%, #F2A93B, #E8582C 75%);}
+  .ig-tile.t2{background:radial-gradient(circle at 70% 30%, #7A2E5C, #4C1F3D 75%);}
+  .ig-tile.t3{background:radial-gradient(circle at 30% 70%, #4C7A4A, #294D28 75%);}
+  .ig-tile.t4{background:radial-gradient(circle at 70% 70%, #E8582C, #7A2E5C 75%);}
+  .instagram p.note{max-width:44ch; margin:0 auto; opacity:0.75; font-size:0.95rem;}
+
+  /* ---------- CONTACT / CTA ---------- */
+  .contact{
+    background:var(--night);
+    color:var(--dawn);
+    padding:6rem 0 3rem;
+  }
+  .contact-inner{
+    text-align:center;
+    padding-bottom:4rem;
+    border-bottom:1px solid rgba(253,246,232,0.15);
+  }
+  .contact h2{font-size:clamp(2.2rem,5vw,3.6rem); max-width:16ch; margin:0 auto 1.4rem;}
+  .contact p{opacity:0.8; max-width:42ch; margin:0 auto 2.2rem;}
+  .contact .hero-ctas{justify-content:center;}
+  footer{
+    display:flex; flex-direction:column; gap:0.6rem;
+    align-items:center;
+    padding-top:2.4rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    opacity:0.55;
+    text-align:center;
+  }
+  footer a{text-decoration:underline; text-underline-offset:3px;}
+
+  .sr-only{
+    position:absolute; width:1px; height:1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <a href="#top" class="brandmark">
+    <svg class="wheel-mini" viewBox="0 0 26 26" aria-hidden="true">
+      <circle cx="13" cy="13" r="10"/>
+      <line x1="13" y1="3" x2="13" y2="23"/>
+      <line x1="3" y1="13" x2="23" y2="13"/>
+      <line x1="6" y1="6" x2="20" y2="20"/>
+      <line x1="20" y1="6" x2="6" y2="20"/>
+    </svg>
+    Solsticio
+  </a>
+  <nav aria-label="Navegación principal">
+    <a href="#historia">Historia</a>
+    <a href="#velas">Velas</a>
+    <a href="#jabones">Jabones</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow reveal in">🕯️ velas aromáticas · jabones artesanales</p>
+        <h1 class="reveal in">Solsticio<span class="italic">.</span></h1>
+        <p class="lede reveal in">Hechos a mano, uno a la vez, con ingredientes naturales — para marcar tu propio punto de giro entre la luz y la calma.</p>
+        <div class="hero-ctas reveal in">
+          <a href="#velas" class="btn btn-solid">Ver la colección</a>
+          <a href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" class="btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+            @solsticio.celta
+          </a>
+        </div>
+      </div>
+      <div class="candle-scene reveal in" aria-hidden="true">
+        <div class="glow"></div>
+        <div style="display:flex; align-items:flex-end; gap:1.4rem;">
+          <div class="candle short">
+            <div class="flame" style="animation-delay:0.4s;"></div>
+            <div class="wick"></div>
+            <div class="wax"></div>
+          </div>
+          <div class="candle tall">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="wax"></div>
+          </div>
+          <div class="candle short">
+            <div class="flame" style="animation-delay:0.9s;"></div>
+            <div class="wick"></div>
+            <div class="wax" style="background:linear-gradient(180deg,#FDEBD4,#E7B36B);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span> del amanecer a la noche — desliza</div>
+  </section>
+
+  <div class="divider light" aria-hidden="true">
+    <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" stroke="currentColor" fill="none" stroke-width="1.3"/><line x1="28" y1="4" x2="28" y2="52" stroke="currentColor" stroke-width="1.3"/><line x1="4" y1="28" x2="52" y2="28" stroke="currentColor" stroke-width="1.3"/><line x1="11.7" y1="11.7" x2="44.3" y2="44.3" stroke="currentColor" stroke-width="1.3"/><line x1="44.3" y1="11.7" x2="11.7" y2="44.3" stroke="currentColor" stroke-width="1.3"/></svg>
+  </div>
+
+  <!-- HISTORIA -->
+  <section class="story" id="historia">
+    <div class="wrap grid">
+      <div class="reveal">
+        <p class="eyebrow">nuestra historia</p>
+        <h2>Cada llama marca un giro.</h2>
+      </div>
+      <div class="body-copy reveal">
+        <p>El solsticio es el instante exacto en que la luz cambia de dirección: el día más largo o el más corto del año, el punto donde todo se detiene un segundo antes de volver a moverse.</p>
+        <p>Solsticio nació de esa idea. Cada vela y cada jabón se elaboran a mano, en pequeños lotes, como pequeños rituales para marcar los propios giros del día: el descanso, la calma, la vuelta a una misma.</p>
+        <p>Usamos cera de soja natural, aceites esenciales puros y aromas inspirados en el bosque, la tierra y las estaciones — sin atajos, sin químicos innecesarios, sin prisa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="products" id="velas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">la colección</p>
+        <h2>Velas y jabones para cada giro del año</h2>
+      </div>
+
+      <p class="subsection-label">🕯️ velas aromáticas</p>
+      <div class="card-grid candles">
+        <div class="card reveal">
+          <div class="card-icon">
+            <div class="candle short"><div class="flame"></div><div class="wick"></div><div class="wax" style="height:90px;"></div></div>
+          </div>
+          <h3>Lavanda de luna</h3>
+          <p class="desc">Aroma calmante para cerrar el día, con notas de lavanda y un fondo suave de vainilla.</p>
+          <div class="tags"><span class="tag">cera de soja</span><span class="tag">lavanda</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">
+            <div class="candle short"><div class="flame" style="animation-delay:.3s;"></div><div class="wick"></div><div class="wax" style="height:90px; background:linear-gradient(180deg,#FDEEE0,#E9B98E);"></div></div>
+          </div>
+          <h3>Naranja y canela</h3>
+          <p class="desc">Cálida y especiada, pensada para las tardes cortas del invierno.</p>
+          <div class="tags"><span class="tag">cera de soja</span><span class="tag">cítrico</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">
+            <div class="candle short"><div class="flame" style="animation-delay:.6s;"></div><div class="wick"></div><div class="wax" style="height:90px; background:linear-gradient(180deg,#F2E9D6,#C9B27C);"></div></div>
+          </div>
+          <h3>Musgo y cedro</h3>
+          <p class="desc">Un aroma boscoso y terroso, ideal para rituales de enraizamiento.</p>
+          <div class="tags"><span class="tag">cera de soja</span><span class="tag">amaderado</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">
+            <div class="candle short"><div class="flame" style="animation-delay:.2s;"></div><div class="wick"></div><div class="wax" style="height:90px; background:linear-gradient(180deg,#FFF2E4,#E7C79B);"></div></div>
+          </div>
+          <h3>Sándalo dorado</h3>
+          <p class="desc">Dulce y envolvente, con un fondo balsámico que perdura horas después de apagarla.</p>
+          <div class="tags"><span class="tag">cera de soja</span><span class="tag">sándalo</span></div>
+        </div>
+      </div>
+
+      <p class="subsection-label" id="jabones">🤍 jabones artesanales</p>
+      <div class="card-grid soaps">
+        <div class="card reveal">
+          <div class="card-icon"><div class="mini-soap" style="background:linear-gradient(135deg,#F6E2B0,#E9C27E);"></div></div>
+          <h3>Avena y miel</h3>
+          <p class="desc">Exfoliante suave, ideal para pieles secas o sensibles.</p>
+          <div class="tags"><span class="tag">natural</span><span class="tag">hidratante</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><div class="mini-soap" style="background:linear-gradient(135deg,#3f3f3f,#1f1f1f);"></div></div>
+          <h3>Carbón y menta</h3>
+          <p class="desc">Purificante, con un frescor limpio que despierta los sentidos.</p>
+          <div class="tags"><span class="tag">natural</span><span class="tag">purificante</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><div class="mini-soap" style="background:linear-gradient(135deg,#F2A93B,#E8582C);"></div></div>
+          <h3>Caléndula</h3>
+          <p class="desc">Calmante, pensada para pieles delicadas y días de descanso.</p>
+          <div class="tags"><span class="tag">natural</span><span class="tag">calmante</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><div class="mini-soap" style="background:linear-gradient(135deg,#EDE6D6,#C9BBAF);"></div></div>
+          <h3>Lavanda y karité</h3>
+          <p class="desc">Cremoso y relajante, ideal para el ritual antes de dormir.</p>
+          <div class="tags"><span class="tag">natural</span><span class="tag">relajante</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">cómo lo hacemos</p>
+        <h2>Ingredientes reales, procesos lentos</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal">
+          <span class="num">cera</span>
+          <h3>Cera de soja natural</h3>
+          <p>Vegetal, biodegradable y de combustión limpia — sin parafina ni derivados del petróleo.</p>
+        </div>
+        <div class="process-item reveal">
+          <span class="num">aroma</span>
+          <h3>Aceites esenciales puros</h3>
+          <p>Fragancias reales, no sintéticas, dosificadas a mano en cada lote.</p>
+        </div>
+        <div class="process-item reveal">
+          <span class="num">jabón</span>
+          <h3>Saponificación en frío</h3>
+          <p>Conserva las propiedades de los aceites vegetales y la glicerina natural de cada barra.</p>
+        </div>
+        <div class="process-item reveal">
+          <span class="num">lotes</span>
+          <h3>Pequeñas tandas, hechas a mano</h3>
+          <p>Sin producción en masa: cada pieza se vierte, se corta y se revisa una por una.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider dark" aria-hidden="true">
+    <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" stroke="currentColor" fill="none" stroke-width="1.3"/><line x1="28" y1="4" x2="28" y2="52" stroke="currentColor" stroke-width="1.3"/><line x1="4" y1="28" x2="52" y2="28" stroke="currentColor" stroke-width="1.3"/><line x1="11.7" y1="11.7" x2="44.3" y2="44.3" stroke="currentColor" stroke-width="1.3"/><line x1="44.3" y1="11.7" x2="11.7" y2="44.3" stroke="currentColor" stroke-width="1.3"/></svg>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram" id="instagram">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">síguenos</p>
+        <h2>El día a día está en Instagram</h2>
+      </div>
+      <a href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" class="ig-handle reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+        @solsticio.celta
+      </a>
+      <div class="ig-grid reveal">
+        <a class="ig-tile t1" href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" aria-label="Ver publicaciones de velas en Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 21h6M10 17h4M8 9a4 4 0 118 0c0 2.5-2 3.5-2 6H10c0-2.5-2-3.5-2-6z"/></svg>
+        </a>
+        <a class="ig-tile t2" href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" aria-label="Ver publicaciones de jabones en Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M9 8a3 3 0 016 0"/></svg>
+        </a>
+        <a class="ig-tile t3" href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" aria-label="Ver ingredientes naturales en Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0012 0c0-4-2-7-6-10z"/></svg>
+        </a>
+        <a class="ig-tile t4" href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" aria-label="Ver el proceso artesanal en Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+        </a>
+      </div>
+      <p class="note reveal">Todos los lanzamientos, pedidos personalizados y nuevas fragancias se anuncian primero ahí.</p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="wrap contact-inner">
+      <p class="eyebrow reveal">hacer un pedido</p>
+      <h2 class="reveal">¿Listo para encender tu propio solsticio?</h2>
+      <p class="reveal">Escríbenos por Instagram para pedidos, packs de regalo o piezas personalizadas — respondemos por DM.</p>
+      <div class="hero-ctas reveal">
+        <a href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener" class="btn btn-solid">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+          Escribir por Instagram
+        </a>
+      </div>
+    </div>
+    <footer>
+      <div class="brandmark" style="font-size:1rem;">
+        <svg class="wheel-mini" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10"/><line x1="13" y1="3" x2="13" y2="23"/><line x1="3" y1="13" x2="23" y2="13"/></svg>
+        Solsticio
+      </div>
+      <p>Velas aromáticas y jabones artesanales, hechos a mano.</p>
+      <p><a href="https://www.instagram.com/solsticio.celta/" target="_blank" rel="noopener">instagram.com/solsticio.celta</a></p>
+    </footer>
+  </section>
+
+</main>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Header contrast on dark sections
+  const header = document.getElementById('site-header');
+  const darkZones = document.querySelectorAll('.process, .instagram, .contact');
+  const headerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) header.classList.add('on-dark');
+    });
+  }, { rootMargin: '-50% 0px -49% 0px' });
+  darkZones.forEach(z => headerObserver.observe(z));
+
+  const lightZones = document.querySelectorAll('.hero, .story, .products');
+  const lightObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) header.classList.remove('on-dark');
+    });
+  }, { rootMargin: '-50% 0px -49% 0px' });
+  lightZones.forEach(z => lightObserver.observe(z));
+</script>
+
+</body>
+</html>
