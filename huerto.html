@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huerto La Pirámide · Verduras de Patagonia Aysén</title>
+<meta name="description" content="Verduras cultivadas en suelo vivo y luz natural, en Puerto Ibáñez, Patagonia Aysén. Pedidos por Instagram y Linktree.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --soil: #241C13;
+    --soil-light: #3C2F1F;
+    --moss: #4F7942;
+    --moss-deep: #2E4526;
+    --lake: #2FB6C4;
+    --lake-deep: #1A7986;
+    --tomato: #E8532E;
+    --carrot: #F0932B;
+    --corn: #F4C430;
+    --cream: #F5EEDA;
+    --paper-line: #E3D6AE;
+    --ink: #241C13;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Archivo', sans-serif;
+    overflow-x:hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  h1, h2, h3, .display{
+    font-family:'Fraunces', serif;
+    letter-spacing: -0.01em;
+  }
+
+  .mono{
+    font-family:'Space Mono', monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  a{ color: inherit; text-decoration:none; }
+
+  img, svg{ display:block; max-width:100%; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position: sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 5vw;
+    background: rgba(36,28,19,0.92);
+    backdrop-filter: blur(6px);
+    color: var(--cream);
+    border-bottom: 3px solid var(--carrot);
+  }
+  .logo-mark{ display:flex; align-items:center; gap:10px; }
+  .logo-mark svg{ width:34px; height:34px; }
+  .logo-text{ font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; letter-spacing: 0.01em;}
+  .logo-text span{ display:block; font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.18em; color:var(--corn); text-transform:uppercase; margin-top:1px;}
+  .topbar-cta{
+    background: var(--lake);
+    color: var(--soil);
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    font-size: 0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding: 10px 16px;
+    border-radius: 40px;
+    border: 2px solid var(--soil);
+    transition: transform .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .topbar-cta:hover{ background:var(--corn); transform: translateY(-2px) rotate(-1deg); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background: linear-gradient(180deg, #16323A 0%, var(--lake-deep) 38%, var(--lake) 62%, #4B8B3F 100%);
+    padding: 70px 5vw 0;
+    overflow:hidden;
+    color: var(--cream);
+  }
+  .hero-inner{
+    max-width: 1180px; margin:0 auto;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
+    position:relative; z-index:3;
+    padding-bottom: 60px;
+  }
+  .badge-stamp{
+    display:inline-flex; align-items:center; gap:10px;
+    border: 2px dashed rgba(245,238,218,0.7);
+    border-radius: 100px;
+    padding: 8px 18px 8px 10px;
+    margin-bottom: 28px;
+    animation: floaty 5s ease-in-out infinite;
+  }
+  @keyframes floaty{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+  .badge-stamp .dot{ width:9px; height:9px; border-radius:50%; background: var(--tomato); box-shadow: 0 0 0 4px rgba(232,83,46,0.25); }
+  .badge-stamp span{ font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    line-height: 0.98;
+    font-weight: 900;
+    max-width: 15ch;
+    text-shadow: 0 3px 0 rgba(20,50,30,0.25);
+  }
+  .hero h1 em{
+    font-style: italic;
+    font-weight:500;
+    color: var(--corn);
+  }
+  .hero p.lede{
+    margin-top:22px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 46ch;
+    line-height:1.55;
+    color: rgba(245,238,218,0.92);
+  }
+
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:34px; }
+  .btn{
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding: 15px 26px;
+    border-radius: 100px;
+    display:inline-flex; align-items:center; gap:10px;
+    transition: transform .18s ease, box-shadow .18s ease;
+    border: 2.5px solid transparent;
+  }
+  .btn:active{ transform: translateY(1px) scale(0.98); }
+  .btn-primary{
+    background: var(--tomato);
+    color: var(--cream);
+    box-shadow: 4px 4px 0 var(--soil);
+  }
+  .btn-primary:hover{ transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--soil); }
+  .btn-secondary{
+    background: var(--cream);
+    color: var(--soil);
+    box-shadow: 4px 4px 0 var(--moss-deep);
+  }
+  .btn-secondary:hover{ transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--moss-deep); }
+
+  /* Patagonia landscape scene */
+  .scene{ position:relative; height: 230px; margin-top:40px; }
+  .scene svg{ position:absolute; bottom:0; left:0; width:100%; height:auto; }
+
+  /* Sun */
+  .sun{
+    position:absolute; top: 30px; right: 12%;
+    width:70px; height:70px; border-radius:50%;
+    background: radial-gradient(circle, var(--corn) 0%, rgba(244,196,48,0) 70%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:0.7; transform:scale(1);} 50%{ opacity:1; transform:scale(1.15);} }
+
+  /* ---------- Section headers (shared) ---------- */
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before{ content:''; width:26px; height:2px; background:currentColor; display:block; }
+
+  section{ padding: 80px 5vw; }
+  .wrap{ max-width: 1180px; margin:0 auto; }
+
+  /* ---------- Pillars ---------- */
+  .pillars{ background: var(--cream); }
+  .pillars h2{
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    max-width: 20ch;
+    margin-bottom: 50px;
+  }
+  .pillar-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+  }
+  .pillar-card{
+    background: var(--soil);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 30px 26px 26px;
+    position: relative;
+    opacity:0; transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .pillar-card.visible{ opacity:1; transform:translateY(0); }
+  .pillar-card:nth-child(1){ background: var(--moss-deep); }
+  .pillar-card:nth-child(2){ background: var(--soil); }
+  .pillar-card:nth-child(3){ background: var(--lake-deep); }
+  .pillar-num{
+    font-family:'Space Mono',monospace; font-size:0.7rem;
+    color: rgba(245,238,218,0.55); margin-bottom: 18px;
+  }
+  .pillar-icon{ width:46px; height:46px; margin-bottom:18px; }
+  .pillar-card h3{ font-size:1.35rem; margin-bottom:10px; font-weight:600; }
+  .pillar-card p{ font-size:0.92rem; line-height:1.55; color: rgba(245,238,218,0.82); }
+
+  /* ---------- Produce ---------- */
+  .produce{ background: var(--soil); color: var(--cream); position:relative; overflow:hidden; }
+  .produce .eyebrow{ color: var(--corn); }
+  .produce h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 22ch; margin-bottom: 12px; }
+  .produce p.sub{ max-width: 52ch; color: rgba(245,238,218,0.75); margin-bottom: 46px; line-height:1.6; }
+
+  .veg-grid{
+    display:grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+  }
+  .veg-card{
+    background: var(--soil-light);
+    border-radius: 16px;
+    padding: 20px 10px 16px;
+    text-align:center;
+    border: 2px solid transparent;
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    opacity:0; transform: scale(0.9);
+  }
+  .veg-card.visible{ opacity:1; transform:scale(1); }
+  .veg-card:hover{ transform: translateY(-6px) rotate(-2deg); border-color: var(--corn); background:var(--moss-deep); }
+  .veg-emoji{ font-size: 2.1rem; margin-bottom:10px; }
+  .veg-card span{ font-family:'Space Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(245,238,218,0.75); }
+
+  /* ---------- Story / location ---------- */
+  .story{ background: var(--cream); }
+  .story-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center;
+  }
+  .story h2{ font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px; line-height:1.1; }
+  .story p{ font-size:1.02rem; line-height:1.7; color: #4A3E29; margin-bottom: 16px; max-width: 48ch; }
+  .story p:last-of-type{ margin-bottom:0; }
+
+  .map-card{
+    background: var(--moss);
+    border-radius: 22px;
+    padding: 40px 30px;
+    color: var(--cream);
+    position:relative;
+    aspect-ratio: 4/3.4;
+    display:flex; flex-direction:column; justify-content:space-between;
+    overflow:hidden;
+  }
+  .map-card::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(47,182,196,0.35), transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(244,196,48,0.25), transparent 40%);
+  }
+  .pin{ position:relative; z-index:2; }
+  .pin-mark{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .pin-mark svg{ width:26px; height:26px; flex-shrink:0; }
+  .pin h4{ font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700; }
+  .pin small{ font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(245,238,218,0.8); }
+  .coords{
+    position:relative; z-index:2;
+    font-family:'Space Mono',monospace; font-size:0.75rem;
+    color: rgba(245,238,218,0.85);
+    display:flex; justify-content:space-between; align-items:flex-end;
+  }
+  .coords .lat{ font-size: 1.5rem; font-weight:700; color:var(--cream); }
+
+  /* ---------- Rotating stamp badge (signature element) ---------- */
+  .stamp-section{
+    background: var(--soil);
+    padding: 90px 5vw;
+    display:flex; flex-direction:column; align-items:center; gap:30px;
+    text-align:center;
+  }
+  .stamp-wrap{ position:relative; width:180px; height:180px; }
+  .stamp-wrap svg{ width:100%; height:100%; }
+  .rotate-text{ animation: spin 18s linear infinite; transform-origin: 90px 90px; }
+  @keyframes spin{ from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
+  .stamp-center{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size: 2.6rem;
+  }
+  .stamp-section h3{
+    color: var(--cream); font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+    max-width: 22ch; line-height:1.15;
+  }
+  .stamp-section h3 em{ color: var(--carrot); font-style:italic; font-weight:500;}
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    background: linear-gradient(160deg, var(--tomato) 0%, var(--carrot) 100%);
+    color: var(--soil);
+    text-align:center;
+    padding: 100px 5vw;
+    position:relative;
+    overflow:hidden;
+  }
+  .final-cta .wrap{ position:relative; z-index:2; }
+  .final-cta .eyebrow{ justify-content:center; color: rgba(36,28,19,0.7); }
+  .final-cta .eyebrow::before{ background: var(--soil); }
+  .final-cta h2{
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight:900;
+    max-width: 18ch;
+    margin: 0 auto 22px;
+    line-height:1.02;
+  }
+  .final-cta p{ max-width: 44ch; margin: 0 auto 40px; font-size:1.05rem; line-height:1.6; }
+  .final-ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .final-cta .btn-primary{ background: var(--soil); color: var(--cream); box-shadow: 4px 4px 0 rgba(36,28,19,0.4); }
+  .final-cta .btn-primary:hover{ box-shadow: 6px 6px 0 rgba(36,28,19,0.4); }
+  .final-cta .btn-secondary{ background: var(--cream); color:var(--soil); box-shadow: 4px 4px 0 var(--soil); }
+
+  .veg-strip{
+    position:absolute; bottom:-10px; left:0; width:100%;
+    font-size: 2rem; white-space:nowrap; opacity:0.18;
+    letter-spacing: 20px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--soil);
+    color: rgba(245,238,218,0.65);
+    padding: 40px 5vw 30px;
+    display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+    font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.04em;
+  }
+  footer a{ color: var(--corn); }
+  footer a:hover{ text-decoration:underline; }
+
+  /* ---------- Reveal ---------- */
+  .reveal{ opacity:0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .pillar-grid{ grid-template-columns: 1fr; }
+    .veg-grid{ grid-template-columns: repeat(3, 1fr); }
+    .story-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .topbar-cta{ display:none; }
+  }
+  @media (max-width: 520px){
+    .veg-grid{ grid-template-columns: repeat(2, 1fr); }
+    section{ padding: 60px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" fill="none">
+        <polygon points="20,4 36,34 4,34" fill="#F0932B"/>
+        <polygon points="20,4 28,34 12,34" fill="#4F7942"/>
+        <circle cx="20" cy="14" r="3.2" fill="#F5EEDA"/>
+      </svg>
+      <div class="logo-text">Huerto La Pirámide<span>Puerto Ibáñez · Aysén</span></div>
+    </div>
+    <a class="topbar-cta" href="https://www.instagram.com/huertolapiramide/" target="_blank" rel="noopener">Pedir por Instagram</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="sun"></div>
+    <div class="hero-inner">
+      <div class="badge-stamp">
+        <span class="dot"></span>
+        <span>📍 Puerto Ibáñez · Patagonia Aysén</span>
+      </div>
+      <h1>Verdura que crece <em>al fin del mundo</em></h1>
+      <p class="lede">Cultivo local, en suelo vivo y bajo la luz natural de la Patagonia. Sin apuro, sin invernadero de plástico: la huerta trabaja al ritmo de Aysén.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://www.instagram.com/huertolapiramide/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          Ver Instagram
+        </a>
+        <a class="btn btn-secondary" href="https://linktr.ee/HUERTOLAPIRAMIDE" target="_blank" rel="noopener">
+          Hacer un pedido →
+        </a>
+      </div>
+    </div>
+
+    <!-- Patagonia scene: mountains, lake, crop rows -->
+    <div class="scene">
+      <svg viewBox="0 0 1200 230" preserveAspectRatio="none">
+        <polygon points="0,230 0,110 180,40 330,120 480,60 650,130 820,50 980,110 1130,55 1200,110 1200,230" fill="#1E4A50" opacity="0.55"/>
+        <polygon points="0,230 0,150 220,90 400,150 620,95 830,150 1040,100 1200,150 1200,230" fill="#256B57" opacity="0.75"/>
+        <rect x="0" y="185" width="1200" height="45" fill="#345E2C"/>
+        <g fill="#4F7942">
+          <rect x="0" y="178" width="18" height="14"/><rect x="40" y="178" width="18" height="14"/><rect x="80" y="178" width="18" height="14"/>
+          <rect x="120" y="178" width="18" height="14"/><rect x="160" y="178" width="18" height="14"/><rect x="200" y="178" width="18" height="14"/>
+          <rect x="240" y="178" width="18" height="14"/><rect x="280" y="178" width="18" height="14"/><rect x="320" y="178" width="18" height="14"/>
+          <rect x="360" y="178" width="18" height="14"/><rect x="400" y="178" width="18" height="14"/><rect x="440" y="178" width="18" height="14"/>
+          <rect x="480" y="178" width="18" height="14"/><rect x="520" y="178" width="18" height="14"/><rect x="560" y="178" width="18" height="14"/>
+          <rect x="600" y="178" width="18" height="14"/><rect x="640" y="178" width="18" height="14"/><rect x="680" y="178" width="18" height="14"/>
+          <rect x="720" y="178" width="18" height="14"/><rect x="760" y="178" width="18" height="14"/><rect x="800" y="178" width="18" height="14"/>
+          <rect x="840" y="178" width="18" height="14"/><rect x="880" y="178" width="18" height="14"/><rect x="920" y="178" width="18" height="14"/>
+          <rect x="960" y="178" width="18" height="14"/><rect x="1000" y="178" width="18" height="14"/><rect x="1040" y="178" width="18" height="14"/>
+          <rect x="1080" y="178" width="18" height="14"/><rect x="1120" y="178" width="18" height="14"/><rect x="1160" y="178" width="18" height="14"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ PILLARS ============ -->
+  <section class="pillars">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--lake-deep)">Cómo trabajamos</div>
+      <h2>Tres reglas que no negociamos, cosecha tras cosecha</h2>
+      <div class="pillar-grid">
+        <div class="pillar-card reveal">
+          <div class="pillar-num">01</div>
+          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none"><path d="M24 44V20" stroke="#F5EEDA" stroke-width="3" stroke-linecap="round"/><path d="M24 20c0-9-7-14-16-14 0 9 7 14 16 14Z" fill="#F0932B"/><path d="M24 26c0-8 6-13 14-13 0 8-6 13-14 13Z" fill="#4F7942"/></svg>
+          <h3>Cultivo local</h3>
+          <p>Todo se siembra, crece y se cosecha en Puerto Ibáñez. Sin traslados largos ni intermediarios: de la huerta a tu mesa en el mismo día.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-num">02</div>
+          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="38" rx="18" ry="6" fill="#3C2F1F"/><path d="M12 38c0-10 5-18 12-18s12 8 12 18" stroke="#F5EEDA" stroke-width="3" fill="none"/><circle cx="24" cy="17" r="4" fill="#E8532E"/></svg>
+          <h3>Suelo vivo</h3>
+          <p>Compost propio, rotación de cultivos y cero químicos de síntesis. Un suelo con microorganismos activos es una verdura con más sabor.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-num">03</div>
+          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="9" fill="#F4C430"/><g stroke="#F4C430" stroke-width="3" stroke-linecap="round"><line x1="24" y1="2" x2="24" y2="9"/><line x1="24" y1="39" x2="24" y2="46"/><line x1="2" y1="24" x2="9" y2="24"/><line x1="39" y1="24" x2="46" y2="24"/><line x1="8" y1="8" x2="13" y2="13"/><line x1="35" y1="35" x2="40" y2="40"/><line x1="40" y1="8" x2="35" y2="13"/><line x1="13" y1="35" x2="8" y2="40"/></g></svg>
+          <h3>Luz natural</h3>
+          <p>Sin invernaderos artificiales que fuerzan el crecimiento. Cada planta madura con el sol y el clima real de la Patagonia Aysén.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCE ============ -->
+  <section class="produce">
+    <div class="wrap">
+      <div class="eyebrow">Lo que sale de la huerta</div>
+      <h2>Verduras de estación, cosechadas cuando están listas — no antes</h2>
+      <p class="sub">La disponibilidad cambia con las estaciones de Aysén. Escribinos por Instagram para saber qué se está cosechando esta semana.</p>
+      <div class="veg-grid">
+        <div class="veg-card reveal"><div class="veg-emoji">🥬</div><span>Lechuga</span></div>
+        <div class="veg-card reveal"><div class="veg-emoji">🥕</div><span>Zanahoria</span></div>
+        <div class="veg-card reveal"><div class="veg-emoji">🥒</div><span>Pepino</span></div>
+        <div class="veg-card reveal"><div class="veg-emoji">🌽</div><span>Choclo</span></div>
+        <div class="veg-card reveal"><div class="veg-emoji">🍅</div><span>Tomate</span></div>
+        <div class="veg-card reveal"><div class="veg-emoji">🧅</div><span>Cebolla</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY / LOCATION ============ -->
+  <section class="story">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <div class="eyebrow" style="color:var(--tomato)">Dónde crecemos</div>
+        <h2>Una huerta chica, en un lugar enorme</h2>
+        <p>Puerto Ibáñez está a orillas del Lago General Carrera, en plena Patagonia Aysén. El clima es exigente, pero cuando el suelo está vivo y hay luz de sobra en verano, la tierra responde.</p>
+        <p>Trabajamos en un formato pequeño y a mano, priorizando la calidad por sobre el volumen. Cada pedido se coordina de forma directa, por Instagram o por nuestro Linktree.</p>
+      </div>
+      <div class="map-card reveal">
+        <div class="pin">
+          <div class="pin-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F5EEDA" stroke-width="2"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4" fill="#F5EEDA" stroke="none"/></svg>
+            <h4>Puerto Ibáñez</h4>
+          </div>
+          <small>Región de Aysén del Gral. C. Ibáñez del Campo, Chile</small>
+        </div>
+        <div class="coords">
+          <div><div class="lat">46.2833° S</div><small>71.9500° O</small></div>
+          <small>Lago Gral. Carrera →</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROTATING STAMP ============ -->
+  <section class="stamp-section">
+    <div class="stamp-wrap">
+      <svg viewBox="0 0 180 180">
+        <g class="rotate-text">
+          <defs>
+            <path id="circlePath" d="M 90,90 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"/>
+          </defs>
+          <text fill="#F5EEDA" font-family="Space Mono, monospace" font-size="10.5" letter-spacing="3">
+            <textPath href="#circlePath" startOffset="0%">• HUERTO LA PIRÁMIDE • CULTIVO LOCAL • SUELO VIVO • LUZ NATURAL </textPath>
+          </text>
+        </g>
+      </svg>
+      <div class="stamp-center">🌱</div>
+    </div>
+    <h3 class="reveal">Si buscás verdura de verdad, <em>escribinos</em></h3>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="veg-strip">🥬 🥕 🥒 🌽 🍅 🧅 🥬 🥕 🥒 🌽 🍅 🧅 🥬 🥕 🥒 🌽 🍅 🧅</div>
+    <div class="wrap">
+      <div class="eyebrow">Dudas y pedidos</div>
+      <h2>Tu próxima verdura empieza acá</h2>
+      <p>Contanos qué necesitás y coordinamos la entrega en Puerto Ibáñez. Toda la info de contacto y pedidos está en Instagram y en nuestro Linktree.</p>
+      <div class="final-ctas">
+        <a class="btn btn-primary" href="https://www.instagram.com/huertolapiramide/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          @huertolapiramide
+        </a>
+        <a class="btn btn-secondary" href="https://linktr.ee/HUERTOLAPIRAMIDE" target="_blank" rel="noopener">linktr.ee/HUERTOLAPIRAMIDE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <span>© 2026 Huerto La Pirámide · Puerto Ibáñez, Patagonia Aysén</span>
+    <span><a href="https://www.instagram.com/huertolapiramide/" target="_blank" rel="noopener">Instagram</a> · <a href="https://linktr.ee/HUERTOLAPIRAMIDE" target="_blank" rel="noopener">Linktree</a></span>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .pillar-card, .veg-card').forEach(el=> io.observe(el));
+  </script>
+</body>
+</html>
