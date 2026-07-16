@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asana Consciente · Clases de yoga en Madrid con Irene</title>
+<meta name="description" content="Clases de yoga en Madrid con Irene. Un espacio para practicar con conciencia, respirar y encontrarte contigo. Únete a la comunidad de Asana Consciente.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sand:#EEEAE0;
+    --sand-deep:#E4DECE;
+    --ink:#2B342A;
+    --ink-soft:#4B554A;
+    --ochre:#B6702F;
+    --ochre-deep:#96591F;
+    --plum:#6B5670;
+    --plum-deep:#54415A;
+    --line: rgba(43,52,42,0.14);
+    --paper:#F7F4EC;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,234,224,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1120px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    font-style:italic;
+    font-weight:500;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{color:var(--ochre); font-style:normal;}
+  nav.links{display:flex; gap:32px; font-size:15px;}
+  nav.links a{
+    text-decoration:none;
+    position:relative;
+    padding-bottom:2px;
+  }
+  nav.links a::after{
+    content:'';
+    position:absolute; left:0; bottom:-3px;
+    width:0; height:1px; background:var(--ochre);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--ink);
+    color:var(--paper) !important;
+    padding:9px 18px;
+    border-radius:100px;
+    font-size:14px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .menu-btn{display:none;}
+  @media(max-width:760px){
+    nav.links{display:none;}
+    .nav-inner{padding:16px 20px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 96px;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.05fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr; text-align:center;}
+    .hero-copy{order:1;}
+    .breath-wrap{order:2; margin:0 auto;}
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ochre-deep); font-weight:600;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:26px; height:1px; background:var(--ochre-deep);
+  }
+  h1.hero-title{
+    font-size:clamp(38px, 5.6vw, 62px);
+    line-height:1.05;
+  }
+  h1.hero-title em{
+    font-style:italic; color:var(--ochre-deep);
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  @media(max-width:900px){ .hero-sub{margin-left:auto; margin-right:auto;} }
+
+  .cta-row{
+    margin-top:34px;
+    display:flex; gap:16px; flex-wrap:wrap;
+  }
+  @media(max-width:900px){ .cta-row{justify-content:center;} }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    border-radius:100px;
+    font-size:15.5px; font-weight:600;
+    text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--ochre);
+    color:var(--paper);
+    box-shadow:0 10px 24px -8px rgba(150,89,31,0.55);
+  }
+  .btn-primary:hover{background:var(--ochre-deep); transform:translateY(-2px);}
+  .btn-secondary{
+    background:transparent;
+    border-color:var(--ink);
+    color:var(--ink);
+  }
+  .btn-secondary:hover{background:var(--ink); color:var(--paper); transform:translateY(-2px);}
+
+  /* Breathing circle */
+  .breath-wrap{
+    display:flex; flex-direction:column; align-items:center; gap:18px;
+  }
+  .breath-stage{
+    position:relative;
+    width:280px; height:280px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ring{
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+  .ring.r2{ inset:22px; }
+  .ring.r3{ inset:44px; }
+  .breath-orb{
+    width:150px; height:150px;
+    border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #D89B57 0%, var(--ochre) 45%, var(--plum) 100%);
+    box-shadow:0 0 60px -6px rgba(182,112,47,0.55);
+    animation:breathe 16s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%   { transform:scale(0.72); }
+    25%  { transform:scale(1.08); }
+    43.75%{ transform:scale(1.08); }
+    81.25%{ transform:scale(0.72); }
+    100% { transform:scale(0.72); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .breath-orb{ animation:none; transform:scale(0.95); }
+  }
+  .breath-label{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:17px;
+    color:var(--ink-soft);
+    letter-spacing:.02em;
+    min-height:24px;
+  }
+  .breath-caption{
+    font-size:13px; color:var(--ink-soft); opacity:.75;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:92px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .kicker{
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ochre-deep); font-weight:700; margin-bottom:14px; display:block;
+  }
+  .section-head h2{ font-size:clamp(28px,3.4vw,40px); line-height:1.15; }
+  .section-head p{ margin-top:16px; color:var(--ink-soft); font-size:17px; }
+
+  /* ---------- SOBRE MI ---------- */
+  .about{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about-inner{
+    display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:center;
+  }
+  @media(max-width:860px){ .about-inner{grid-template-columns:1fr;} }
+  .about-visual{
+    aspect-ratio:4/5;
+    border-radius:22px;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,0.5), transparent 45%),
+      linear-gradient(155deg, var(--ochre) 0%, var(--plum) 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .about-visual::after{
+    content:'✨';
+    position:absolute; bottom:24px; left:24px;
+    font-size:26px;
+  }
+  .about-visual .om{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    color:rgba(247,244,236,0.9);
+    font-size:22px; text-align:center; padding:40px;
+    line-height:1.5;
+  }
+  .about-copy p{ color:var(--ink-soft); font-size:17px; margin-top:0; margin-bottom:18px; }
+  .about-copy .name{ font-family:'Fraunces',serif; font-size:26px; font-style:italic; color:var(--ink); margin-bottom:6px; display:block;}
+  .about-copy .role{ color:var(--ochre-deep); font-weight:600; font-size:14px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:20px; display:block;}
+
+  /* ---------- BENEFICIOS ---------- */
+  .cards{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  @media(max-width:860px){ .cards{grid-template-columns:1fr;} }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:34px 30px;
+  }
+  .card .num{
+    font-family:'Fraunces',serif; font-style:italic;
+    color:var(--ochre-deep); font-size:15px; margin-bottom:16px; display:block;
+  }
+  .card h3{ font-size:21px; margin-bottom:12px; }
+  .card p{ color:var(--ink-soft); font-size:15.5px; margin:0; }
+
+  /* ---------- COMUNIDAD (WhatsApp) ---------- */
+  .community{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:28px;
+    margin:0 32px;
+    padding:64px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  @media(max-width:900px){
+    .community{grid-template-columns:1fr; padding:44px 28px; margin:0 20px; text-align:center;}
+  }
+  .community h2{ color:var(--paper); font-size:clamp(26px,3.2vw,36px); }
+  .community .kicker{ color:#E3B27C; }
+  .community p{ color:#D9D6CC; font-size:16.5px; margin-top:16px; max-width:48ch; }
+  @media(max-width:900px){ .community p{margin-left:auto; margin-right:auto;} }
+  .community-list{ list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  @media(max-width:900px){ .community-list{align-items:center;} }
+  .community-list li{ display:flex; gap:10px; align-items:flex-start; color:#EDEAE0; font-size:15px; }
+  .community-list li::before{ content:'—'; color:#E3B27C; }
+  .community-cta{
+    background:rgba(247,244,236,0.06);
+    border:1px solid rgba(247,244,236,0.18);
+    border-radius:20px;
+    padding:36px;
+    text-align:center;
+  }
+  .community-cta .btn-primary{ width:100%; justify-content:center; margin-top:22px; }
+  .community-cta .small{ margin-top:14px; font-size:13px; color:#B9B6AC; }
+
+  /* ---------- INSTAGRAM ---------- */
+  .follow{
+    text-align:center;
+  }
+  .follow .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:30px; }
+  .handle-badge{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 16px; border-radius:100px;
+    border:1px solid var(--line); background:var(--paper);
+    font-size:14px; margin-bottom:26px;
+  }
+  .handle-badge .ig-dot{ width:8px; height:8px; border-radius:50%; background:var(--plum); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0 36px;
+  }
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+  }
+  .footer-links{ display:flex; gap:26px; font-size:14px; }
+  .footer-links a{ text-decoration:none; }
+  .footer-links a:hover{ color:var(--ochre-deep); }
+  .footer-note{ font-size:13px; color:var(--ink-soft); margin-top:22px; }
+
+  ::selection{ background:var(--ochre); color:var(--paper); }
+  :focus-visible{ outline:2px solid var(--ochre-deep); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">asana<span class="dot">·</span>consciente</div>
+    <nav class="links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#practica">La práctica</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="https://chat.whatsapp.com/J7aD7ygokpnB4vGowBgZA9" target="_blank" rel="noopener">Únete al grupo</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Yoga en Madrid</span>
+        <h1 class="hero-title">Un espacio para practicar<br><em>con conciencia.</em></h1>
+        <p class="hero-sub">Soy Irene. Comparto mi camino en el yoga a través de clases en Madrid y de una comunidad donde la práctica se vive con calma, presencia y sin prisa. Empecemos por respirar juntas.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://chat.whatsapp.com/J7aD7ygokpnB4vGowBgZA9" target="_blank" rel="noopener">Únete al grupo de WhatsApp</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/asana_consciente/" target="_blank" rel="noopener">Sígueme en Instagram</a>
+        </div>
+      </div>
+      <div class="breath-wrap">
+        <div class="breath-stage">
+          <div class="ring r3"></div>
+          <div class="ring r2"></div>
+          <div class="ring"></div>
+          <div class="breath-orb"></div>
+        </div>
+        <div class="breath-label" id="breathLabel">Inhala</div>
+        <div class="breath-caption">respira conmigo mientras exploras la página</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section class="about" id="sobre-mi">
+    <div class="wrap about-inner">
+      <div class="about-visual">
+        <div class="om">"Un espacio donde comparto<br>mi camino en el yoga"</div>
+      </div>
+      <div class="about-copy">
+        <span class="name">Irene</span>
+        <span class="role">Asana Consciente · Madrid</span>
+        <p>Asana Consciente nació como un espacio de práctica cercana: clases de yoga en Madrid pensadas para volver al cuerpo, ordenar la mente y sostener la respiración como guía.</p>
+        <p>No hace falta experiencia previa ni flexibilidad de más. Solo ganas de dedicarte un rato a ti, en un grupo pequeño y sin juicio, donde cada practicante avanza a su propio ritmo.</p>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="https://linktr.ee/asana_consciente" target="_blank" rel="noopener">Ver todos los enlaces</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA PRACTICA -->
+  <section id="practica">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="kicker">Lo que te vas a llevar</span>
+        <h2>Más que una clase de yoga</h2>
+        <p>Cada sesión está pensada para que salgas más ligera de lo que entraste, con herramientas que te sirven también fuera de la esterilla.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="num">Presencia</span>
+          <h3>Volver al cuerpo</h3>
+          <p>Practicamos con atención al detalle: la respiración, el apoyo, la mirada. El movimiento se vuelve una excusa para estar de verdad presente.</p>
+        </div>
+        <div class="card">
+          <span class="num">Cercanía</span>
+          <h3>Grupo pequeño</h3>
+          <p>Nada de sentirte un número más. Se corrige, se acompaña y se pregunta cómo estás — dentro y fuera de la clase.</p>
+        </div>
+        <div class="card">
+          <span class="num">Constancia</span>
+          <h3>Una comunidad que sostiene</h3>
+          <p>La práctica se sostiene mejor en compañía. Por eso hay un grupo donde compartimos horarios, avisos y ánimo para seguir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDAD / WHATSAPP -->
+  <section id="comunidad">
+    <div class="community">
+      <div>
+        <span class="kicker">Comunidad Asana Consciente</span>
+        <h2>Entra al grupo de WhatsApp</h2>
+        <p>Ahí comparto horarios, plazas disponibles, cambios de última hora y algún recordatorio para practicar en casa. Es la forma más directa de reservar tu sitio.</p>
+        <ul class="community-list">
+          <li>Avisos de horarios y disponibilidad de clases en Madrid</li>
+          <li>Un canal directo para resolver dudas antes de tu primera clase</li>
+          <li>Recordatorios y acompañamiento entre semana</li>
+        </ul>
+      </div>
+      <div class="community-cta">
+        <span class="kicker">Empieza aquí</span>
+        <h3 style="color:var(--paper); font-size:22px; margin-top:8px;">¿Lista para tu primera clase?</h3>
+        <a class="btn btn-primary" href="https://chat.whatsapp.com/J7aD7ygokpnB4vGowBgZA9" target="_blank" rel="noopener">Unirme al grupo de WhatsApp</a>
+        <div class="small">Cupo del grupo limitado · respuesta personal garantizada</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM / LINKTREE -->
+  <section class="follow" id="contacto">
+    <div class="wrap">
+      <div class="handle-badge"><span class="ig-dot"></span> @asana_consciente</div>
+      <div class="section-head center">
+        <h2>Sígueme el camino en Instagram</h2>
+        <p>Ahí comparto práctica, reflexiones y el día a día detrás de Asana Consciente. Es también donde puedes escribirme directamente si tienes preguntas antes de apuntarte.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://www.instagram.com/asana_consciente/" target="_blank" rel="noopener">Ver Instagram</a>
+        <a class="btn btn-secondary" href="https://linktr.ee/asana_consciente" target="_blank" rel="noopener">Todos los enlaces (Linktree)</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="logo">asana<span class="dot">·</span>consciente</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/asana_consciente/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linktr.ee/asana_consciente" target="_blank" rel="noopener">Linktree</a>
+      <a href="https://chat.whatsapp.com/J7aD7ygokpnB4vGowBgZA9" target="_blank" rel="noopener">Grupo de WhatsApp</a>
+    </div>
+  </div>
+  <div class="wrap footer-note">© <span id="year"></span> Asana Consciente · Irene · Clases de yoga en Madrid</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Breathing label synced with the 16s CSS keyframe animation
+  const label = document.getElementById('breathLabel');
+  const phases = [
+    { t: 0,     text: 'Inhala' },
+    { t: 4000,  text: 'Mantén' },
+    { t: 7000,  text: 'Exhala' },
+    { t: 13000, text: 'Mantén' }
+  ];
+  const cycle = 16000;
+  function updateLabel(){
+    const elapsed = performance.now() % cycle;
+    let current = phases[0].text;
+    for(const p of phases){ if(elapsed >= p.t) current = p.text; }
+    if(label.textContent !== current) label.textContent = current;
+    requestAnimationFrame(updateLabel);
+  }
+  requestAnimationFrame(updateLabel);
+</script>
+
+</body>
+</html>
