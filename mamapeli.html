@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamá de un Pelirrojo · Estefanía Lanciano — Creadora de contenido UGC</title>
+<meta name="description" content="Estefanía Lanciano, creadora de contenido UGC en Madrid. Foodie, viajes y eventos. Embajadora de hoteles Magic Group. Contenido auténtico para marcas que quieren conectar de verdad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ===================== TOKENS ===================== */
+:root{
+  --ink:        #211A15;
+  --ink-soft:   #5A4E45;
+  --paper:      #FBF3EA;
+  --paper-deep: #F3E6D8;
+  --night:      #16211F;
+  --night-soft: #21332F;
+  --ginger:     #C1521C;
+  --ginger-dark:#8F3C13;
+  --ginger-soft:#F0C6A6;
+  --teal:       #1F4B4C;
+  --gold:       #E8A33D;
+  --line:       rgba(33,26,21,0.12);
+  --line-night: rgba(251,243,234,0.16);
+
+  --display: "Fraunces", serif;
+  --body: "Manrope", sans-serif;
+  --hand: "Caveat", cursive;
+
+  --container: 1180px;
+  --radius: 22px;
+  --ease: cubic-bezier(.22,.68,.32,.99);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+h1,h2,h3,h4{ font-family:var(--display); margin:0; font-weight:600; letter-spacing:-0.01em; }
+p{ margin:0; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+::selection{ background:var(--ginger); color:var(--paper); }
+
+/* ===================== REVEAL ===================== */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* ===================== EYEBROW / BADGES ===================== */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--body); font-weight:700; font-size:12.5px;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--ginger);
+}
+.eyebrow::before{ content:""; width:22px; height:2px; background:var(--ginger); border-radius:2px; }
+
+.badge{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 16px; border-radius:100px;
+  background:var(--paper); border:1px solid var(--line);
+  font-size:14px; font-weight:700; color:var(--ink);
+  white-space:nowrap;
+}
+.badge .ic{ font-size:15px; }
+
+/* ===================== NAV ===================== */
+header.nav{
+  position:sticky; top:0; z-index:100;
+  background:rgba(251,243,234,0.86);
+  backdrop-filter:blur(10px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px;
+}
+.logo{
+  font-family:var(--display); font-weight:700; font-size:19px;
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--ink);
+}
+.logo .flame{ width:26px; height:26px; flex:none; }
+.logo small{
+  display:block; font-family:var(--body); font-weight:600; font-size:10.5px;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
+}
+.nav-links{ display:flex; align-items:center; gap:34px; list-style:none; margin:0; padding:0; }
+.nav-links a{
+  text-decoration:none; font-weight:600; font-size:14.5px; color:var(--ink);
+  position:relative; padding-bottom:3px;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:2px;
+  background:var(--ginger); transition:width .25s var(--ease);
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  background:var(--ink); color:var(--paper);
+  padding:11px 22px; border-radius:100px; font-weight:700; font-size:14px;
+  text-decoration:none; white-space:nowrap;
+  transition:transform .2s var(--ease), background .2s var(--ease);
+}
+.nav-cta:hover{ background:var(--ginger); transform:translateY(-1px); }
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+.burger span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px; }
+
+/* ===================== HERO ===================== */
+.hero{
+  position:relative; overflow:hidden;
+  background:radial-gradient(120% 140% at 15% -10%, #24352F 0%, var(--night) 46%, #101917 100%);
+  color:var(--paper);
+  padding:74px 0 96px;
+}
+.hero .blob{ position:absolute; filter:blur(2px); opacity:0.9; pointer-events:none; }
+.hero .blob.b1{ top:-140px; right:-120px; width:520px; }
+.hero .blob.b2{ bottom:-160px; left:-140px; width:420px; opacity:0.55; }
+
+.hero-grid{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  padding-top:36px;
+}
+.hero-eyebrow{ color:var(--gold); }
+.hero-eyebrow::before{ background:var(--gold); }
+.hero h1{
+  font-size:clamp(38px,4.6vw,60px); line-height:1.06; margin-top:18px; color:var(--paper);
+}
+.hero h1 em{
+  font-style:italic; color:var(--gold); font-weight:500;
+}
+.hero-sub{
+  margin-top:22px; max-width:480px; font-size:17.5px; line-height:1.7; color:rgba(251,243,234,0.82);
+}
+.hero-badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.hero-badges .badge{ background:rgba(251,243,234,0.06); border-color:var(--line-night); color:var(--paper); }
+
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:15px 26px; border-radius:100px; font-weight:700; font-size:15px;
+  text-decoration:none; border:1px solid transparent; cursor:pointer;
+  transition:transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+  font-family:var(--body);
+}
+.btn-primary{ background:var(--ginger); color:#fff; }
+.btn-primary:hover{ background:var(--gold); color:var(--ink); transform:translateY(-2px); }
+.btn-ghost{ background:transparent; color:var(--paper); border-color:var(--line-night); }
+.btn-ghost:hover{ border-color:var(--paper); transform:translateY(-2px); }
+.btn-dark{ background:var(--ink); color:var(--paper); }
+.btn-dark:hover{ background:var(--ginger); transform:translateY(-2px); }
+
+.hero-note{ margin-top:20px; font-family:var(--hand); font-size:20px; color:var(--ginger-soft); }
+
+/* polaroid stack */
+.polastack{ position:relative; height:460px; }
+.pola{
+  position:absolute; width:230px; background:var(--paper);
+  padding:12px 12px 46px; border-radius:6px; box-shadow:0 24px 50px -18px rgba(0,0,0,0.55);
+}
+.pola .ph{
+  width:100%; aspect-ratio:1/1; border-radius:2px;
+  display:flex; align-items:center; justify-content:center; font-size:38px;
+}
+.pola figcaption{
+  font-family:var(--hand); font-size:18px; color:var(--ink); margin-top:10px; text-align:center;
+}
+.p1{ top:6%; left:6%; transform:rotate(-9deg); z-index:2; }
+.p1 .ph{ background:linear-gradient(150deg,#E8A33D,#C1521C); }
+.p2{ top:2%; right:2%; transform:rotate(7deg); z-index:1; }
+.p2 .ph{ background:linear-gradient(150deg,#1F4B4C,#12302F); }
+.p3{ bottom:0%; left:24%; transform:rotate(-3deg); z-index:3; }
+.p3 .ph{ background:linear-gradient(150deg,#F0C6A6,#C1521C); }
+
+/* ===================== SECTION SHELLS ===================== */
+section{ padding:112px 0; position:relative; }
+.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head h2{ font-size:clamp(30px,3.4vw,44px); margin-top:16px; line-height:1.12; }
+.section-head p{ margin-top:16px; font-size:17px; color:var(--ink-soft); line-height:1.7; }
+
+.divider{ height:1px; background:var(--line); }
+
+/* ===================== ABOUT ===================== */
+.about{ background:var(--paper); }
+.about-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center; }
+.about-portrait{
+  position:relative; aspect-ratio:4/5; border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--ginger-soft),var(--ginger));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 30px 60px -30px rgba(33,26,21,0.35);
+}
+.about-portrait span{ font-size:64px; }
+.about-portrait .tag{
+  position:absolute; bottom:-18px; left:24px;
+  background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:14px;
+  font-weight:700; font-size:14px; display:flex; align-items:center; gap:8px;
+  box-shadow:0 16px 30px -14px rgba(0,0,0,0.4);
+}
+.about-copy p{ font-size:17px; color:var(--ink-soft); line-height:1.75; }
+.about-copy p + p{ margin-top:16px; }
+.about-copy .lead{ font-family:var(--display); font-size:23px; color:var(--ink); font-weight:500; line-height:1.4; }
+.badge-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+
+/* ===================== SERVICES ===================== */
+.services{ background:var(--paper-deep); }
+.services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.service-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:18px;
+  padding:32px 26px; transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.service-card:hover{ transform:translateY(-6px); box-shadow:0 26px 50px -28px rgba(33,26,21,0.3); border-color:transparent; }
+.service-card .ic{
+  width:46px; height:46px; border-radius:12px; background:var(--ginger); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:21px; margin-bottom:18px;
+}
+.service-card h3{ font-size:19px; font-weight:600; }
+.service-card p{ margin-top:10px; font-size:14.5px; color:var(--ink-soft); line-height:1.65; }
+
+/* ===================== PROCESS ===================== */
+.process{ background:var(--paper); }
+.process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+.process-grid::before{
+  content:""; position:absolute; top:26px; left:6%; right:6%; height:1px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 8px, transparent 8px 16px);
+}
+.step{ position:relative; padding-right:20px; }
+.step .num{
+  width:52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper);
+  display:flex; align-items:center; justify-content:center; font-family:var(--display);
+  font-size:19px; font-weight:600; position:relative; z-index:2;
+}
+.step h4{ margin-top:20px; font-size:17.5px; font-weight:600; }
+.step p{ margin-top:8px; font-size:14.5px; color:var(--ink-soft); line-height:1.6; }
+
+/* ===================== PILLARS ===================== */
+.pillars{ background:var(--night); color:var(--paper); overflow:hidden; }
+.pillars .section-head p{ color:rgba(251,243,234,0.72); }
+.pillars .eyebrow{ color:var(--gold); }
+.pillars .eyebrow::before{ background:var(--gold); }
+.pillars .section-head h2{ color:var(--paper); }
+.pillar-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.pillar-card{
+  background:rgba(251,243,234,0.04); border:1px solid var(--line-night); border-radius:20px;
+  overflow:hidden; transition:transform .3s var(--ease), border-color .3s var(--ease);
+}
+.pillar-card:hover{ transform:translateY(-8px); border-color:rgba(251,243,234,0.35); }
+.pillar-media{
+  aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:44px; position:relative;
+}
+.pillar-media.foodie{ background:linear-gradient(155deg,#E8A33D,#8F3C13); }
+.pillar-media.viajes{ background:linear-gradient(155deg,#3A6E6E,#12302F); }
+.pillar-media.eventos{ background:linear-gradient(155deg,#C1521C,#4A1E0B); }
+.pillar-media .tagchip{
+  position:absolute; top:14px; left:14px; background:rgba(22,33,31,0.55);
+  color:var(--paper); font-size:12px; font-weight:700; padding:6px 12px; border-radius:100px;
+  backdrop-filter:blur(6px);
+}
+.pillar-body{ padding:22px 22px 26px; }
+.pillar-body h3{ font-size:20px; color:var(--paper); font-weight:600; }
+.pillar-body p{ margin-top:8px; font-size:14.5px; color:rgba(251,243,234,0.68); line-height:1.6; }
+
+/* ===================== BRANDS ===================== */
+.brands{ background:var(--paper); }
+.brand-banner{
+  border-radius:var(--radius); background:linear-gradient(120deg,var(--ginger-soft),var(--paper-deep));
+  padding:44px 40px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  border:1px solid var(--line);
+}
+.brand-banner .left{ display:flex; align-items:center; gap:20px; }
+.brand-banner .icon{
+  width:64px; height:64px; border-radius:16px; background:var(--ink); color:var(--paper);
+  display:flex; align-items:center; justify-content:center; font-size:26px; flex:none;
+}
+.brand-banner h3{ font-size:20px; font-weight:600; }
+.brand-banner p{ margin-top:6px; font-size:14.5px; color:var(--ink-soft); max-width:420px; }
+
+.logo-strip{
+  margin-top:40px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+}
+.logo-slot{
+  flex:1; min-width:140px; height:64px; border:1.5px dashed var(--line); border-radius:12px;
+  display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+  font-size:12.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; text-align:center; padding:0 10px;
+}
+
+/* ===================== CONTACT ===================== */
+.contact{ background:var(--night); color:var(--paper); position:relative; overflow:hidden; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start; }
+.contact h2{ color:var(--paper); font-size:clamp(30px,3.6vw,46px); line-height:1.1; }
+.contact .section-head p{ color:rgba(251,243,234,0.72); }
+.contact-list{ list-style:none; margin:32px 0 0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.contact-list a{
+  display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--paper);
+  padding:16px 18px; border:1px solid var(--line-night); border-radius:14px; font-weight:600; font-size:15px;
+  transition:border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+}
+.contact-list a:hover{ border-color:var(--ginger); background:rgba(193,82,28,0.12); transform:translateX(4px); }
+.contact-list .ic{
+  width:38px; height:38px; border-radius:10px; background:rgba(251,243,234,0.08);
+  display:flex; align-items:center; justify-content:center; font-size:17px; flex:none;
+}
+
+.form-card{ background:rgba(251,243,234,0.05); border:1px solid var(--line-night); border-radius:20px; padding:34px; }
+.form-card h3{ color:var(--paper); font-size:19px; font-weight:600; }
+.form-card p{ margin-top:6px; font-size:13.5px; color:rgba(251,243,234,0.6); }
+.field{ margin-top:18px; display:flex; flex-direction:column; gap:8px; }
+.field label{ font-size:13px; font-weight:700; color:rgba(251,243,234,0.75); }
+.field input, .field textarea{
+  background:rgba(251,243,234,0.06); border:1px solid var(--line-night); border-radius:10px;
+  padding:13px 14px; color:var(--paper); font-family:var(--body); font-size:14.5px; resize:vertical;
+}
+.field input::placeholder, .field textarea::placeholder{ color:rgba(251,243,234,0.35); }
+.field input:focus, .field textarea:focus{ outline:2px solid var(--ginger); outline-offset:1px; border-color:transparent; }
+.form-card .btn{ margin-top:22px; width:100%; justify-content:center; }
+.form-note{ margin-top:14px; font-size:12.5px; color:rgba(251,243,234,0.5); text-align:center; }
+
+/* ===================== FOOTER ===================== */
+footer{ background:var(--night); border-top:1px solid var(--line-night); padding:30px 0; }
+.footer-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; color:rgba(251,243,234,0.55); font-size:13px; }
+.footer-row a{ color:rgba(251,243,234,0.75); text-decoration:none; font-weight:600; }
+.footer-row a:hover{ color:var(--gold); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 980px){
+  .nav-links, .nav-cta{ display:none; }
+  .burger{ display:block; }
+  .hero-grid{ grid-template-columns:1fr; }
+  .polastack{ height:340px; margin-top:20px; }
+  .about-grid{ grid-template-columns:1fr; gap:40px; }
+  .services-grid{ grid-template-columns:1fr 1fr; }
+  .process-grid{ grid-template-columns:1fr 1fr; row-gap:36px; }
+  .process-grid::before{ display:none; }
+  .pillar-grid{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+  section{ padding:80px 0; }
+}
+@media (max-width: 620px){
+  .services-grid{ grid-template-columns:1fr; }
+  .process-grid{ grid-template-columns:1fr; }
+  .brand-banner{ flex-direction:column; align-items:flex-start; }
+  .pola{ width:190px; }
+}
+
+/* mobile menu */
+.mobile-menu{
+  display:none; position:fixed; inset:0; z-index:200; background:var(--night);
+  color:var(--paper); flex-direction:column; padding:26px 28px;
+}
+.mobile-menu.open{ display:flex; }
+.mobile-menu .top{ display:flex; justify-content:space-between; align-items:center; }
+.mobile-menu .close{ background:none; border:none; color:var(--paper); font-size:26px; cursor:pointer; }
+.mobile-menu ul{ list-style:none; padding:0; margin:50px 0 0; display:flex; flex-direction:column; gap:26px; }
+.mobile-menu a{ text-decoration:none; color:var(--paper); font-family:var(--display); font-size:28px; font-weight:600; }
+.mobile-menu .btn{ margin-top:40px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="nav-row wrap">
+    <a href="#top" class="logo">
+      <svg class="flame" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2C13 8 9 10 9 16.5C9 21.7 12.6 26 17.5 26C22.9 26 26 21.9 26 17.3C26 13 23 11 21.8 9.5C22.2 12 20.8 13.2 19.8 12.3C21 8.5 18.5 5 16 2Z" fill="#C1521C"/>
+        <path d="M17 12C15.5 15 14 16 14 19C14 21.6 15.7 23.5 18 23.5C20.4 23.5 22 21.5 22 19.2C22 17 20.5 15.8 20 14.9C20.2 16.4 19.3 17 18.8 16.5C19.4 14.5 18.2 13 17 12Z" fill="#E8A33D"/>
+      </svg>
+      Mamá de un Pelirrojo <small>Estefanía Lanciano · UGC Creator</small>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Cómo trabajo</a></li>
+        <li><a href="#contenido">Contenido</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a href="#contacto" class="nav-cta">Hablemos de tu marca</a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="top">
+    <span class="logo">Mamá de un Pelirrojo</span>
+    <button class="close" id="closeMenu" aria-label="Cerrar menú">✕</button>
+  </div>
+  <ul>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Cómo trabajo</a></li>
+    <li><a href="#contenido">Contenido</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="btn btn-primary">Hablemos de tu marca</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <svg class="blob b1" viewBox="0 0 500 500" fill="none"><path d="M250 20C340 40 460 90 470 210C480 330 380 460 250 470C120 480 20 380 20 250C20 130 150 0 250 20Z" fill="#C1521C" opacity="0.35"/></svg>
+  <svg class="blob b2" viewBox="0 0 500 500" fill="none"><path d="M250 20C340 40 460 90 470 210C480 330 380 460 250 470C120 480 20 380 20 250C20 130 150 0 250 20Z" fill="#1F4B4C" opacity="0.5"/></svg>
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow hero-eyebrow">UGC Creator · Madrid, Zona Sur</span>
+      <h1>El toque <em>pelirrojo</em><br>que le faltaba a tu marca.</h1>
+      <p class="hero-sub">Soy Estefanía, creadora de contenido UGC. Cuento restaurantes, viajes y eventos desde dentro, con contenido cercano y auténtico que conecta de verdad con quien lo ve — y con quien lo compra.</p>
+      <div class="hero-badges">
+        <span class="badge"><span class="ic">🍽️</span> Foodie</span>
+        <span class="badge"><span class="ic">✈️</span> Viajes</span>
+        <span class="badge"><span class="ic">🎉</span> Eventos</span>
+        <span class="badge"><span class="ic">✨</span> Embajadora Magic Group</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">📩 Hablemos de tu proyecto</a>
+        <a href="https://www.instagram.com/mamadeunpelirrojo/" target="_blank" rel="noopener" class="btn btn-ghost">Ver Instagram</a>
+      </div>
+      <p class="hero-note">"El contenido bueno no se nota que es publicidad."</p>
+    </div>
+    <div class="polastack reveal in">
+      <figure class="pola p1"><div class="ph">🍝</div><figcaption>Mesa reservada</figcaption></figure>
+      <figure class="pola p2"><div class="ph">🧳</div><figcaption>Check-in</figcaption></figure>
+      <figure class="pola p3"><div class="ph">🥂</div><figcaption>Live desde el evento</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE MI ===================== -->
+<section class="about" id="sobre-mi">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="about-portrait">
+        <span>🧡</span>
+        <div class="tag">📍 Madrid · Zona Sur</div>
+      </div>
+    </div>
+    <div class="reveal about-copy">
+      <span class="eyebrow">Detrás de @mamadeunpelirrojo</span>
+      <p class="lead" style="margin-top:16px;">No vendo un post. Vendo la sensación de estar ahí — en la mesa, en el hotel, en el evento — contada por alguien real.</p>
+      <p style="margin-top:22px;">Creo contenido UGC para marcas que quieren algo distinto a un anuncio: vídeos y fotos con voz propia, pensados para redes, ads y campañas de hostelería, viajes y eventos.</p>
+      <p>Trabajo como embajadora de hoteles para <strong>Magic Group</strong>, y colaboro con restaurantes, marcas de producto y organizadores de eventos que buscan contenido que se vea — y se sienta — auténtico.</p>
+      <div class="badge-row">
+        <span class="badge">📍 Madrid, Zona Sur</span>
+        <span class="badge">🎥 Reels &amp; fotografía</span>
+        <span class="badge">🤝 Colaboraciones a medida</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Qué puedo crear</span>
+      <h2>Contenido pensado para vender, no solo para gustar.</h2>
+      <p>Cada pieza se adapta al objetivo de tu marca: awareness, conversión o presencia de marca en redes propias.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="ic">🎥</div>
+        <h3>Contenido UGC para redes</h3>
+        <p>Reels y fotos con estética natural, pensados para tus canales, ads y campañas de performance.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ic">🍽️</div>
+        <h3>Contenido gastronómico</h3>
+        <p>Visitas y reseñas reales en restaurantes: carta, ambiente y experiencia contados de forma cercana.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ic">✈️</div>
+        <h3>Contenido de viajes</h3>
+        <p>Estancias, hoteles y destinos narrados desde dentro, ideal para turismo y hostelería.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ic">🎉</div>
+        <h3>Cobertura de eventos</h3>
+        <p>Presencia y contenido en vivo para lanzamientos, aperturas y eventos de marca.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ic">🏨</div>
+        <h3>Colaboraciones con hoteles</h3>
+        <p>Experiencia como embajadora: estancias patrocinadas, contenido a medida y presencia continuada.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="ic">💬</div>
+        <h3>Contenido a medida</h3>
+        <p>¿Tu marca necesita algo distinto? Cuéntamelo y diseñamos juntas el formato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cómo trabajo</span>
+      <h2>De la idea a la publicación, sin fricción.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h4>Brief</h4>
+        <p>Me cuentas tu marca, el objetivo y el estilo que buscas.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h4>Propuesta</h4>
+        <p>Te preparo una propuesta de contenido y formatos a medida.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h4>Grabación</h4>
+        <p>Creamos el contenido, en tu espacio o en el mío, según el caso.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">04</div>
+        <h4>Entrega</h4>
+        <p>Recibes el material listo para publicar, en los plazos acordados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTENIDO / PILLARS ===================== -->
+<section class="pillars" id="contenido">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Mis tres mundos</span>
+      <h2>Foodie, viajes y eventos — con la misma voz.</h2>
+      <p>Estas son las líneas de contenido en las que me muevo. Sustituye estas tarjetas por tu material real cuando lo tengas listo.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-card reveal">
+        <div class="pillar-media foodie"><span class="tagchip">🍽️ Foodie</span>🍝</div>
+        <div class="pillar-body">
+          <h3>Gastronomía</h3>
+          <p>Reseñas y experiencias en restaurantes, cocteleras y espacios gastronómicos de Madrid y alrededores.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-media viajes"><span class="tagchip">✈️ Viajes</span>🧳</div>
+        <div class="pillar-body">
+          <h3>Viajes &amp; hoteles</h3>
+          <p>Estancias y destinos contados desde dentro, con foco en hostelería y turismo.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-media eventos"><span class="tagchip">🎉 Eventos</span>🥂</div>
+        <div class="pillar-body">
+          <h3>Eventos</h3>
+          <p>Cobertura en vivo para aperturas, lanzamientos y eventos de marca.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BRANDS ===================== -->
+<section class="brands" id="marcas">
+  <div class="wrap">
+    <div class="brand-banner reveal">
+      <div class="left">
+        <div class="icon">✨</div>
+        <div>
+          <h3>Embajadora de hoteles — Magic Group</h3>
+          <p>Colaboración continuada creando contenido de estancias y experiencias para la cadena.</p>
+        </div>
+      </div>
+      <a href="#contacto" class="btn btn-dark">Quiero colaborar</a>
+    </div>
+    <div class="logo-strip reveal">
+      <div class="logo-slot">Tu marca aquí</div>
+      <div class="logo-slot">Tu marca aquí</div>
+      <div class="logo-slot">Tu marca aquí</div>
+      <div class="logo-slot">Tu marca aquí</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--gold);">¿Hablamos?</span>
+      <h2 style="margin-top:16px;">Cuéntame sobre tu marca<br>y qué necesitas contar.</h2>
+      <p style="margin-top:16px; color:rgba(251,243,234,0.72); max-width:420px;">Respondo personalmente a cada propuesta. Cuanto más contexto me des sobre tu marca y objetivo, antes te mando una propuesta.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:estefanialanciano@icloud.com"><span class="ic">✉️</span> estefanialanciano@icloud.com</a></li>
+        <li><a href="https://www.instagram.com/mamadeunpelirrojo/" target="_blank" rel="noopener"><span class="ic">📷</span> @mamadeunpelirrojo</a></li>
+        <li><a href="https://linktr.ee/Mamadeunpelirrojo" target="_blank" rel="noopener"><span class="ic">🔗</span> linktr.ee/Mamadeunpelirrojo</a></li>
+        <li><a href="#"><span class="ic">📍</span> Madrid, Zona Sur</a></li>
+      </ul>
+    </div>
+
+    <form class="form-card reveal" id="contactForm">
+      <h3>Escríbeme directamente</h3>
+      <p>Al enviar se abrirá tu app de correo con el mensaje ya redactado.</p>
+      <div class="field">
+        <label for="fname">Nombre</label>
+        <input id="fname" name="fname" type="text" placeholder="Tu nombre" required>
+      </div>
+      <div class="field">
+        <label for="fbrand">Marca / empresa</label>
+        <input id="fbrand" name="fbrand" type="text" placeholder="Nombre de tu marca">
+      </div>
+      <div class="field">
+        <label for="femail">Tu email</label>
+        <input id="femail" name="femail" type="email" placeholder="tu@email.com" required>
+      </div>
+      <div class="field">
+        <label for="fmsg">Cuéntame tu proyecto</label>
+        <textarea id="fmsg" name="fmsg" rows="4" placeholder="Qué tipo de contenido necesitas, plazos, presupuesto orientativo..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar propuesta</button>
+      <p class="form-note">Se abrirá tu cliente de correo con estefanialanciano@icloud.com</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Mamá de un Pelirrojo — Estefanía Lanciano</span>
+    <span><a href="https://www.instagram.com/mamadeunpelirrojo/" target="_blank" rel="noopener">Instagram</a> · <a href="https://linktr.ee/Mamadeunpelirrojo" target="_blank" rel="noopener">Linktree</a> · <a href="mailto:estefanialanciano@icloud.com">Email</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// mobile menu
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+burger.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// contact form -> mailto
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('fname').value;
+  const brand = document.getElementById('fbrand').value;
+  const email = document.getElementById('femail').value;
+  const msg = document.getElementById('fmsg').value;
+  const subject = encodeURIComponent('Propuesta de colaboración — ' + (brand || name));
+  const body = encodeURIComponent(
+    'Nombre: ' + name + '\n' +
+    'Marca/Empresa: ' + brand + '\n' +
+    'Email de contacto: ' + email + '\n\n' +
+    'Mensaje:\n' + msg
+  );
+  window.location.href = 'mailto:estefanialanciano@icloud.com?subject=' + subject + '&body=' + body;
+});
+</script>
+
+</body>
+</html>
