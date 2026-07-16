@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estela Calvo | Yoga & Psicología para un bienestar integral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold: #D4AF37;
+    --gold-light: #F0C040;
+    --gold-deep: #C9A84C;
+    --plum: #5B2A5E;
+    --plum-deep: #3B1740;
+    --rose: #E88B9A;
+    --sage: #7A9B76;
+    --cream: #FFF8ED;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(232,139,154,0.35), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(122,155,118,0.30), transparent 50%),
+      radial-gradient(circle at 50% 90%, rgba(212,175,55,0.25), transparent 55%),
+      linear-gradient(160deg, #3B1740 0%, #5B2A5E 35%, #7A3E6B 65%, #C97D6E 100%);
+    color:var(--cream);
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.9s ease, transform 0.9s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 6%;
+    background:rgba(59,23,64,0.55);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(212,175,55,0.3);
+  }
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:2px;color:var(--gold-light);}
+  .logo span{font-style:italic;color:var(--cream);}
+  nav a.navcta{
+    background:linear-gradient(120deg,var(--gold-deep),var(--gold-light));
+    color:#3B1740;padding:10px 22px;border-radius:30px;
+    text-decoration:none;font-weight:500;font-size:0.9rem;
+    box-shadow:0 4px 15px rgba(212,175,55,0.4);
+    transition:transform 0.3s ease;
+  }
+  nav a.navcta:hover{transform:translateY(-2px) scale(1.03);}
+
+  /* HERO */
+  header.hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:140px 6% 80px;position:relative;
+  }
+  .hero-badge{
+    letter-spacing:4px;text-transform:uppercase;font-size:0.75rem;color:var(--gold-light);
+    border:1px solid rgba(212,175,55,0.5);padding:8px 20px;border-radius:30px;margin-bottom:30px;
+  }
+  header.hero h1{
+    font-size:clamp(2.5rem, 6vw, 4.5rem);
+    line-height:1.1;
+    background:linear-gradient(120deg,#FFF8ED,var(--gold-light) 50%,#FFF8ED);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:20px;
+  }
+  header.hero .sub{
+    font-size:clamp(1.1rem,2vw,1.4rem);font-style:italic;font-family:'Cormorant Garamond',serif;
+    max-width:650px;color:#F5E6D3;margin-bottom:40px;line-height:1.6;
+  }
+  .cta-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+  .btn-primary{
+    background:linear-gradient(120deg,var(--gold-deep),var(--gold-light));
+    color:#3B1740;padding:16px 38px;border-radius:40px;text-decoration:none;
+    font-weight:600;font-size:1rem;letter-spacing:0.5px;
+    box-shadow:0 8px 25px rgba(212,175,55,0.45);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(212,175,55,0.6);}
+  .btn-outline{
+    border:1.5px solid var(--gold-light);color:var(--gold-light);
+    padding:16px 38px;border-radius:40px;text-decoration:none;font-weight:500;
+    transition:all 0.3s ease;
+  }
+  .btn-outline:hover{background:rgba(212,175,55,0.15);}
+
+  .float-icon{position:absolute;opacity:0.5;animation:float 7s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(8deg);}}
+
+  section{padding:100px 6%;position:relative;}
+  .section-label{
+    text-align:center;letter-spacing:4px;text-transform:uppercase;font-size:0.8rem;
+    color:var(--gold-light);margin-bottom:14px;
+  }
+  .section-title{text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:20px;color:#FFF8ED;}
+  .section-desc{text-align:center;max-width:650px;margin:0 auto 60px;color:#F0DFE8;font-size:1.05rem;line-height:1.7;}
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;
+  }
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .portrait{
+    aspect-ratio:3/4;border-radius:24px;
+    background:linear-gradient(145deg, var(--rose), var(--plum) 60%, var(--gold-deep));
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.35);
+  }
+  .portrait svg{width:70%;height:70%;}
+  .about-text p{color:#F0DFE8;line-height:1.85;margin-bottom:18px;font-size:1.05rem;}
+  .signature-row{display:flex;gap:14px;margin-top:25px;flex-wrap:wrap;}
+  .pill{
+    background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);
+    color:var(--gold-light);padding:8px 18px;border-radius:30px;font-size:0.85rem;
+  }
+
+  /* SERVICES */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:1100px;margin:0 auto;
+  }
+  .service-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.25);
+    border-radius:20px;padding:40px 28px;text-align:center;backdrop-filter:blur(6px);
+    transition:transform 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+  }
+  .service-card:hover{transform:translateY(-8px);background:rgba(255,255,255,0.1);border-color:var(--gold-light);}
+  .service-icon{width:60px;height:60px;margin:0 auto 20px;}
+  .service-card h3{color:var(--gold-light);font-size:1.4rem;margin-bottom:12px;}
+  .service-card p{color:#F0DFE8;font-size:0.95rem;line-height:1.6;}
+
+  /* WHY / BENEFITS */
+  .benefits-wrap{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;}
+  .benefit{text-align:center;padding:20px;}
+  .benefit .num{
+    font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold-light);
+    display:block;margin-bottom:10px;font-style:italic;
+  }
+  .benefit p{color:#F0DFE8;font-size:0.95rem;line-height:1.6;}
+
+  /* TESTIMONIAL / QUOTE */
+  .quote-block{
+    max-width:750px;margin:0 auto;text-align:center;padding:60px 30px;
+    border-top:1px solid rgba(212,175,55,0.3);border-bottom:1px solid rgba(212,175,55,0.3);
+  }
+  .quote-block p{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);
+    color:#FFF8ED;line-height:1.5;
+  }
+  .quote-block span{display:block;margin-top:20px;color:var(--gold-light);letter-spacing:2px;font-size:0.85rem;text-transform:uppercase;}
+
+  /* FINAL CTA */
+  .final-cta{
+    text-align:center;background:linear-gradient(145deg, rgba(212,175,55,0.18), rgba(232,139,154,0.15));
+    border-radius:30px;max-width:900px;margin:0 auto;padding:70px 40px;border:1px solid rgba(212,175,55,0.4);
+  }
+  .final-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);color:#FFF8ED;margin-bottom:16px;}
+  .final-cta p{color:#F0DFE8;margin-bottom:35px;font-size:1.05rem;}
+  .ig-handle{
+    display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);
+    border:1px solid rgba(212,175,55,0.4);padding:12px 26px;border-radius:40px;margin-top:25px;
+    color:var(--gold-light);text-decoration:none;font-size:0.95rem;transition:all 0.3s ease;
+  }
+  .ig-handle:hover{background:rgba(212,175,55,0.2);transform:scale(1.03);}
+
+  footer{
+    text-align:center;padding:50px 6% 40px;color:#C9A0B0;font-size:0.85rem;
+    border-top:1px solid rgba(212,175,55,0.2);
+  }
+  footer a{color:var(--gold-light);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Estela <span>Calvo</span></div>
+  <a class="navcta" href="https://www.instagram.com/estela_yogaala/" target="_blank" rel="noopener">Sígueme en Instagram</a>
+</nav>
+
+<header class="hero">
+  <svg class="float-icon" style="top:18%;left:8%;width:50px;" viewBox="0 0 24 24" fill="none" stroke="#F0C040" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18 5 5 0 0 1 0-18z" fill="#F0C040" opacity="0.4"/></svg>
+  <svg class="float-icon" style="top:65%;right:10%;width:40px;animation-delay:2s;" viewBox="0 0 24 24" fill="none" stroke="#E88B9A" stroke-width="1.2"><path d="M12 2l2.4 7.2H22l-6 4.4L18 21l-6-4.4L6 21l1.6-7.4-6-4.4h7.6z"/></svg>
+  <div class="hero-badge">Yoga &amp; Psicología · Alcalá de Henares</div>
+  <h1>Healing through movement</h1>
+  <p class="sub">Yoga y psicología para un bienestar integral. Cofundadora de Yogaala Studio, acompañándote a reconectar cuerpo y mente a través del movimiento consciente.</p>
+  <div class="cta-row">
+    <a class="btn-primary" href="https://www.instagram.com/estela_yogaala/" target="_blank" rel="noopener">Reserva tu clase por Instagram</a>
+    <a class="btn-outline" href="#servicios">Conoce mis clases</a>
+  </div>
+</header>
+
+<section id="sobre-mi">
+  <div class="about-grid">
+    <div class="portrait reveal">
+      <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="70" rx="42" ry="48" fill="#F5E6D3"/>
+        <path d="M58 60 Q100 20 142 60 Q150 100 130 130 L70 130 Q50 100 58 60Z" fill="#3B1740"/>
+        <path d="M70 175 Q100 150 130 175 L145 250 L55 250 Z" fill="#E88B9A"/>
+        <path d="M75 190 Q100 210 125 190" stroke="#D4AF37" stroke-width="3" fill="none"/>
+        <circle cx="82" cy="72" r="3" fill="#3B1740"/>
+        <circle cx="118" cy="72" r="3" fill="#3B1740"/>
+        <path d="M85 92 Q100 100 115 92" stroke="#3B1740" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="about-text reveal">
+      <div class="section-label" style="text-align:left;">Sobre mí</div>
+      <h2 class="section-title" style="text-align:left;">Estela Calvo</h2>
+      <p>Soy profesora de Vinyasa Yoga y estoy formándome como psicóloga, dos caminos que para mí son inseparables: el cuerpo y la mente se sanan juntos. Cada clase es un espacio para escucharte, moverte con conciencia y volver a casa contigo misma.</p>
+      <p>Soy cofundadora de <strong>Yogaala Studio</strong>, donde acompaño a mis alumnas a construir una práctica sostenible, sin exigencia ni comparación — solo presencia.</p>
+      <div class="signature-row">
+        <span class="pill">🧘‍♀️ Vinyasa Yoga</span>
+        <span class="pill">📚 Psicología</span>
+        <span class="pill">✨ Bienestar integral</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="section-label reveal">Lo que ofrezco</div>
+  <h2 class="section-title reveal">Un espacio para tu bienestar</h2>
+  <p class="section-desc reveal">Clases y acompañamiento pensados para reconectar cuerpo, respiración y mente.</p>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="#F0C040" stroke-width="1.3"><circle cx="12" cy="6" r="3"/><path d="M12 9v7M8 12l4-3 4 3M6 20l6-4 6 4"/></svg>
+      <h3>Clases de Vinyasa Yoga</h3>
+      <p>Práctica dinámica que sincroniza movimiento y respiración, adaptada a todos los niveles.</p>
+    </div>
+    <div class="service-card reveal">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="#E88B9A" stroke-width="1.3"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 7 4c2 0 4 1.2 5 3 1-1.8 3-3 5-3 4 0 6.5 4 4.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg>
+      <h3>Acompañamiento integral</h3>
+      <p>Un enfoque que une yoga y psicología para trabajar el bienestar emocional desde el cuerpo.</p>
+    </div>
+    <div class="service-card reveal">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="#7A9B76" stroke-width="1.3"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+      <h3>Yogaala Studio</h3>
+      <p>Comunidad y espacio físico en Alcalá de Henares para practicar con constancia y presencia.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label reveal">Por qué elegir esta práctica</div>
+  <h2 class="section-title reveal">Cuerpo y mente, en el mismo camino</h2>
+  <div class="benefits-wrap">
+    <div class="benefit reveal"><span class="num">01</span><p>Clases guiadas con foco en la respiración y la conciencia corporal.</p></div>
+    <div class="benefit reveal"><span class="num">02</span><p>Mirada psicológica que acompaña sin juzgar ni exigir.</p></div>
+    <div class="benefit reveal"><span class="num">03</span><p>Espacio seguro para todos los niveles de práctica.</p></div>
+    <div class="benefit reveal"><span class="num">04</span><p>Comunidad cercana en Yogaala Studio.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="quote-block reveal">
+    <p>“El yoga no es sobre tocarte los pies, es sobre lo que aprendes en el camino hacia abajo.”</p>
+    <span>Estela Calvo</span>
+  </div>
+</section>
+
+<section>
+  <div class="final-cta reveal">
+    <h2>¿Lista para empezar tu práctica?</h2>
+    <p>Escríbeme por Instagram y reserva tu primera clase en Yogaala Studio.</p>
+    <a class="btn-primary" href="https://www.instagram.com/estela_yogaala/" target="_blank" rel="noopener">Escríbeme por Instagram</a>
+    <br>
+    <a class="ig-handle" href="https://www.instagram.com/estela_yogaala/" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0C040" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      @estela_yogaala
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Estela Calvo · Yoga &amp; Psicología · Alcalá de Henares</p>
+  <p style="margin-top:8px;">Cofundadora de <a href="https://www.instagram.com/yogaalastudio/" target="_blank" rel="noopener">@yogaalastudio</a> · Sígueme en <a href="https://www.instagram.com/estela_yogaala/" target="_blank" rel="noopener">Instagram</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
