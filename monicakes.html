@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monicakes López Concha | Experiencias Gastronómicas Personalizadas</title>
+<meta name="description" content="Creo experiencias gastronómicas personalizadas con cocina sana, natural, artesana, creativa, respetuosa, energética y consciente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #fdf3e3;
+    --gold: #e0a94a;
+    --gold-dark: #c9862c;
+    --terracotta: #d97a52;
+    --olive: #7c8a52;
+    --ink: #4a3823;
+    --paper: #fffaf0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 6%;
+    background:rgba(253,243,227,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(201,134,44,0.15);
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    color:var(--gold-dark);
+    letter-spacing:.5px;
+  }
+  .logo span{color:var(--terracotta);font-style:italic;}
+  nav a{
+    margin-left:28px;
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+  }
+  nav a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-4px;
+    width:0;height:2px;
+    background:var(--terracotta);
+    transition:width .3s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-links{display:flex;align-items:center;}
+  .menu-toggle{display:none;font-size:1.6rem;cursor:pointer;background:none;border:none;color:var(--gold-dark);}
+
+  @media(max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:64px;right:0;
+      background:var(--paper);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 26px;
+      gap:14px;
+      border-radius:0 0 0 16px;
+      box-shadow:-4px 6px 20px rgba(0,0,0,.08);
+      transform:translateX(110%);
+      transition:transform .35s ease;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{margin-left:0;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 6% 100px;
+    position:relative;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(224,169,74,0.35) 0%, transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(217,122,82,0.28) 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(124,138,82,0.25) 0%, transparent 45%),
+      var(--cream);
+    overflow:hidden;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:.5;
+  }
+  .hero::before{
+    width:220px;height:220px;
+    background:radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    top:8%; left:6%;
+    animation:float1 9s ease-in-out infinite;
+  }
+  .hero::after{
+    width:260px;height:260px;
+    background:radial-gradient(circle, var(--terracotta) 0%, transparent 70%);
+    bottom:6%; right:8%;
+    animation:float2 11s ease-in-out infinite;
+  }
+  @keyframes float1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(25px) translateX(15px);}}
+  @keyframes float2{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(-15px);}}
+
+  .hero-content{max-width:760px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-block;
+    padding:8px 20px;
+    border:1px solid var(--gold-dark);
+    border-radius:40px;
+    font-size:.78rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold-dark);
+    margin-bottom:26px;
+    background:rgba(255,255,255,0.5);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    font-weight:600;
+    line-height:1.1;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--terracotta);
+  }
+  .hero p{
+    font-size:1.15rem;
+    color:#6b5a3f;
+    max-width:560px;
+    margin:0 auto 40px;
+    line-height:1.6;
+  }
+  .cta-group{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 34px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:1rem;
+    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 8px 20px rgba(201,134,44,0.25);
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--terracotta), var(--gold-dark));
+    color:#fff;
+  }
+  .btn-secondary{
+    background:#fff;
+    color:var(--gold-dark);
+    border:1.5px solid var(--gold-dark);
+    box-shadow:none;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(201,134,44,0.35);}
+
+  /* ---------- Section shared ---------- */
+  section{padding:110px 6%;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 60px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.7rem);
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  .section-head p{color:#6b5a3f;font-size:1.05rem;line-height:1.6;}
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--paper);
+    display:flex;
+    gap:60px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .about-visual{
+    flex:1 1 320px;
+    max-width:380px;
+    aspect-ratio:1;
+    border-radius:50% 50% 45% 55% / 55% 45% 55% 45%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(224,169,74,0.9), transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(217,122,82,0.85), transparent 60%),
+      linear-gradient(135deg, var(--gold), var(--olive));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:5rem;
+    box-shadow:0 30px 60px rgba(201,134,44,0.3);
+    animation:blob 8s ease-in-out infinite;
+  }
+  @keyframes blob{
+    0%,100%{border-radius:50% 50% 45% 55% / 55% 45% 55% 45%;}
+    50%{border-radius:45% 55% 55% 45% / 45% 55% 45% 55%;}
+  }
+  .about-text{flex:1 1 420px;max-width:520px;}
+  .about-text .eyebrow{margin-bottom:18px;}
+  .about-text h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:20px;font-weight:600;}
+  .about-text p{color:#6b5a3f;line-height:1.75;margin-bottom:18px;font-size:1.03rem;}
+
+  /* ---------- Values grid ---------- */
+  .values{background:var(--cream);}
+  .values-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:24px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .value-card{
+    background:var(--paper);
+    padding:34px 24px;
+    border-radius:20px;
+    text-align:center;
+    border:1px solid rgba(201,134,44,0.15);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .value-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 30px rgba(201,134,44,0.18);
+  }
+  .value-icon{font-size:2.1rem;margin-bottom:14px;}
+  .value-card h3{font-size:1.05rem;margin-bottom:8px;font-weight:600;color:var(--gold-dark);}
+  .value-card p{font-size:.88rem;color:#8a7757;line-height:1.5;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--paper);}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .service-card{
+    background:var(--cream);
+    border-radius:24px;
+    padding:40px 30px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(201,134,44,0.12);
+  }
+  .service-card::before{
+    content:"";
+    position:absolute;
+    top:-40px;right:-40px;
+    width:120px;height:120px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(224,169,74,0.35), transparent 70%);
+  }
+  .service-num{
+    font-family:'Fraunces',serif;
+    font-size:2.6rem;
+    color:rgba(201,134,44,0.35);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .service-card h3{font-size:1.25rem;margin-bottom:12px;font-weight:600;color:var(--ink);}
+  .service-card p{color:#6b5a3f;font-size:.95rem;line-height:1.65;}
+
+  /* ---------- Process ---------- */
+  .process{background:var(--cream);}
+  .steps{
+    max-width:800px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .step{
+    display:flex;
+    gap:28px;
+    padding:28px 0;
+    border-bottom:1px dashed rgba(201,134,44,0.3);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    flex:0 0 auto;
+    width:52px;height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), var(--terracotta));
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.2rem;
+  }
+  .step-text h3{font-size:1.1rem;margin-bottom:6px;font-weight:600;}
+  .step-text p{color:#6b5a3f;font-size:.95rem;line-height:1.6;}
+
+  /* ---------- Instagram CTA banner ---------- */
+  .ig-banner{
+    background:linear-gradient(120deg, var(--terracotta), var(--gold-dark));
+    color:#fff;
+    border-radius:28px;
+    max-width:1000px;
+    margin:0 auto;
+    padding:60px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .ig-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 50%),
+               radial-gradient(circle at 80% 80%, rgba(255,255,255,0.12), transparent 50%);
+  }
+  .ig-banner h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:14px;font-weight:600;position:relative;}
+  .ig-banner p{font-size:1.05rem;opacity:.92;margin-bottom:30px;position:relative;}
+  .ig-banner .btn{position:relative;background:#fff;color:var(--terracotta);box-shadow:0 10px 24px rgba(0,0,0,0.2);}
+
+  /* ---------- Final CTA / contact ---------- */
+  .contact{
+    background:var(--paper);
+    text-align:center;
+  }
+  .contact h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:18px;font-weight:600;}
+  .contact p{color:#6b5a3f;max-width:520px;margin:0 auto 36px;line-height:1.6;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    color:#e9dcc4;
+    text-align:center;
+    padding:44px 6% 30px;
+  }
+  footer .logo{color:#f3d9a3;margin-bottom:14px;display:inline-block;}
+  footer .foot-links{margin-bottom:18px;}
+  footer .foot-links a{margin:0 12px;font-size:.9rem;color:#e9dcc4;opacity:.85;}
+  footer .foot-links a:hover{opacity:1;color:var(--gold);}
+  footer .copy{font-size:.8rem;opacity:.6;}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .whatsapp-float{
+    position:fixed;
+    bottom:26px; right:26px;
+    width:60px;height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.25);
+    z-index:200;
+    animation:pulse 2.4s infinite;
+  }
+  .whatsapp-float svg{width:30px;height:30px;fill:#fff;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5), 0 10px 24px rgba(0,0,0,0.25);}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0), 0 10px 24px rgba(0,0,0,0.25);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0), 0 10px 24px rgba(0,0,0,0.25);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Monicakes <span>López Concha</span></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#valores">Valores</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Cómo trabajo</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">Cocina consciente · Experiencias a medida</span>
+    <h1 class="reveal is-visible">Experiencias gastronómicas <em>hechas a tu medida</em></h1>
+    <p class="reveal is-visible">Cocina sana, natural, artesana y creativa, pensada con respeto, energía y consciencia para acompañarte en cada momento especial.</p>
+    <div class="cta-group reveal is-visible">
+      <a class="btn btn-primary" href="#contacto">Reserva tu experiencia</a>
+      <a class="btn btn-secondary" href="https://www.instagram.com/monicakeslopezconcha/" target="_blank" rel="noopener">Ver Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section class="about" id="sobre-mi">
+  <div class="about-visual reveal">🍲</div>
+  <div class="about-text reveal">
+    <span class="eyebrow">Sobre mí</span>
+    <h2>Monicakes López Concha</h2>
+    <p>Creo experiencias gastronómicas personalizadas, pensadas para ti y para las personas que quieres cuidar. Cada propuesta nace de escuchar primero: tus gustos, tu ritmo de vida y lo que necesitas celebrar.</p>
+    <p>Trabajo con una cocina sana, natural y artesana, cuidando cada ingrediente y cada detalle, para que la comida sea también un espacio de energía y consciencia.</p>
+    <a class="btn btn-secondary" href="https://www.instagram.com/monicakeslopezconcha/" target="_blank" rel="noopener">@monicakeslopezconcha</a>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="values" id="valores">
+  <div class="section-head reveal">
+    <span class="eyebrow">Filosofía</span>
+    <h2>Una cocina con propósito</h2>
+    <p>Cada plato refleja siete principios que guían mi forma de cocinar y de acompañarte.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">🌿</div>
+      <h3>Sana</h3>
+      <p>Ingredientes pensados para nutrir cuerpo y mente.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🌾</div>
+      <h3>Natural</h3>
+      <p>Materias primas reales, sin atajos ni artificios.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">✋</div>
+      <h3>Artesana</h3>
+      <p>Elaboración cuidada, a fuego lento y con las manos.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🎨</div>
+      <h3>Creativa</h3>
+      <p>Propuestas únicas que se adaptan a cada historia.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🤝</div>
+      <h3>Respetuosa</h3>
+      <p>Con los ingredientes, los tiempos y contigo.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">⚡</div>
+      <h3>Energética</h3>
+      <p>Platos que aportan vitalidad, no solo sabor.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🧘</div>
+      <h3>Consciente</h3>
+      <p>Cocinar como acto de presencia y cuidado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="section-head reveal">
+    <span class="eyebrow">Servicios</span>
+    <h2>Experiencias a tu medida</h2>
+    <p>Cada propuesta se diseña según tus necesidades, tu espacio y el momento que quieres celebrar.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3>Menús personalizados</h3>
+      <p>Diseño planes y menús adaptados a tus gustos, objetivos de bienestar e intolerancias, con ingredientes naturales y de temporada.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <h3>Experiencias privadas</h3>
+      <p>Cenas y encuentros gastronómicos íntimos en tu propio espacio, pensados para celebrar momentos especiales con consciencia y calma.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <h3>Talleres y encuentros</h3>
+      <p>Sesiones para aprender a cocinar de forma sana y creativa, conectando con los ingredientes y con una alimentación más consciente.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <h3>Catering artesano</h3>
+      <p>Producción cuidada para eventos pequeños y celebraciones, manteniendo siempre el carácter natural y artesanal de cada elaboración.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process" id="proceso">
+  <div class="section-head reveal">
+    <span class="eyebrow">Cómo trabajo</span>
+    <h2>De tu idea a la mesa</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Escucha</h3>
+        <p>Hablamos sobre tus gustos, necesidades, alergias y el tipo de experiencia que imaginas.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Diseño</h3>
+        <p>Creo una propuesta personalizada de menú o experiencia, cuidando cada ingrediente y detalle.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Elaboración</h3>
+        <p>Preparo todo de forma artesana, con tiempo, energía y presencia consciente.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <h3>Experiencia</h3>
+        <p>Disfrutas de un momento gastronómico pensado únicamente para ti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM BANNER -->
+<section>
+  <div class="ig-banner reveal">
+    <h2>Descubre más experiencias en Instagram</h2>
+    <p>Sígueme para ver mis últimas creaciones, recetas y experiencias gastronómicas.</p>
+    <a class="btn" href="https://www.instagram.com/monicakeslopezconcha/" target="_blank" rel="noopener">@monicakeslopezconcha →</a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="reveal">
+    <span class="eyebrow">Contacto</span>
+    <h2>Diseñemos tu próxima experiencia</h2>
+    <p>Cuéntame qué tienes en mente y creamos juntas un menú o experiencia gastronómica única, hecha a tu medida.</p>
+    <div class="cta-group">
+      <a class="btn btn-primary" href="https://wa.me/34600000000?text=Hola%20Monicakes%2C%20quiero%20info%20sobre%20una%20experiencia%20gastron%C3%B3mica%20personalizada" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      <a class="btn btn-secondary" href="https://www.instagram.com/monicakeslopezconcha/" target="_blank" rel="noopener">Escríbeme por Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Monicakes López Concha</div>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/monicakeslopezconcha/" target="_blank" rel="noopener">Instagram</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#servicios">Servicios</a>
+  </div>
+  <p class="copy">© 2026 Monicakes López Concha. Todos los derechos reservados.</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/34600000000?text=Hola%20Monicakes%2C%20quiero%20info%20sobre%20una%20experiencia%20gastron%C3%B3mica%20personalizada" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.48 1.34 4.997l-1.42 5.19 5.318-1.394a9.955 9.955 0 004.759 1.204h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.928-7.069a9.93 9.93 0 00-7.073-2.928zm0 18.192a8.19 8.19 0 01-4.176-1.14l-.3-.178-3.156.827.842-3.078-.195-.316a8.184 8.184 0 01-1.256-4.365c0-4.523 3.68-8.203 8.203-8.203a8.15 8.15 0 015.802 2.404 8.15 8.15 0 012.398 5.8c-.003 4.524-3.683 8.15-8.162 8.15z"/></svg>
+</a>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
