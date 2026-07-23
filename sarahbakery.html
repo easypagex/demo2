@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Noemy · Repostería Artesanal en San Salvador</title>
+<meta name="description" content="Repostería artesanal hecha con amor y sabor casero en San Salvador. Tortas personalizadas, cupcakes y postres. Pedí por WhatsApp.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Caveat:wght@600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#FFF6EA;
+    --cream-2:#FBEBD8;
+    --wine:#7A2E38;
+    --wine-deep:#5C222A;
+    --rose:#EFB4B8;
+    --rose-deep:#E197A0;
+    --gold:#D9A441;
+    --gold-deep:#BE8A30;
+    --sage:#8FA97E;
+    --choco:#3B2420;
+    --ink:#3B2420;
+    --paper:#FFFFFF;
+
+    --font-display:'Fraunces', serif;
+    --font-script:'Caveat', cursive;
+    --font-body:'Sora', sans-serif;
+
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:10px;
+    --shadow-soft: 0 20px 40px -20px rgba(59,36,32,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:var(--wine-deep);
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  section{position:relative;}
+
+  .container{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  :focus-visible{
+    outline:3px solid var(--gold-deep);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* ---------- Botones ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 26px;
+    border-radius:999px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15.5px;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn svg{flex-shrink:0;}
+  .btn-primary{
+    background:var(--wine);
+    color:var(--cream);
+    box-shadow:0 10px 24px -10px rgba(122,46,56,0.55);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 28px -10px rgba(122,46,56,0.6); background:var(--wine-deep);}
+  .btn-outline{
+    background:transparent;
+    color:var(--wine-deep);
+    border-color:var(--wine-deep);
+  }
+  .btn-outline:hover{ transform:translateY(-2px); background:var(--wine-deep); color:var(--cream);}
+  .btn-light{
+    background:var(--gold);
+    color:var(--choco);
+  }
+  .btn-light:hover{ transform:translateY(-2px); background:#E8B65C;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,246,234,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(122,46,56,0.12);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    max-width:1140px; margin:0 auto;
+  }
+  .wordmark{
+    font-family:var(--font-script);
+    font-size:30px;
+    color:var(--wine-deep);
+    font-weight:700;
+  }
+  .wordmark span{
+    display:block;
+    font-family:var(--font-body);
+    font-size:10.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:600;
+    margin-top:-4px;
+  }
+  .nav-links{ display:flex; align-items:center; gap:14px; }
+  .nav-ig{
+    display:flex; align-items:center; gap:6px;
+    font-size:14px; font-weight:600; color:var(--wine-deep);
+  }
+  @media (max-width:640px){
+    .nav-ig{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:64px 0 40px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero{padding-top:40px;}
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--gold-deep);
+    background:var(--cream-2);
+    border:1px solid rgba(217,164,65,0.4);
+    padding:7px 14px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    font-weight:700;
+    max-width:11ch;
+  }
+  .hero-sub{
+    margin-top:20px;
+    font-size:18px;
+    max-width:46ch;
+    color:#5b423e;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .layer-key{
+    margin-top:34px;
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+  }
+  .layer-key a{
+    display:flex; align-items:center; gap:8px;
+    font-size:13.5px; font-weight:600; color:var(--wine-deep);
+    padding:4px 0;
+    border-bottom:1px dashed transparent;
+    transition:border-color .15s ease, opacity .15s ease;
+  }
+  .layer-key a:hover{ border-color:var(--wine-deep); }
+  .dot{ width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+
+  .hero-art{ position:relative; display:flex; justify-content:center; }
+  .hero-art svg{ width:100%; max-width:420px; height:auto; filter:drop-shadow(0 30px 40px rgba(59,36,32,0.22)); }
+
+  /* ---------- About ---------- */
+  .about{
+    padding:80px 0;
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap:52px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
+  .portrait{
+    position:relative;
+    background:linear-gradient(160deg, var(--rose) 0%, var(--gold) 100%);
+    border-radius:var(--radius-lg);
+    aspect-ratio:4/5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-soft);
+  }
+  .portrait svg{ width:62%; }
+  .portrait-tag{
+    position:absolute;
+    bottom:-18px; left:-18px;
+    background:var(--paper);
+    border-radius:var(--radius-sm);
+    padding:12px 18px;
+    box-shadow:var(--shadow-soft);
+    font-family:var(--font-script);
+    font-size:22px;
+    color:var(--wine-deep);
+    transform:rotate(-4deg);
+  }
+  .about h2{ font-size:clamp(1.8rem,3.4vw,2.5rem); }
+  .about p{ margin-top:18px; max-width:52ch; color:#5b423e; font-size:16.5px;}
+  .fact-list{
+    list-style:none; margin:28px 0 0; padding:0;
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 22px;
+  }
+  .fact-list li{
+    display:flex; align-items:center; gap:10px;
+    font-weight:600; font-size:14.5px; color:var(--wine-deep);
+  }
+
+  /* ---------- Section heading shared ---------- */
+  .section-head{ max-width:640px; margin-bottom:44px; }
+  .section-head .eyebrow{ margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(1.9rem,3.6vw,2.6rem); }
+  .section-head p{ margin-top:14px; color:#5b423e; font-size:16.5px; }
+  .center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+  /* ---------- Menu ---------- */
+  .menu{ padding:80px 0; background:var(--paper); }
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  @media (max-width:980px){ .menu-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .menu-grid{ grid-template-columns:1fr; } }
+
+  .menu-card{
+    position:relative;
+    background:var(--cream);
+    border-radius:var(--radius-md);
+    padding:30px 22px 26px;
+    border:1px solid rgba(122,46,56,0.1);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .menu-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); }
+  .menu-card .scallop{
+    position:absolute; top:-1px; left:0; right:0; height:14px;
+    background-image: radial-gradient(circle at 7px 0px, transparent 7px, var(--cream) 7.5px);
+    background-size:14px 14px;
+    background-repeat:repeat-x;
+  }
+  .menu-card .icon-wrap{
+    width:54px; height:54px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .menu-card h3{ font-size:1.25rem; font-weight:600; }
+  .menu-card p{ margin-top:10px; font-size:14.5px; color:#6b5450; }
+
+  .menu-note{
+    margin-top:36px;
+    text-align:center;
+    font-size:15px;
+    color:#6b5450;
+  }
+  .menu-note a{ font-weight:700; color:var(--wine-deep); border-bottom:2px solid var(--gold); }
+
+  /* ---------- Cómo pedir ---------- */
+  .steps{ padding:84px 0; }
+  .steps-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+    position:relative;
+  }
+  @media (max-width:820px){ .steps-row{ grid-template-columns:1fr; } }
+  .steps-row::before{
+    content:"";
+    position:absolute; top:34px; left:8%; right:8%; height:2px;
+    background-image: linear-gradient(90deg, var(--wine-deep) 0, var(--wine-deep) 8px, transparent 8px, transparent 16px);
+    background-size:16px 2px;
+    opacity:.35;
+  }
+  @media (max-width:820px){ .steps-row::before{ display:none; } }
+  .step{ position:relative; }
+  .step-num{
+    width:68px; height:68px;
+    border-radius:50%;
+    background:var(--wine);
+    color:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display);
+    font-size:1.6rem; font-weight:700;
+    margin-bottom:20px;
+    position:relative; z-index:1;
+    box-shadow:0 10px 20px -8px rgba(122,46,56,0.5);
+  }
+  .step h3{ font-size:1.15rem; font-weight:600; margin-bottom:8px; }
+  .step p{ font-size:14.5px; color:#6b5450; max-width:32ch; }
+
+  /* ---------- Por qué elegirnos ---------- */
+  .why{ padding:20px 0 84px; }
+  .why-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  @media (max-width:980px){ .why-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-card{
+    background:var(--paper);
+    border-radius:var(--radius-md);
+    padding:26px 22px;
+    border:1px solid rgba(122,46,56,0.08);
+  }
+  .why-card svg{ margin-bottom:14px; }
+  .why-card h3{ font-size:1.02rem; font-weight:600; margin-bottom:6px; }
+  .why-card p{ font-size:14px; color:#6b5450; }
+
+  /* ---------- Galería teaser ---------- */
+  .gallery{ padding:84px 0; background:var(--paper); }
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;
+    margin-bottom:34px;
+  }
+  @media (max-width:820px){ .gallery-grid{ grid-template-columns:1fr 1fr; } }
+  .gallery-tile{
+    aspect-ratio:1;
+    border-radius:var(--radius-md);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .gallery-cta{
+    text-align:center;
+  }
+
+  /* ---------- CTA final ---------- */
+  .cta-final{
+    padding:90px 0;
+    background:var(--choco);
+    color:var(--cream);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-final::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(217,164,65,0.18), transparent 40%),
+      radial-gradient(circle at 88% 80%, rgba(239,180,184,0.14), transparent 45%);
+  }
+  .cta-final-inner{ position:relative; z-index:1; }
+  .cta-final h2{ color:var(--cream); font-size:clamp(1.9rem,4vw,2.8rem); }
+  .cta-final p{ margin-top:14px; color:#ecd9c9; font-size:17px; }
+  .cta-final .hero-ctas{ justify-content:center; margin-top:34px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:44px 0 90px;
+    background:var(--choco);
+    color:#d8c3b6;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .footer-inner{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px;
+  }
+  .footer-word{ font-family:var(--font-script); font-size:26px; color:var(--cream); }
+  .footer-links{ display:flex; gap:20px; font-size:14px; font-weight:600; }
+  .footer-links a:hover{ color:var(--gold); }
+  .footer-bottom{ margin-top:26px; font-size:12.5px; color:#a68d80; text-align:center; }
+
+  /* ---------- WhatsApp flotante ---------- */
+  .float-wa{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    width:60px; height:60px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 26px -8px rgba(0,0,0,0.4);
+    transition:transform .18s ease;
+  }
+  .float-wa:hover{ transform:scale(1.08); }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- =============== NAV =============== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark">Sara Noemy<span>Repostería artesanal</span></a>
+    <div class="nav-links">
+      <a class="nav-ig" href="https://www.instagram.com/sarahbakery_sv/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+        @sarahbakery_sv
+      </a>
+      <a class="btn btn-primary" id="nav-wa-btn" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5A9.9 9.9 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1.1-1.2-1.5-1.9-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        Pedí por WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- =============== HERO =============== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">🍰 San Salvador · Sobre pedido</span>
+      <h1>Cada postre cuenta una historia dulce</h1>
+      <p class="hero-sub">Repostería artesanal hecha con amor y sabor casero. Tortas, cupcakes y postres pensados para tu celebración, horneados a mano por Sara Noemy.</p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary wa-link" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5A9.9 9.9 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1.1-1.2-1.5-1.9-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+          Pedí tu postre por WhatsApp
+        </a>
+        <a class="btn btn-outline" href="https://www.instagram.com/sarahbakery_sv/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+          Ver Instagram
+        </a>
+      </div>
+
+      <nav class="layer-key" aria-label="Categorías del menú">
+        <a href="#menu-tortas"><span class="dot" style="background:var(--wine)"></span>Tortas</a>
+        <a href="#menu-cupcakes"><span class="dot" style="background:var(--rose)"></span>Cupcakes</a>
+        <a href="#menu-postres"><span class="dot" style="background:var(--gold)"></span>Postres</a>
+        <a href="#menu-mesas"><span class="dot" style="background:var(--sage)"></span>Mesas dulces</a>
+      </nav>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <!-- Ilustración: corte de torta por capas -->
+      <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="200" cy="404" rx="150" ry="18" fill="#EFB4B8" opacity="0.5"/>
+        <ellipse cx="200" cy="398" rx="168" ry="16" fill="#FBEBD8" stroke="#7A2E38" stroke-width="2.5"/>
+
+        <!-- capa inferior -->
+        <rect x="70" y="300" width="260" height="86" rx="14" fill="#FFF6EA" stroke="#7A2E38" stroke-width="3"/>
+        <rect x="70" y="296" width="260" height="14" fill="#7A2E38"/>
+
+        <!-- capa media -->
+        <rect x="92" y="212" width="216" height="86" rx="14" fill="#EFB4B8" stroke="#7A2E38" stroke-width="3"/>
+        <rect x="92" y="208" width="216" height="14" fill="#D9A441"/>
+
+        <!-- capa superior -->
+        <rect x="114" y="126" width="172" height="84" rx="14" fill="#F7DDA0" stroke="#7A2E38" stroke-width="3"/>
+
+        <!-- frosting swirls -->
+        <g fill="#FFF6EA" stroke="#7A2E38" stroke-width="2">
+          <circle cx="128" cy="126" r="13"/>
+          <circle cx="154" cy="120" r="13"/>
+          <circle cx="180" cy="126" r="13"/>
+          <circle cx="206" cy="120" r="13"/>
+          <circle cx="232" cy="126" r="13"/>
+          <circle cx="258" cy="120" r="13"/>
+          <circle cx="280" cy="126" r="13"/>
+        </g>
+
+        <!-- cereza -->
+        <circle cx="200" cy="98" r="12" fill="#7A2E38"/>
+        <path d="M200 86 C204 76, 214 74, 218 78" stroke="#8FA97E" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- velita -->
+        <rect x="252" y="86" width="8" height="34" rx="3" fill="#EFB4B8" stroke="#7A2E38" stroke-width="1.5"/>
+        <path d="M256 84 C250 76, 262 70, 256 60 C262 66, 268 76, 256 84 Z" fill="#D9A441"/>
+
+        <!-- chispas -->
+        <g fill="#8FA97E">
+          <circle cx="150" cy="250" r="4"/>
+          <circle cx="180" cy="260" r="3"/>
+          <circle cx="220" cy="248" r="3.5"/>
+        </g>
+        <g fill="#7A2E38" opacity="0.5">
+          <circle cx="110" cy="340" r="3.5"/>
+          <circle cx="290" cy="336" r="3"/>
+          <circle cx="200" cy="352" r="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- =============== ABOUT =============== -->
+<section class="about" id="nosotros">
+  <div class="container about-grid reveal">
+    <div class="portrait">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="78" r="46" fill="#FFF6EA" stroke="#7A2E38" stroke-width="3"/>
+        <path d="M56 190 C56 140, 144 140, 144 190" fill="#7A2E38"/>
+        <path d="M60 66 C60 40, 140 40, 140 66 C140 50, 60 50, 60 66Z" fill="#3B2420"/>
+        <circle cx="80" cy="82" r="4" fill="#3B2420"/>
+        <circle cx="120" cy="82" r="4" fill="#3B2420"/>
+        <path d="M84 98 Q100 108 116 98" stroke="#3B2420" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="portrait-tag">hecho a mano ✨</div>
+    </div>
+    <div>
+      <span class="eyebrow">Quién horneó tu próxima torta</span>
+      <h2>Detrás de cada torta, hay una repostera</h2>
+      <p>Soy Sara Noemy. Desde mi cocina en San Salvador preparo cada postre a mano, con recetas caseras y ese toque de cariño que no se puede comprar hecho. Para mí, la repostería es contar historias con azúcar: cada torta se piensa para la persona que la va a recibir.</p>
+      <ul class="fact-list">
+        <li>📍 San Salvador, El Salvador</li>
+        <li>🎂 Diseños 100% personalizados</li>
+        <li>🧁 Ingredientes de calidad</li>
+        <li>📦 Pedidos directo por WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =============== MENU =============== -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Lo que horneamos</span>
+      <h2>Un antojo para cada ocasión</h2>
+      <p>Estas son nuestras categorías favoritas. Escribinos por WhatsApp para ver fotos, sabores disponibles y precios según tu pedido.</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card reveal" id="menu-tortas">
+        <span class="scallop"></span>
+        <div class="icon-wrap" style="background:#F3D9DC;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 20h16v-6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v6Z" stroke="#7A2E38" stroke-width="1.7"/><path d="M12 10V6M9 6c0-1.1.9-2 2-2h2" stroke="#7A2E38" stroke-width="1.7" stroke-linecap="round"/><path d="M4 16h16" stroke="#7A2E38" stroke-width="1.7"/></svg>
+        </div>
+        <h3>Tortas personalizadas</h3>
+        <p>Para cumpleaños, XV años, bodas y toda celebración que merezca algo único.</p>
+      </div>
+
+      <div class="menu-card reveal" id="menu-cupcakes">
+        <span class="scallop"></span>
+        <div class="icon-wrap" style="background:#F7E3C4;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 12h12l-1.4 8.4a1 1 0 0 1-1 .6H8.4a1 1 0 0 1-1-.6L6 12Z" stroke="#7A2E38" stroke-width="1.7"/><path d="M6 12c0-3 2.7-5 6-5s6 2 6 5" stroke="#7A2E38" stroke-width="1.7"/><circle cx="12" cy="5" r="1.6" fill="#D9A441"/></svg>
+        </div>
+        <h3>Cupcakes decorados</h3>
+        <p>Perfectos para compartir en eventos, oficinas o como detalle dulce.</p>
+      </div>
+
+      <div class="menu-card reveal" id="menu-postres">
+        <span class="scallop"></span>
+        <div class="icon-wrap" style="background:#E4EAD9;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4h12l-2 16H8L6 4Z" stroke="#7A2E38" stroke-width="1.7"/><path d="M7.5 9h9" stroke="#7A2E38" stroke-width="1.7"/></svg>
+        </div>
+        <h3>Postres individuales</h3>
+        <p>Tres leches, cheesecakes y mousses en vaso, ideales para consentirte.</p>
+      </div>
+
+      <div class="menu-card reveal" id="menu-mesas">
+        <span class="scallop"></span>
+        <div class="icon-wrap" style="background:#F3D9DC;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="15" width="18" height="2.4" rx="1" fill="#7A2E38"/><path d="M6 15V9M12 15V6M18 15v-4" stroke="#7A2E38" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Mesas de dulces</h3>
+        <p>Montamos la mesa dulce completa para tu evento, a la medida del festejo.</p>
+      </div>
+    </div>
+
+    <p class="menu-note reveal">¿No ves lo que buscás? <a href="#" class="wa-link" target="_blank" rel="noopener">Contanos tu antojo por WhatsApp →</a></p>
+  </div>
+</section>
+
+<!-- =============== CÓMO PEDIR =============== -->
+<section class="steps" id="pedidos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Cómo pedir</span>
+      <h2>Así de fácil, en 3 pasos</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Elegí tu antojo</h3>
+        <p>Mirá ideas en el menú de arriba o en nuestro Instagram para inspirarte.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Escribinos por WhatsApp</h3>
+        <p>Contanos la fecha, el tamaño y el diseño que soñás para tu postre.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Coordinamos y listo</h3>
+        <p>Confirmamos los detalles y tu pedido llega fresco, hecho especialmente para vos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== POR QUÉ ELEGIRNOS =============== -->
+<section class="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.5-9.5 9-9.5 9Z" stroke="#7A2E38" stroke-width="1.7"/></svg>
+        <h3>Hecho a mano</h3>
+        <p>Cada postre se prepara con recetas caseras, sin atajos.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 20h16v-6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v6Z" stroke="#7A2E38" stroke-width="1.7"/><path d="M12 10V4" stroke="#7A2E38" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <h3>100% personalizado</h3>
+        <p>Diseñamos tu postre a tu gusto, color y ocasión.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.6L22 9l-5.4 4.6L18.2 21 12 17.1 5.8 21l1.6-7.4L2 9l7.4-.4L12 2Z" stroke="#7A2E38" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <h3>Ingredientes de calidad</h3>
+        <p>Frescos y seleccionados para que cada bocado valga la pena.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5A9.9 9.9 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2Z" stroke="#7A2E38" stroke-width="1.7"/></svg>
+        <h3>Atención cercana</h3>
+        <p>Hablás directo conmigo por WhatsApp, sin intermediarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== GALERÍA =============== -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Antojos en fotos</span>
+      <h2>Un vistazo a nuestro trabajo</h2>
+      <p>El álbum completo, con fotos y videos de cada creación, vive en nuestro Instagram.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-tile" style="background:#F3D9DC;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 20h16v-6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v6Z" stroke="#7A2E38" stroke-width="1.6"/></svg>
+      </div>
+      <div class="gallery-tile" style="background:#F7E3C4;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M6 12h12l-1.4 8.4a1 1 0 0 1-1 .6H8.4a1 1 0 0 1-1-.6L6 12Z" stroke="#7A2E38" stroke-width="1.6"/></svg>
+      </div>
+      <div class="gallery-tile" style="background:#E4EAD9;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M6 4h12l-2 16H8L6 4Z" stroke="#7A2E38" stroke-width="1.6"/></svg>
+      </div>
+      <div class="gallery-tile" style="background:#FBEBD8;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#7A2E38" stroke-width="1.6"/></svg>
+      </div>
+    </div>
+    <div class="gallery-cta reveal">
+      <a class="btn btn-outline" href="https://www.instagram.com/sarahbakery_sv/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+        Ver más en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CTA FINAL =============== -->
+<section class="cta-final">
+  <div class="container cta-final-inner reveal">
+    <span class="eyebrow" style="background:rgba(217,164,65,0.15); color:#F0C778; border-color:rgba(217,164,65,0.4);">¿Ya se te antojó?</span>
+    <h2>Armemos juntas tu pedido dulce</h2>
+    <p>Escribinos por WhatsApp, contanos la fecha y hacemos que tu postre sea inolvidable.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-light wa-link" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5A9.9 9.9 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1.1-1.2-1.5-1.9-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        Pedí por WhatsApp
+      </a>
+      <a class="btn btn-outline" style="border-color:#EFEAE3; color:#EFEAE3;" href="https://www.instagram.com/sarahbakery_sv/" target="_blank" rel="noopener">
+        Seguinos en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FOOTER =============== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-word">Sara Noemy</div>
+        <div style="font-size:13px; margin-top:4px;">Repostería artesanal · San Salvador</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/sarahbakery_sv/" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" class="wa-link" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#menu">Menú</a>
+        <a href="#nosotros">Nosotros</a>
+      </div>
+    </div>
+    <div class="footer-bottom">Repostería artesanal hecha con amor y sabor casero · San Salvador, El Salvador</div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="float-wa wa-link" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5A9.9 9.9 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1.1-1.2-1.5-1.9-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script>
+  /* =========================================================
+     ⚠️ EDITAR AQUÍ: número real de WhatsApp de Sara Noemy
+     Formato: código de país + número, sin +, sin espacios ni guiones.
+     Ejemplo El Salvador: "503" + 8 dígitos → "50370000000"
+     ========================================================= */
+  const WHATSAPP_NUMBER = "50370000000"; // <-- reemplazar por el número real
+  const WHATSAPP_MESSAGE = "¡Hola Sara! Vi tu página y quiero hacer un pedido 🍰";
+
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  document.querySelectorAll(".wa-link, #nav-wa-btn").forEach(el => el.setAttribute("href", waUrl));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add("in"));
+  }
+</script>
+
+</body>
+</html>
